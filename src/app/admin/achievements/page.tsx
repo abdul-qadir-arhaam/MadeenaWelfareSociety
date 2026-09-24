@@ -239,7 +239,7 @@ export default function AdminAchievementsPage() {
         <div className="bg-white p-12 text-center rounded-xl border border-dashed border-slate-300">
           <Award className="w-12 h-12 text-slate-300 mx-auto mb-3" />
           <h3 className="text-sm font-semibold text-slate-700">No achievements found</h3>
-          <p className="text-xs text-slate-500 mt-1">Click "Add Achievement" to create your first honor entry.</p>
+          <p className="text-xs text-slate-500 mt-1">Click &quot;Add Achievement&quot; to create your first honor entry.</p>
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
@@ -460,7 +460,7 @@ export default function AdminAchievementsPage() {
           <div className="bg-white rounded-2xl p-6 max-w-sm w-full shadow-xl border border-slate-200">
             <h3 className="text-base font-bold text-[#0B2238]">Delete Achievement</h3>
             <p className="text-xs text-slate-500 mt-2">
-              Are you sure you want to delete <span className="font-semibold text-slate-800">"{deleteTarget.title}"</span>?
+              Are you sure you want to delete <span className="font-semibold text-slate-800">&quot;{deleteTarget.title}&quot;</span>?
             </p>
             <div className="mt-6 flex items-center justify-end gap-3">
               <button

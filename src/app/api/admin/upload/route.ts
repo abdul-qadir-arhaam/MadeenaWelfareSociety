@@ -2,6 +2,7 @@ import { NextResponse } from "next/server";
 import { writeFile, mkdir } from "fs/promises";
 import path from "path";
 import { getAdminSession } from "@/lib/auth/session";
+import { createAdminClient } from "@/lib/supabase/admin";
 
 export async function POST(request: Request) {
   const session = await getAdminSession();
@@ -30,8 +31,11 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "No files provided" }, { status: 400 });
     }
 
-    const uploadsDir = path.join(process.cwd(), "public", "uploads");
-    await mkdir(uploadsDir, { recursive: true });
+    const hasSupabase =
+      Boolean(process.env.NEXT_PUBLIC_SUPABASE_URL) &&
+      !process.env.NEXT_PUBLIC_SUPABASE_URL?.includes("placeholder") &&
+      Boolean(process.env.SUPABASE_SERVICE_ROLE_KEY) &&
+      !process.env.SUPABASE_SERVICE_ROLE_KEY?.includes("placeholder");
 
     const uploadedUrls: Array<{ url: string; name: string; size: number }> = [];
 
@@ -49,14 +53,61 @@ export async function POST(request: Request) {
         .substring(0, 40);
 
       const uniqueFilename = `${cleanBase}-${Date.now()}-${Math.random().toString(36).substring(2, 6)}${ext}`;
-      const filePath = path.join(uploadsDir, uniqueFilename);
 
-      await writeFile(filePath, buffer);
-      uploadedUrls.push({
-        url: `/uploads/${uniqueFilename}`,
-        name: originalName,
-        size: file.size,
-      });
+      // 1. If Supabase Storage is configured, upload directly to Supabase
+      if (hasSupabase) {
+        try {
+          const supabase = createAdminClient();
+          const bucket = "site-assets";
+          const { error: uploadErr } = await supabase.storage
+            .from(bucket)
+            .upload(uniqueFilename, buffer, {
+              contentType: file.type || "image/jpeg",
+              upsert: true,
+            });
+
+          if (!uploadErr) {
+            const { data: publicUrlData } = supabase.storage
+              .from(bucket)
+              .getPublicUrl(uniqueFilename);
+
+            uploadedUrls.push({
+              url: publicUrlData.publicUrl,
+              name: originalName,
+              size: file.size,
+            });
+            continue;
+          } else {
+            console.warn("Supabase storage upload failed, attempting local fallback:", uploadErr);
+          }
+        } catch (supabaseErr) {
+          console.warn("Supabase storage error:", supabaseErr);
+        }
+      }
+
+      // 2. Local filesystem storage (development / self-hosted)
+      try {
+        const uploadsDir = path.join(process.cwd(), "public", "uploads");
+        await mkdir(uploadsDir, { recursive: true });
+        const filePath = path.join(uploadsDir, uniqueFilename);
+        await writeFile(filePath, buffer);
+
+        uploadedUrls.push({
+          url: `/uploads/${uniqueFilename}`,
+          name: originalName,
+          size: file.size,
+        });
+      } catch (fsErr) {
+        console.warn("Local filesystem write failed (serverless environment):", fsErr);
+        // Fallback to inline Base64 data URL on read-only serverless environments without Supabase configured
+        const mimeType = file.type || "image/jpeg";
+        const base64Url = `data:${mimeType};base64,${buffer.toString("base64")}`;
+        uploadedUrls.push({
+          url: base64Url,
+          name: originalName,
+          size: file.size,
+        });
+      }
     }
 
     return NextResponse.json({
@@ -70,3 +121,4 @@ export async function POST(request: Request) {
     return NextResponse.json({ error: message }, { status: 500 });
   }
 }
+

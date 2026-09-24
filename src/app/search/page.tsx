@@ -3,9 +3,8 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { Search as SearchIcon, Calendar, ArrowRight, Tag, Layers, Filter } from "lucide-react";
+import { Search as SearchIcon, ArrowRight, Filter } from "lucide-react";
 import { Card } from "@/components/ui/Card";
-import { Badge } from "@/components/ui/Badge";
 
 interface SearchItem {
   id: string;
@@ -16,6 +15,26 @@ interface SearchItem {
   image: string;
   href: string;
   excerpt: string;
+}
+
+interface ApiNewsItem {
+  id: string;
+  slug: string;
+  categoryName?: string;
+  publishedAt?: string;
+  featuredImage?: string;
+  translations?: Record<string, { title?: string; excerpt?: string; summary?: string }>;
+}
+
+interface ApiGalleryItem {
+  id: string;
+  slug: string;
+  title: string;
+  category?: string;
+  date?: string;
+  coverImage?: string;
+  description?: string;
+  photos?: unknown[];
 }
 
 export default function SearchPage() {
@@ -38,7 +57,7 @@ export default function SearchPage() {
         const combined: SearchItem[] = [];
 
         if (newsData.news) {
-          newsData.news.forEach((n: any) => {
+          newsData.news.forEach((n: ApiNewsItem) => {
             const tr = n.translations?.en || n.translations?.kn || n.translations?.ur;
             combined.push({
               id: n.id,
@@ -54,7 +73,7 @@ export default function SearchPage() {
         }
 
         if (galleryData.albums) {
-          galleryData.albums.forEach((g: any) => {
+          galleryData.albums.forEach((g: ApiGalleryItem) => {
             combined.push({
               id: g.id,
               title: g.title,

@@ -157,7 +157,7 @@ export const INITIAL_NEWS: NewsArticle[] = [
   },
 ];
 
-let inMemoryNews: NewsArticle[] = [...INITIAL_NEWS];
+const inMemoryNews: NewsArticle[] = [...INITIAL_NEWS];
 
 export function getNewsList(filters?: {
   status?: string;

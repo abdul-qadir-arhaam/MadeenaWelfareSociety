@@ -52,7 +52,7 @@ export default function AboutPage() {
         <Card className="p-6 border-slate-200">
           <h3 className="font-bold text-[#0B2238] text-lg">Youth & Education</h3>
           <p className="text-sm text-slate-500 mt-2">
-            Hosting the annual Madina Ta'leemi Award, honoring 80+ meritorious students annually across Hifz, Fazilat, SSLC, PUC, and professional degrees.
+            Hosting the annual Madina Ta&apos;leemi Award, honoring 80+ meritorious students annually across Hifz, Fazilat, SSLC, PUC, and professional degrees.
           </p>
         </Card>
         <Card className="p-6 border-slate-200">

@@ -35,7 +35,7 @@ export const INITIAL_CATEGORIES: CategoryItem[] = [
   { id: "cat-17", name: "Identity", slug: "identity", type: "gallery", isActive: true },
 ];
 
-let inMemoryCategories = [...INITIAL_CATEGORIES];
+const inMemoryCategories: CategoryItem[] = [...INITIAL_CATEGORIES];
 
 export function getCategories(type?: string): CategoryItem[] {
   if (type) {
