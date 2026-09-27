@@ -1,3 +1,6 @@
+import fs from "fs";
+import path from "path";
+
 export interface NewsTranslation {
   language: "en" | "kn" | "ur";
   title: string;
@@ -157,14 +160,47 @@ export const INITIAL_NEWS: NewsArticle[] = [
   },
 ];
 
-const inMemoryNews: NewsArticle[] = [...INITIAL_NEWS];
+const DATA_DIR = path.join(process.cwd(), "data");
+const NEWS_FILE = path.join(DATA_DIR, "news.json");
+
+function loadStoredNews(): NewsArticle[] {
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+    if (!fs.existsSync(NEWS_FILE)) {
+      fs.writeFileSync(NEWS_FILE, JSON.stringify(INITIAL_NEWS, null, 2), "utf-8");
+      return [...INITIAL_NEWS];
+    }
+    const raw = fs.readFileSync(NEWS_FILE, "utf-8");
+    const parsed = JSON.parse(raw);
+    if (Array.isArray(parsed)) {
+      return parsed as NewsArticle[];
+    }
+    return [...INITIAL_NEWS];
+  } catch (err) {
+    console.error("[newsRepository] Error reading news.json:", err);
+    return [...INITIAL_NEWS];
+  }
+}
+
+function persistNews(news: NewsArticle[]): void {
+  try {
+    if (!fs.existsSync(DATA_DIR)) {
+      fs.mkdirSync(DATA_DIR, { recursive: true });
+    }
+    fs.writeFileSync(NEWS_FILE, JSON.stringify(news, null, 2), "utf-8");
+  } catch (err) {
+    console.error("[newsRepository] Error writing news.json:", err);
+  }
+}
 
 export function getNewsList(filters?: {
   status?: string;
   category?: string;
   search?: string;
 }): NewsArticle[] {
-  let list = [...inMemoryNews];
+  let list = loadStoredNews();
 
   if (filters?.status && filters.status !== "all") {
     list = list.filter((n) => n.status === filters.status);
@@ -198,39 +234,49 @@ export function getNewsList(filters?: {
 }
 
 export function getNewsById(id: string): NewsArticle | undefined {
-  return inMemoryNews.find((n) => n.id === id);
+  const list = loadStoredNews();
+  return list.find((n) => n.id === id);
 }
 
 export function getNewsBySlug(slug: string): NewsArticle | undefined {
-  return inMemoryNews.find((n) => n.slug === slug);
+  const list = loadStoredNews();
+  return list.find((n) => n.slug === slug);
 }
 
 export function createNews(article: Omit<NewsArticle, "id">): NewsArticle {
+  const list = loadStoredNews();
   const newArticle: NewsArticle = {
     ...article,
     id: `news-${Date.now()}`,
   };
-  inMemoryNews.unshift(newArticle);
+  list.unshift(newArticle);
+  persistNews(list);
   return newArticle;
 }
 
 export function updateNews(id: string, updates: Partial<NewsArticle>): NewsArticle | null {
-  const index = inMemoryNews.findIndex((n) => n.id === id);
+  const list = loadStoredNews();
+  const index = list.findIndex((n) => n.id === id);
   if (index === -1) return null;
-  inMemoryNews[index] = { ...inMemoryNews[index], ...updates };
-  return inMemoryNews[index];
+  list[index] = { ...list[index], ...updates };
+  persistNews(list);
+  return list[index];
 }
 
 export function deleteNews(id: string): boolean {
-  const index = inMemoryNews.findIndex((n) => n.id === id);
+  const list = loadStoredNews();
+  const index = list.findIndex((n) => n.id === id);
   if (index === -1) return false;
-  inMemoryNews.splice(index, 1);
+  list.splice(index, 1);
+  persistNews(list);
   return true;
 }
 
 export function togglePublishStatus(id: string): NewsArticle | null {
-  const article = inMemoryNews.find((n) => n.id === id);
+  const list = loadStoredNews();
+  const article = list.find((n) => n.id === id);
   if (!article) return null;
   article.status = article.status === "published" ? "draft" : "published";
+  persistNews(list);
   return article;
 }

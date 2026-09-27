@@ -1,0 +1,95 @@
+[
+  {
+    "id": "news-2",
+    "slug": "educational-awards-ceremony",
+    "categoryId": "cat-4",
+    "categoryName": "Achievements",
+    "featuredImage": "/images/instagram/insta_post_11.jpg",
+    "author": "MWS Education Board",
+    "publishedAt": "2026-08-15",
+    "status": "published",
+    "isFeatured": true,
+    "tags": [
+      "Education",
+      "MadinaTaleemiAward",
+      "Scholarships",
+      "SSLC",
+      "PUC"
+    ],
+    "translations": {
+      "en": {
+        "language": "en",
+        "title": "Madina Ta'leemi Award & Academic Scholarship Ceremony",
+        "excerpt": "Annual felicitation program recognizing 83 top academic achievers in Hifz, Fazilat, SSLC, PUC, and university examinations across Bhatkal.",
+        "content": "The annual Madina Ta'leemi Award Ceremony was held with solemn dignity at the Madeena Welfare Society Hall in Bhatkal. The event recognized 83 top-performing students across 7 diverse academic and religious education streams.\n\nPresident Maulana Irfan Nadwi and General Secretary Maulana Abdul Samee Nadwi graced the stage and commended the students for their academic excellence and ethical commitment.\n\nFinancial grants and higher education scholarships exceeding ₹10 Lakhs were announced for aspiring engineers, doctors, and civil service candidates.",
+        "seoTitle": "Madina Ta'leemi Award Ceremony — Madeena Welfare Society",
+        "seoDescription": "Academic felicitation for 83 meritorious students in Bhatkal by Madeena Welfare Society."
+      },
+      "ur": {
+        "language": "ur",
+        "title": "مدینہ تعلیمی ایوارڈ اور وظائف کی سالانہ تقریب",
+        "excerpt": "مدینہ ویلفیئر سوسائٹی کے زیر اہتمام 83 ہونہار طلباء کو حفاظ، فضیلت، ایس ایس ایل سی اور پی یو سی میں شاندار کارکردگی پر اعزازات سے نوازا گیا۔",
+        "content": "مدینہ ویلفیئر سوسائٹی ہال میں سالانہ مدینہ تعلیمی ایوارڈ کا شاندار جلسہ منعقد ہوا جس میں صدر مولانا عرفان ندوی اور جنرل سکریٹری مولانا عبد السمیع ندوی نے طلباء میں اسناد اور انعامات تقسیم کیے۔"
+      }
+    }
+  },
+  {
+    "id": "news-3",
+    "slug": "community-sports-event",
+    "categoryId": "cat-3",
+    "categoryName": "Sports",
+    "featuredImage": "/images/instagram/posts/post_DSh4VECErEA_1.jpg",
+    "author": "MWS Sports Club",
+    "publishedAt": "2026-08-10",
+    "status": "published",
+    "isFeatured": false,
+    "tags": [
+      "Sports",
+      "Cricket",
+      "CosmosTrophy",
+      "Champions",
+      "BPL"
+    ],
+    "translations": {
+      "en": {
+        "language": "en",
+        "title": "Madeena Welfare Society Clinches Grand Cricket Championship",
+        "excerpt": "Madeena sports squad took home the prestigious Cosmos Golden Jubilee Trophy and ₹75,000 cash prize after a commanding finals performance in Bhatkal.",
+        "content": "Madeena Welfare Society's cricket team concluded a triumphant season by winning the Cosmos Golden Jubilee Trophy in Bhatkal.\n\nOutstanding contributions from match-winner Ilyas Motia and pace bowler Shamoun Shabandri spearheaded the team to an emphatic victory, greeted by cheering supporters in Madeena Colony.\n\nThe sports committee extended appreciation to coaches, patrons, and the dedicated youth lineup.",
+        "seoTitle": "Cricket Championship Victory — Madeena Welfare Society",
+        "seoDescription": "Madeena Welfare Society cricket team wins Cosmos Trophy in Bhatkal."
+      },
+      "kn": {
+        "language": "kn",
+        "title": "ಮದೀನಾ ವೆಲ್ಫೇರ್ ಸೊಸೈಟಿ ತಂಡಕ್ಕೆ ಭವ್ಯ ಕ್ರಿಕೆಟ್ ಚಾಂಪಿಯನ್‌ಶಿಪ್ ಪ್ರಶಸ್ತಿ",
+        "excerpt": "ಭಟ್ಕಳದಲ್ಲಿ ನಡೆದ ಕಾಸ್ಮೊಸ್ ಗೋಲ್ಡನ್ ಜುಬಿಲಿ ಟ್ರೋಫಿ ಕ್ರಿಕೆಟ್ ಪಂದ್ಯಾವಳಿಯಲ್ಲಿ ಮದೀನಾ ವೆಲ್ಫೇರ್ ಸೊಸೈಟಿ ತಂಡವು ಚಾಂಪಿಯನ್ ಆಗಿ ಹೊರಹೊಮ್ಮಿದೆ.",
+        "content": "ಭಟ್ಕಳದ ಪ್ರತಿಷ್ಠಿತ ಕಾಸ್ಮೊಸ್ ಗೋಲ್ಡನ್ ಜುಬಿಲಿ ಕ್ರಿಕೆಟ್ ಪಂದ್ಯಾವಳಿಯ ಫೈನಲ್ ಪಂದ್ಯದಲ್ಲಿ ಅದ್ಭುತ ಪ್ರದರ್ಶನ ನೀಡಿದ ಮದೀನಾ ವೆಲ್ಫೇರ್ ಸೊಸೈಟಿ ತಂಡವು ₹75,000 ನಗದು ಬಹುಮಾನದೊಂದಿಗೆ ಪ್ರಶಸ್ತಿಯನ್ನು ತನ್ನದಾಗಿಸಿಕೊಂಡಿದೆ."
+      }
+    }
+  },
+  {
+    "id": "news-4",
+    "slug": "ramadan-eid-welfare-drive",
+    "categoryId": "cat-2",
+    "categoryName": "Welfare",
+    "featuredImage": "/images/instagram/insta_post_12.jpg",
+    "author": "MWS Relief Committee",
+    "publishedAt": "2026-04-01",
+    "status": "draft",
+    "isFeatured": false,
+    "tags": [
+      "Welfare",
+      "Ramadan",
+      "Eid",
+      "ReliefKits"
+    ],
+    "translations": {
+      "en": {
+        "language": "en",
+        "title": "Annual Ramadan & Eid-ul-Fitr Welfare Distribution Program",
+        "excerpt": "Over 300 essential grocery kits and festive support distributed to underprivileged families in Madeena Colony and coastal settlements.",
+        "content": "Ahead of the auspicious festive period, Madeena Welfare Society organized an extensive community welfare drive to ensure dignified celebrations for all families.\n\nRation packages including rice, wheat, cooking oil, dates, and essential supplies were delivered by volunteer teams directly to households."
+      }
+    }
+  }
+]

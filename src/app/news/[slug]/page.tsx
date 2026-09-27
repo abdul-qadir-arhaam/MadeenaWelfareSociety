@@ -9,6 +9,9 @@ import { Card } from "@/components/ui/Card";
 import { getNewsBySlug, getNewsList } from "@/lib/data/newsRepository";
 import { getCategories } from "@/lib/data/categoryRepository";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export default async function NewsDetailPage({
   params,
 }: {

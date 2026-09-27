@@ -126,13 +126,15 @@ export default function AdminDashboardPage() {
       </div>
 
       {/* Quick Action Shortcuts */}
-      <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-        <Card className="p-5 border-slate-200 hover:border-emerald-300">
-          <h3 className="font-bold text-[#0B2238] text-sm">Publish News Article</h3>
-          <p className="text-xs text-slate-500 mt-1">
-            Draft articles in English, Kannada, and Urdu with rich text formatting.
-          </p>
-          <div className="mt-3">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+        <Card className="p-5 border-slate-200 hover:border-emerald-300 flex flex-col justify-between">
+          <div>
+            <h3 className="font-bold text-[#0B2238] text-sm">Publish News Article</h3>
+            <p className="text-xs text-slate-500 mt-1">
+              Draft articles in English, Kannada, and Urdu with rich text formatting.
+            </p>
+          </div>
+          <div className="mt-4">
             <Link href="/admin/news/create">
               <Button variant="secondary" size="sm" className="w-full justify-center text-xs">
                 Open News Editor →
@@ -141,12 +143,34 @@ export default function AdminDashboardPage() {
           </div>
         </Card>
 
-        <Card className="p-5 border-slate-200 hover:border-emerald-300">
-          <h3 className="font-bold text-[#0B2238] text-sm">Manage Categories</h3>
-          <p className="text-xs text-slate-500 mt-1">
-            Configure taxonomy for news, sports, welfare, and gallery archives.
-          </p>
-          <div className="mt-3">
+        <Card className="p-5 border-blue-200 bg-blue-50/30 hover:border-blue-400 flex flex-col justify-between">
+          <div>
+            <div className="flex items-center gap-1.5 mb-1">
+              <span className="w-2 h-2 rounded-full bg-blue-600"></span>
+              <span className="text-[10px] font-bold text-blue-700 uppercase tracking-wider">Homepage Banner</span>
+            </div>
+            <h3 className="font-bold text-[#0B2238] text-sm">Hero Background Photo</h3>
+            <p className="text-xs text-slate-500 mt-1">
+              Set or upload the high-res trophy/event background on the home page.
+            </p>
+          </div>
+          <div className="mt-4">
+            <Link href="/admin/settings#hero-background">
+              <Button variant="outline" size="sm" className="w-full justify-center text-xs border-blue-300 text-blue-700 hover:bg-blue-100/60 font-semibold">
+                Set Hero Photo →
+              </Button>
+            </Link>
+          </div>
+        </Card>
+
+        <Card className="p-5 border-slate-200 hover:border-emerald-300 flex flex-col justify-between">
+          <div>
+            <h3 className="font-bold text-[#0B2238] text-sm">Manage Categories</h3>
+            <p className="text-xs text-slate-500 mt-1">
+              Configure taxonomy for news, sports, welfare, and gallery archives.
+            </p>
+          </div>
+          <div className="mt-4">
             <Link href="/admin/categories">
               <Button variant="secondary" size="sm" className="w-full justify-center text-xs">
                 Manage Categories →
@@ -155,12 +179,14 @@ export default function AdminDashboardPage() {
           </div>
         </Card>
 
-        <Card className="p-5 border-slate-200 hover:border-emerald-300">
-          <h3 className="font-bold text-[#0B2238] text-sm">View Photo Gallery</h3>
-          <p className="text-xs text-slate-500 mt-1">
-            Browse authentic Instagram and community event photo archives.
-          </p>
-          <div className="mt-3">
+        <Card className="p-5 border-slate-200 hover:border-emerald-300 flex flex-col justify-between">
+          <div>
+            <h3 className="font-bold text-[#0B2238] text-sm">View Photo Gallery</h3>
+            <p className="text-xs text-slate-500 mt-1">
+              Browse authentic Instagram and community event photo archives.
+            </p>
+          </div>
+          <div className="mt-4">
             <Link href="/gallery" target="_blank">
               <Button variant="secondary" size="sm" className="w-full justify-center text-xs">
                 View Public Gallery →

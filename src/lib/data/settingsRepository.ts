@@ -1,3 +1,6 @@
+import fs from "fs";
+import path from "path";
+
 export interface SiteSettings {
   clubName: string;
   tagline: string;
@@ -17,9 +20,10 @@ export interface SiteSettings {
   announcementActive: boolean;
   announcementText: string;
   announcementLink: string;
+  heroBackgroundImage: string;
 }
 
-let settingsStore: SiteSettings = {
+export const DEFAULT_SETTINGS: SiteSettings = {
   clubName: "Madeena Welfare Society Bhatkal",
   tagline: "Empowering Community, Elevating Sports, Inspiring Youth Since 1993",
   registrationNumber: "DR/RGN/124/1993-94",
@@ -38,16 +42,49 @@ let settingsStore: SiteSettings = {
   announcementActive: true,
   announcementText: "Cosmos Golden Jubilee Trophy Champions! Celebrations & Felicitation updates now live.",
   announcementLink: "/sports",
+  heroBackgroundImage: "/images/instagram/insta_post_10.jpg",
 };
 
+const SETTINGS_FILE_PATH = path.join(process.cwd(), "data", "settings.json");
+
+function loadStoredSettings(): SiteSettings {
+  try {
+    if (fs.existsSync(SETTINGS_FILE_PATH)) {
+      const data = fs.readFileSync(SETTINGS_FILE_PATH, "utf-8");
+      const parsed = JSON.parse(data);
+      return {
+        ...DEFAULT_SETTINGS,
+        ...parsed,
+      };
+    }
+  } catch (err) {
+    console.error("Failed to read settings.json:", err);
+  }
+  return { ...DEFAULT_SETTINGS };
+}
+
+function persistSettings(settings: SiteSettings) {
+  try {
+    const dir = path.dirname(SETTINGS_FILE_PATH);
+    if (!fs.existsSync(dir)) {
+      fs.mkdirSync(dir, { recursive: true });
+    }
+    fs.writeFileSync(SETTINGS_FILE_PATH, JSON.stringify(settings, null, 2), "utf-8");
+  } catch (err) {
+    console.error("Failed to write settings.json:", err);
+  }
+}
+
 export function getSiteSettings(): SiteSettings {
-  return { ...settingsStore };
+  return loadStoredSettings();
 }
 
 export function updateSiteSettings(updates: Partial<SiteSettings>): SiteSettings {
-  settingsStore = {
-    ...settingsStore,
+  const current = loadStoredSettings();
+  const updated: SiteSettings = {
+    ...current,
     ...updates,
   };
-  return { ...settingsStore };
+  persistSettings(updated);
+  return updated;
 }

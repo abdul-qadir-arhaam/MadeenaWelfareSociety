@@ -1,15 +1,59 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
+import { NewsArticle } from "@/lib/data/newsRepository";
 
 export function LatestNewsStrip() {
-  const headlines = [
-    { title: "Cosmos Golden Jubilee Trophy Champions — MWS Youth clinch grand title & ₹75,000", href: "/sports" },
-    { title: "80th Independence Day Flag Hoisting & Merit Kits Distribution Highlights Live", href: "/news/independence-day-celebration" },
-    { title: "Madina Ta'leemi Merit Scholarships milestone crosses ₹10 Lakhs in Bhatkal", href: "/achievements" },
-  ];
+  const { language } = useLanguage();
+  const [news, setNews] = useState<NewsArticle[]>([]);
+
+  useEffect(() => {
+    async function loadStripNews() {
+      try {
+        const res = await fetch("/api/news?status=published&limit=4", {
+          cache: "no-store",
+          headers: { Pragma: "no-cache" },
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.news && Array.isArray(data.news)) {
+            setNews(data.news);
+          }
+        }
+      } catch (e) {
+        console.error("Failed to load news ticker:", e);
+      }
+    }
+    loadStripNews();
+  }, []);
+
+  const headlines =
+    news.length > 0
+      ? news.map((item) => {
+          const trans =
+            (language === "kn"
+              ? item.translations.kn
+              : language === "ur"
+              ? item.translations.ur
+              : item.translations.en) || item.translations.en;
+          return {
+            title: trans?.title || item.slug,
+            href: `/news/${item.slug}`,
+          };
+        })
+      : [
+          {
+            title: "Cosmos Golden Jubilee Trophy Champions — MWS Youth clinch grand title & ₹75,000",
+            href: "/sports",
+          },
+          {
+            title: "Madina Ta'leemi Merit Scholarships milestone crosses ₹10 Lakhs in Bhatkal",
+            href: "/achievements",
+          },
+        ];
 
   return (
     <div className="bg-[#0B2238] border-b border-blue-950 text-white py-2 px-4 text-xs">
@@ -53,3 +97,4 @@ export function LatestNewsStrip() {
     </div>
   );
 }
+

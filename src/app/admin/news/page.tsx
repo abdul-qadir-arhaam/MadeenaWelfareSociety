@@ -63,31 +63,57 @@ export default function AdminNewsPage() {
   };
 
   const handleTogglePublish = async (id: string) => {
+    const previousNews = [...news];
+    setNews((prev) =>
+      prev.map((item) =>
+        item.id === id
+          ? {
+              ...item,
+              status: item.status === "published" ? "draft" : "published",
+            }
+          : item
+      )
+    );
+
     try {
       const res = await fetch(`/api/admin/news/${id}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ action: "toggle-publish" }),
       });
-      if (res.ok) {
+      if (!res.ok) {
+        setNews(previousNews);
+        alert("Failed to update status. Please try again.");
+      } else {
         fetchNews();
       }
     } catch (err) {
       console.error("Failed to toggle publish status:", err);
+      setNews(previousNews);
+      alert("Failed to update status due to network error.");
     }
   };
 
   const handleDelete = async (id: string) => {
+    setDeleteConfirmId(null);
+    const previousNews = [...news];
+    setNews((prev) => prev.filter((item) => item.id !== id));
+
     try {
       const res = await fetch(`/api/admin/news/${id}`, {
         method: "DELETE",
+        cache: "no-store",
       });
-      if (res.ok) {
-        setDeleteConfirmId(null);
+      if (!res.ok) {
+        setNews(previousNews);
+        alert("Failed to delete article. Please try again.");
+      } else {
         fetchNews();
       }
     } catch (err) {
       console.error("Failed to delete article:", err);
+      setNews(previousNews);
+      alert("Failed to delete article due to network error.");
     }
   };
 

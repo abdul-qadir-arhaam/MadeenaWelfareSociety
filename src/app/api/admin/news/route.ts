@@ -1,6 +1,9 @@
 import { NextResponse } from "next/server";
-import { getNewsList, createNews, NewsArticle } from "@/lib/data/newsRepository";
+import { revalidatePath } from "next/cache";
+import { getNewsList, createNews } from "@/lib/data/newsRepository";
 import { getAdminSession } from "@/lib/auth/session";
+
+export const dynamic = "force-dynamic";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -54,6 +57,15 @@ export async function POST(request: Request) {
         ur: body.translations?.ur,
       },
     });
+
+    try {
+      revalidatePath("/");
+      revalidatePath("/news");
+      revalidatePath(`/news/${slug}`);
+      revalidatePath("/admin/news");
+    } catch (e) {
+      console.error("revalidatePath error:", e);
+    }
 
     return NextResponse.json({ success: true, article: newArticle });
   } catch (err: unknown) {

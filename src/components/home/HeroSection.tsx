@@ -1,24 +1,55 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Trophy, ShieldCheck } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { Button } from "@/components/ui/Button";
 
-export function HeroSection() {
+interface HeroSectionProps {
+  initialBackgroundImage?: string;
+}
+
+export function HeroSection({ initialBackgroundImage }: HeroSectionProps) {
   const { t } = useLanguage();
+  const [bgImage, setBgImage] = useState<string>(
+    initialBackgroundImage || "/images/instagram/insta_post_10.jpg"
+  );
+
+  useEffect(() => {
+    if (initialBackgroundImage) {
+      setBgImage(initialBackgroundImage);
+    }
+
+    async function fetchFreshBg() {
+      try {
+        const res = await fetch("/api/settings", {
+          cache: "no-store",
+          headers: { Pragma: "no-cache" },
+        });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.settings?.heroBackgroundImage) {
+            setBgImage(data.settings.heroBackgroundImage);
+          }
+        }
+      } catch (e) {
+        // fallback to current
+      }
+    }
+    fetchFreshBg();
+  }, [initialBackgroundImage]);
 
   return (
     <section className="relative overflow-hidden min-h-[640px] lg:min-h-[720px] flex items-center py-16 lg:py-24 border-b border-blue-950">
       {/* 1. Full-Bleed Trophy Winning Photo in Background */}
       <div className="absolute inset-0 z-0 overflow-hidden">
         <Image
-          src="/images/instagram/insta_post_10.jpg"
-          alt="Madeena Welfare Society Bhatkal - Cosmos Trophy Winning Squad"
+          src={bgImage || "/images/instagram/insta_post_10.jpg"}
+          alt="Madeena Welfare Society Bhatkal - Home Banner"
           fill
-          className="object-cover object-center scale-105"
+          className="object-cover object-center scale-105 transition-all duration-700"
           priority
         />
 

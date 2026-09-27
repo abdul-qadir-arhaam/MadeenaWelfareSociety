@@ -1,6 +1,10 @@
 import { NextResponse } from "next/server";
+import { revalidatePath } from "next/cache";
 import { getNewsById, updateNews, deleteNews, togglePublishStatus } from "@/lib/data/newsRepository";
 import { getAdminSession } from "@/lib/auth/session";
+
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
 
 export async function GET(
   request: Request,
@@ -32,6 +36,15 @@ export async function PUT(
 
     if (body.action === "toggle-publish") {
       const updated = togglePublishStatus(id);
+      if (!updated) {
+        return NextResponse.json({ error: "Article not found" }, { status: 404 });
+      }
+
+      revalidatePath("/");
+      revalidatePath("/news");
+      revalidatePath(`/news/${updated.slug}`);
+      revalidatePath("/admin/news");
+
       return NextResponse.json({ success: true, article: updated });
     }
 
@@ -39,6 +52,11 @@ export async function PUT(
     if (!updated) {
       return NextResponse.json({ error: "Article not found" }, { status: 404 });
     }
+
+    revalidatePath("/");
+    revalidatePath("/news");
+    revalidatePath(`/news/${updated.slug}`);
+    revalidatePath("/admin/news");
 
     return NextResponse.json({ success: true, article: updated });
   } catch (err: unknown) {
@@ -63,5 +81,14 @@ export async function DELETE(
     return NextResponse.json({ error: "Article not found" }, { status: 404 });
   }
 
-  return NextResponse.json({ success: true, message: "Article deleted" });
+  // Bust cache across the entire application
+  try {
+    revalidatePath("/");
+    revalidatePath("/news");
+    revalidatePath("/admin/news");
+  } catch (e) {
+    console.error("revalidatePath error:", e);
+  }
+
+  return NextResponse.json({ success: true, message: "Article deleted successfully" });
 }
