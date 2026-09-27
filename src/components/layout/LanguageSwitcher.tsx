@@ -12,6 +12,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
 
   return (
     <div
+      dir="ltr"
       className={cn(
         "inline-flex items-center rounded-full p-1 bg-slate-100 border border-slate-200/80 shadow-xs",
         className
