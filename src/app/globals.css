@@ -1,20 +1,29 @@
 @import "tailwindcss";
 
 @theme {
-  --color-brand-green: #047857;
-  --color-brand-green-hover: #036449;
-  --color-brand-green-dark: #024a35;
   --color-brand-navy: #0B2238;
   --color-brand-navy-light: #16324F;
   --color-brand-navy-dark: #071726;
-  --color-brand-mint: #ECFDF5;
-  --color-brand-mint-light: #F0FDF4;
-  --color-brand-mint-border: #A7F3D0;
 
-  --color-program-edu: #059669;
-  --color-program-health: #2563EB;
-  --color-program-relief: #E11D48;
-  --color-program-community: #7C3AED;
+  --color-brand-blue: #1D4ED8;
+  --color-brand-blue-hover: #1E40AF;
+  --color-brand-blue-dark: #172554;
+  --color-brand-blue-light: #EFF6FF;
+  --color-brand-blue-border: #BFDBFE;
+
+  --color-brand-red: #DC2626;
+  --color-brand-red-hover: #B91C1C;
+  --color-brand-red-dark: #991B1B;
+  --color-brand-red-light: #FEF2F2;
+  --color-brand-red-border: #FECACA;
+
+  --color-brand-surface: #FFFFFF;
+  --color-brand-surface-muted: #F8FAFC;
+
+  --color-program-edu: #1D4ED8;
+  --color-program-health: #DC2626;
+  --color-program-relief: #B91C1C;
+  --color-program-community: #0B2238;
 }
 
 :root {
@@ -48,4 +57,33 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: #94a3b8;
+}
+
+/* Micro-interaction & Keyframe Utilities */
+@keyframes floatSlow {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.animate-float-slow {
+  animation: floatSlow 4s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.85;
+    transform: scale(1.03);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 2.5s ease-in-out infinite;
 }

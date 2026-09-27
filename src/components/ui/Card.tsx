@@ -14,8 +14,9 @@ export function Card({
   return (
     <div
       className={cn(
-        "bg-white rounded-2xl border border-slate-100/90 shadow-sm overflow-hidden",
-        hoverEffect && "transition-all duration-300 hover:shadow-md hover:border-slate-200/90",
+        "bg-white rounded-2xl border border-slate-200/80 shadow-[0_2px_8px_-2px_rgba(11,34,56,0.05)] overflow-hidden",
+        hoverEffect &&
+          "transition-all duration-300 ease-out hover:-translate-y-1 hover:shadow-[0_16px_32px_-8px_rgba(11,34,56,0.12)] hover:border-blue-300",
         className
       )}
       {...props}
@@ -44,7 +45,7 @@ export function EmptyState({
   action?: React.ReactNode;
 }) {
   return (
-    <div className="text-center py-12 px-4 rounded-xl border border-dashed border-slate-300 bg-slate-50/50">
+    <div className="text-center py-12 px-4 rounded-2xl border border-dashed border-slate-300 bg-slate-50/50">
       <h3 className="text-base font-semibold text-slate-800">{title}</h3>
       <p className="mt-1 text-sm text-slate-500 max-w-sm mx-auto">{description}</p>
       {action && <div className="mt-4">{action}</div>}

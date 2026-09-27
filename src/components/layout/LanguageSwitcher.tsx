@@ -14,7 +14,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
     <div
       dir="ltr"
       className={cn(
-        "inline-flex items-center rounded-full p-1 bg-slate-100 border border-slate-200/80 shadow-xs",
+        "inline-flex items-center rounded-full p-1 bg-slate-100/90 border border-slate-200/90 shadow-2xs backdrop-blur-xs",
         className
       )}
       role="group"
@@ -27,10 +27,10 @@ export function LanguageSwitcher({ className }: { className?: string }) {
             key={langCode}
             onClick={() => setLanguage(langCode)}
             className={cn(
-              "px-3 py-1 text-xs font-semibold rounded-full transition-all duration-200 cursor-pointer",
+              "px-3 py-1 text-xs font-bold rounded-full transition-all duration-200 cursor-pointer hover:scale-105 active:scale-95",
               isActive
-                ? "bg-[#047857] text-white shadow-xs"
-                : "text-slate-600 hover:text-slate-900 hover:bg-slate-200/50"
+                ? "bg-blue-700 text-white shadow-xs"
+                : "text-slate-600 hover:text-slate-950 hover:bg-white/80"
             )}
             title={LANGUAGES[langCode].name}
           >
