@@ -47,8 +47,8 @@ export default function SearchPage() {
     async function loadData() {
       try {
         const [newsRes, galleryRes] = await Promise.all([
-          fetch("/api/admin/news?status=published"),
-          fetch("/api/admin/gallery?status=published"),
+          fetch("/api/news?status=published", { cache: "no-store" }),
+          fetch("/api/admin/gallery?status=published", { cache: "no-store" }),
         ]);
 
         const newsData = await newsRes.json();

@@ -19,6 +19,7 @@ import {
   Clock,
   Archive,
   AlertTriangle,
+  ExternalLink,
 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
@@ -269,10 +270,19 @@ export default function AdminNewsPage() {
                           Published
                         </span>
                       ) : item.status === "draft" ? (
-                        <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-50 text-amber-700 border border-amber-200">
-                          <Clock className="w-3 h-3 text-amber-500" />
-                          Draft
-                        </span>
+                        <div className="inline-flex items-center gap-2">
+                          <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-amber-50 text-amber-700 border border-amber-200">
+                            <Clock className="w-3 h-3 text-amber-500" />
+                            Draft
+                          </span>
+                          <button
+                            onClick={() => handleTogglePublish(item.id)}
+                            className="text-[10px] font-bold text-emerald-700 hover:text-emerald-800 bg-emerald-50 hover:bg-emerald-100 px-2 py-0.5 rounded-full border border-emerald-200 transition-colors cursor-pointer"
+                            title="Click to publish live immediately"
+                          >
+                            Publish
+                          </button>
+                        </div>
                       ) : (
                         <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-semibold bg-slate-100 text-slate-600 border border-slate-200">
                           <Archive className="w-3 h-3 text-slate-400" />
@@ -291,9 +301,9 @@ export default function AdminNewsPage() {
                           EN
                         </span>
                         <span
-                          title={item.translations.kn ? "Kannada translated" : "Kannada missing"}
+                          title={item.translations?.kn ? "Kannada translated" : "Kannada missing"}
                           className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
-                            item.translations.kn
+                            item.translations?.kn
                               ? "bg-blue-100 text-blue-800"
                               : "bg-slate-100 text-slate-400 opacity-60"
                           }`}
@@ -301,9 +311,9 @@ export default function AdminNewsPage() {
                           KN
                         </span>
                         <span
-                          title={item.translations.ur ? "Urdu translated" : "Urdu missing"}
+                          title={item.translations?.ur ? "Urdu translated" : "Urdu missing"}
                           className={`px-1.5 py-0.5 rounded text-[10px] font-bold ${
-                            item.translations.ur
+                            item.translations?.ur
                               ? "bg-purple-100 text-purple-800"
                               : "bg-slate-100 text-slate-400 opacity-60"
                           }`}
@@ -321,6 +331,17 @@ export default function AdminNewsPage() {
                     {/* Actions */}
                     <td className="py-3.5 px-4 whitespace-nowrap text-end">
                       <div className="flex items-center justify-end gap-1.5">
+                        {item.slug && (
+                          <Link
+                            href={`/news/${item.slug}`}
+                            target="_blank"
+                            title="View article on live website"
+                            className="p-1.5 rounded-md hover:bg-blue-50 text-slate-400 hover:text-blue-600 transition-colors"
+                          >
+                            <ExternalLink className="w-4 h-4" />
+                          </Link>
+                        )}
+
                         <button
                           onClick={() => handleTogglePublish(item.id)}
                           title={item.status === "published" ? "Unpublish to draft" : "Publish article"}

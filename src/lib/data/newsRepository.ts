@@ -207,30 +207,41 @@ export function getNewsList(filters?: {
   }
 
   if (filters?.category && filters.category !== "all") {
-    list = list.filter((n) => n.categoryId === filters.category || n.categoryName === filters.category);
+    list = list.filter(
+      (n) =>
+        n.categoryId === filters.category ||
+        n.categoryName === filters.category ||
+        n.categoryName?.toLowerCase() === filters.category?.toLowerCase()
+    );
   }
 
   if (filters?.search && filters.search.trim()) {
     const q = filters.search.toLowerCase().trim();
     list = list.filter((n) => {
-      const enTitle = n.translations.en?.title?.toLowerCase() || "";
-      const enExcerpt = n.translations.en?.excerpt?.toLowerCase() || "";
-      const urTitle = n.translations.ur?.title || "";
-      const knTitle = n.translations.kn?.title || "";
+      const enTitle = n.translations?.en?.title?.toLowerCase() || "";
+      const enExcerpt = n.translations?.en?.excerpt?.toLowerCase() || "";
+      const urTitle = n.translations?.ur?.title?.toLowerCase() || "";
+      const knTitle = n.translations?.kn?.title?.toLowerCase() || "";
+      const slug = n.slug?.toLowerCase() || "";
       return (
         enTitle.includes(q) ||
         enExcerpt.includes(q) ||
         urTitle.includes(q) ||
         knTitle.includes(q) ||
-        n.slug.includes(q)
+        slug.includes(q)
       );
     });
   }
 
-  // Sort by date descending
-  return list.sort(
-    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
-  );
+  // Sort by date descending safely without NaN pitfalls
+  return list.sort((a, b) => {
+    const timeA = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
+    const timeB = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
+    if (isNaN(timeA) || isNaN(timeB)) {
+      return (b.publishedAt || "").localeCompare(a.publishedAt || "");
+    }
+    return timeB - timeA;
+  });
 }
 
 export function getNewsById(id: string): NewsArticle | undefined {
@@ -240,7 +251,7 @@ export function getNewsById(id: string): NewsArticle | undefined {
 
 export function getNewsBySlug(slug: string): NewsArticle | undefined {
   const list = loadStoredNews();
-  return list.find((n) => n.slug === slug);
+  return list.find((n) => n.slug === slug || n.slug.toLowerCase() === slug.toLowerCase());
 }
 
 export function createNews(article: Omit<NewsArticle, "id">): NewsArticle {
@@ -248,6 +259,8 @@ export function createNews(article: Omit<NewsArticle, "id">): NewsArticle {
   const newArticle: NewsArticle = {
     ...article,
     id: `news-${Date.now()}`,
+    status: article.status || "published",
+    publishedAt: article.publishedAt || new Date().toISOString().split("T")[0],
   };
   list.unshift(newArticle);
   persistNews(list);

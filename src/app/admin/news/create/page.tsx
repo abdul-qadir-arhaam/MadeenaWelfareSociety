@@ -34,14 +34,14 @@ export default function CreateNewsPage() {
 
   // Common metadata
   const [slug, setSlug] = useState("");
-  const [categoryId, setCategoryId] = useState("");
-  const [categoryName, setCategoryName] = useState("");
+  const [categoryId, setCategoryId] = useState("cat-1");
+  const [categoryName, setCategoryName] = useState("General");
   const [author, setAuthor] = useState("MWS Media Cell");
   const [publishedAt, setPublishedAt] = useState(
     new Date().toISOString().split("T")[0]
   );
   const [status, setStatus] = useState<"draft" | "published" | "archived">(
-    "draft"
+    "published"
   );
   const [isFeatured, setIsFeatured] = useState(false);
   const [featuredImage, setFeaturedImage] = useState("/images/real/15aug.jpeg");
@@ -124,25 +124,35 @@ export default function CreateNewsPage() {
     }
   };
 
-  const handleSubmit = async (submitStatus: "draft" | "published") => {
-    if (!titleEn.trim()) {
-      setErrorMessage("Please enter an English title for the article.");
+  const handleSubmit = async (submitStatus?: "draft" | "published" | "archived") => {
+    const finalStatus = submitStatus || status || "published";
+    const activeTitle = titleEn.trim() || titleKn.trim() || titleUr.trim();
+
+    if (!activeTitle) {
+      setErrorMessage("Please enter an article title before saving.");
       setActiveTab("en");
       return;
     }
+
+    const resolvedTitleEn = titleEn.trim() || activeTitle;
 
     setIsSubmitting(true);
     setErrorMessage(null);
 
     const payload = {
-      title: titleEn,
-      slug: slug || titleEn.toLowerCase().replace(/[^a-z0-9]+/g, "-"),
-      categoryId,
-      categoryName,
-      featuredImage,
-      author,
-      publishedAt,
-      status: submitStatus,
+      title: resolvedTitleEn,
+      slug:
+        slug ||
+        resolvedTitleEn
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/(^-|-$)/g, ""),
+      categoryId: categoryId || "cat-1",
+      categoryName: categoryName || "General",
+      featuredImage: featuredImage || "/images/real/15aug.jpeg",
+      author: author || "MWS Media Cell",
+      publishedAt: publishedAt || new Date().toISOString().split("T")[0],
+      status: finalStatus,
       isFeatured,
       tags: tagsInput
         .split(",")
@@ -150,9 +160,17 @@ export default function CreateNewsPage() {
         .filter(Boolean),
       excerpt: excerptEn,
       content: contentEn,
-      seoTitle: seoTitleEn || titleEn,
+      seoTitle: seoTitleEn || resolvedTitleEn,
       seoDescription: seoDescEn || excerptEn,
       translations: {
+        en: {
+          language: "en",
+          title: resolvedTitleEn,
+          excerpt: excerptEn,
+          content: contentEn,
+          seoTitle: seoTitleEn || resolvedTitleEn,
+          seoDescription: seoDescEn || excerptEn,
+        },
         kn: titleKn.trim()
           ? {
               language: "kn",
@@ -222,22 +240,23 @@ export default function CreateNewsPage() {
             onClick={() => handleSubmit("draft")}
             disabled={isSubmitting}
           >
-            Save Draft
+            Save as Draft
           </Button>
           <Button
             size="sm"
-            onClick={() => handleSubmit("published")}
+            onClick={() => handleSubmit(status === "draft" ? "published" : status)}
             disabled={isSubmitting}
+            className="bg-[#047857] hover:bg-[#036449] text-white"
           >
             {isSubmitting ? (
               <>
                 <Loader2 className="w-4 h-4 animate-spin" />
-                <span>Publishing...</span>
+                <span>Saving...</span>
               </>
             ) : (
               <>
                 <CheckCircle className="w-4 h-4" />
-                <span>Publish Article</span>
+                <span>Publish to Website</span>
               </>
             )}
           </Button>
@@ -505,6 +524,57 @@ export default function CreateNewsPage() {
               </div>
             )}
           </Card>
+
+          {/* Bottom Action Bar */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="flex items-center gap-2 text-xs">
+              <span className="font-semibold text-slate-700">Status:</span>
+              <span
+                className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold ${
+                  status === "published"
+                    ? "bg-emerald-100 text-emerald-800 border border-emerald-200"
+                    : status === "draft"
+                    ? "bg-amber-100 text-amber-800 border border-amber-200"
+                    : "bg-slate-100 text-slate-700 border border-slate-200"
+                }`}
+              >
+                {status === "published"
+                  ? "🟢 Published — Live on Website"
+                  : status === "draft"
+                  ? "🟡 Draft — Hidden from Visitors"
+                  : "⚪ Archived"}
+              </span>
+            </div>
+            <div className="flex items-center gap-2 w-full sm:w-auto">
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full sm:w-auto"
+                onClick={() => handleSubmit("draft")}
+                disabled={isSubmitting}
+              >
+                Save as Draft
+              </Button>
+              <Button
+                size="sm"
+                className="w-full sm:w-auto bg-[#047857] hover:bg-[#036449] text-white font-bold"
+                onClick={() => handleSubmit(status === "draft" ? "published" : status)}
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Saving...</span>
+                  </>
+                ) : (
+                  <>
+                    <CheckCircle className="w-4 h-4" />
+                    <span>Publish to Website</span>
+                  </>
+                )}
+              </Button>
+            </div>
+          </div>
         </div>
 
         {/* Right Column: Settings, Images & Metadata */}
@@ -514,6 +584,27 @@ export default function CreateNewsPage() {
             <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
               Publication Settings
             </h3>
+
+            {/* Publication Status Selector */}
+            <div>
+              <label className="block text-xs font-semibold text-slate-700 mb-1">
+                Publication Status *
+              </label>
+              <select
+                value={status}
+                onChange={(e) => setStatus(e.target.value as "published" | "draft" | "archived")}
+                className="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 bg-white font-medium focus:outline-none focus:ring-2 focus:ring-[#047857]"
+              >
+                <option value="published">🟢 Published (Live on Main Website)</option>
+                <option value="draft">🟡 Draft (Hidden from Public)</option>
+                <option value="archived">⚪ Archived</option>
+              </select>
+              <p className="text-[11px] text-slate-500 mt-1">
+                {status === "published"
+                  ? "✓ Visible immediately on homepage, news archive, and search."
+                  : "⚠️ Hidden from public website visitors until published."}
+              </p>
+            </div>
 
             <div>
               <label className="block text-xs font-semibold text-slate-600 mb-1">

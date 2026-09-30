@@ -8,6 +8,9 @@ import { Calendar, User, ArrowRight, Tag, ArrowLeft } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0;
+
 export async function generateStaticParams() {
   const categories = getCategories();
   return categories.map((cat) => ({

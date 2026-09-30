@@ -6,19 +6,21 @@ import { AchievementsSpotlight } from "@/components/home/AchievementsSpotlight";
 import { GallerySection } from "@/components/home/GallerySection";
 import { GetInTouchSection } from "@/components/home/GetInTouchSection";
 import { getSiteSettings } from "@/lib/data/settingsRepository";
+import { getNewsList } from "@/lib/data/newsRepository";
 
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
 export default function HomePage() {
   const settings = getSiteSettings();
+  const publishedNews = getNewsList({ status: "published" });
 
   return (
     <>
-      <LatestNewsStrip />
+      <LatestNewsStrip initialNews={publishedNews} />
       <HeroSection initialBackgroundImage={settings.heroBackgroundImage} />
       <WelfarePrograms />
-      <LatestNewsSection />
+      <LatestNewsSection initialNews={publishedNews} />
       <AchievementsSpotlight />
       <GallerySection />
       <GetInTouchSection />

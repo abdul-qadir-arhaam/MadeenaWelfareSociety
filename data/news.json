@@ -1,5 +1,44 @@
 [
   {
+    "id": "news-1",
+    "slug": "independence-day-celebration",
+    "categoryId": "cat-5",
+    "categoryName": "Events",
+    "featuredImage": "/images/real/15aug.jpeg",
+    "author": "MWS Media Cell",
+    "publishedAt": "2026-08-15",
+    "status": "published",
+    "isFeatured": true,
+    "tags": [
+      "IndependenceDay",
+      "Bhatkal",
+      "Patriotism",
+      "Students"
+    ],
+    "translations": {
+      "en": {
+        "language": "en",
+        "title": "80th Independence Day Celebration at Madeena Welfare Society Bhatkal",
+        "excerpt": "Madeena Welfare Society Bhatkal marked the 80th Independence Day with patriotic fervor, flag hoisting, and distribution of student merit kits at Anjuman Institute campus.",
+        "content": "Madeena Welfare Society Bhatkal organized a grand celebration on the occasion of the 80th Independence Day of India at the Anjuman Institute campus in Bhatkal. The event witnessed large participation from local community leaders, patrons, youth, and school students.\n\nThe national tricolor was hoisted amidst patriotic slogans, followed by the singing of the National Anthem. Community elders and executive committee members addressed the gathering, emphasizing the values of unity in diversity, community service, and youth education.\n\nAs part of the welfare initiative, educational kits and merit scholarships were distributed to over 50 deserving students from underprivileged backgrounds across Bhatkal.",
+        "seoTitle": "80th Independence Day Celebration — Madeena Welfare Society Bhatkal",
+        "seoDescription": "Flag hoisting ceremony and student merit distribution organized by Madeena Welfare Society Bhatkal."
+      },
+      "kn": {
+        "language": "kn",
+        "title": "ಮದೀನಾ ವೆಲ್ಫೇರ್ ಸೊಸೈಟಿ ಭಟ್ಕಳದಲ್ಲಿ 80ನೇ ಸ್ವಾತಂತ್ರ್ಯ ದಿನಾಚರಣೆ",
+        "excerpt": "ಭಟ್ಕಳದ ಮದೀನಾ ವೆಲ್ಫೇರ್ ಸೊಸೈಟಿ ವತಿಯಿಂದ ದೇಶಭಕ್ತಿ, ಧ್ವಜಾರೋಹಣ ಹಾಗೂ ವಿದ್ಯಾರ್ಥಿಗಳಿಗೆ ಶೈಕ್ಷಣಿಕ ಕಿಟ್ ವಿತರಣೆಯೊಂದಿಗೆ 80ನೇ ಸ್ವಾತಂತ್ರ್ಯ ದಿನವನ್ನು ಆಚರಿಸಲಾಯಿತು.",
+        "content": "ಭಟ್ಕಳದ ಮದೀನಾ ವೆಲ್ಫೇರ್ ಸೊಸೈಟಿ ವತಿಯಿಂದ ಭಾರತದ 80ನೇ ಸ್ವಾತಂತ್ರ್ಯ ದಿನಾಚರಣೆಯನ್ನು ಅಂಜುಮನ್ ಸಂಸ್ಥೆಯ ಆವರಣದಲ್ಲಿ ಅತ್ಯಂತ ಸಂಭ್ರಮದಿಂದ ಆಚರಿಸಲಾಯಿತು. ಸ್ಥಳೀಯ ಸಮಾಜ ಮುಖಂಡರು, ವಿದ್ಯಾರ್ಥಿಗಳು ಮತ್ತು ನಾಗರಿಕರು ಪಾಲ್ಗೊಂಡಿದ್ದರು."
+      },
+      "ur": {
+        "language": "ur",
+        "title": "مدینہ ویلفیئر سوسائٹی بھٹکل کے زیر اہتمام 80 ویں یوم آزادی کی شاندار تقریب",
+        "excerpt": "مدینہ ویلفیئر سوسائٹی بھٹکل کے زیر اہتمام انجمن انسٹی ٹیوٹ کے احاطے میں پرچم کشائی اور مستحق طلباء میں تعلیمی کٹس کی تقسیم کے ساتھ یوم آزادی منایا گیا۔",
+        "content": "مدینہ ویلفیئر سوسائٹی بھٹکل کے زیر اہتمام ہندوستان کے 80 ویں یوم آزادی کے پرمسرت موقع پر انجمن انسٹی ٹیوٹ کیمپس میں ایک باوقار اور پروقار تقریب کا انعقاد کیا گیا۔ اس تقریب میں بستی کے معززین، علمائے کرام اور کثیر تعداد میں طلباء نے شرکت کی۔\n\nقومی ترانے کے ساتھ ترنگا لہرایا گیا اور مقررین نے قومی یکجہتی اور نوجوانوں کی تعلیمی ترقی پر زور دیا۔"
+      }
+    }
+  },
+  {
     "id": "news-2",
     "slug": "educational-awards-ceremony",
     "categoryId": "cat-4",

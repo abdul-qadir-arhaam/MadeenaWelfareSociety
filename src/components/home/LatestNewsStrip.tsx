@@ -6,9 +6,9 @@ import { ArrowRight } from "lucide-react";
 import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { NewsArticle } from "@/lib/data/newsRepository";
 
-export function LatestNewsStrip() {
+export function LatestNewsStrip({ initialNews }: { initialNews?: NewsArticle[] } = {}) {
   const { language } = useLanguage();
-  const [news, setNews] = useState<NewsArticle[]>([]);
+  const [news, setNews] = useState<NewsArticle[]>(initialNews || []);
 
   useEffect(() => {
     async function loadStripNews() {
@@ -35,10 +35,10 @@ export function LatestNewsStrip() {
       ? news.map((item) => {
           const trans =
             (language === "kn"
-              ? item.translations.kn
+              ? item.translations?.kn
               : language === "ur"
-              ? item.translations.ur
-              : item.translations.en) || item.translations.en;
+              ? item.translations?.ur
+              : item.translations?.en) || item.translations?.en;
           return {
             title: trans?.title || item.slug,
             href: `/news/${item.slug}`,

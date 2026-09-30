@@ -40,10 +40,17 @@ export async function PUT(
         return NextResponse.json({ error: "Article not found" }, { status: 404 });
       }
 
-      revalidatePath("/");
-      revalidatePath("/news");
-      revalidatePath(`/news/${updated.slug}`);
-      revalidatePath("/admin/news");
+      try {
+        revalidatePath("/");
+        revalidatePath("/news");
+        revalidatePath(`/news/${updated.slug}`);
+        revalidatePath("/category", "layout");
+        revalidatePath("/search");
+        revalidatePath("/admin/news");
+        revalidatePath("/sitemap.xml");
+      } catch (e) {
+        console.error("revalidatePath error:", e);
+      }
 
       return NextResponse.json({ success: true, article: updated });
     }
@@ -53,10 +60,17 @@ export async function PUT(
       return NextResponse.json({ error: "Article not found" }, { status: 404 });
     }
 
-    revalidatePath("/");
-    revalidatePath("/news");
-    revalidatePath(`/news/${updated.slug}`);
-    revalidatePath("/admin/news");
+    try {
+      revalidatePath("/");
+      revalidatePath("/news");
+      revalidatePath(`/news/${updated.slug}`);
+      revalidatePath("/category", "layout");
+      revalidatePath("/search");
+      revalidatePath("/admin/news");
+      revalidatePath("/sitemap.xml");
+    } catch (e) {
+      console.error("revalidatePath error:", e);
+    }
 
     return NextResponse.json({ success: true, article: updated });
   } catch (err: unknown) {
@@ -85,7 +99,10 @@ export async function DELETE(
   try {
     revalidatePath("/");
     revalidatePath("/news");
+    revalidatePath("/category", "layout");
+    revalidatePath("/search");
     revalidatePath("/admin/news");
+    revalidatePath("/sitemap.xml");
   } catch (e) {
     console.error("revalidatePath error:", e);
   }

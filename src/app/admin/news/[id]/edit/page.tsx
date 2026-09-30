@@ -150,33 +150,43 @@ export default function EditNewsPage({
     }
   };
 
-  const handleUpdate = async (overrideStatus?: "draft" | "published") => {
-    if (!titleEn.trim()) {
-      setErrorMessage("Please enter an English title.");
+  const handleUpdate = async (overrideStatus?: "draft" | "published" | "archived") => {
+    const finalStatus = overrideStatus || status;
+    const activeTitle = titleEn.trim() || titleKn.trim() || titleUr.trim();
+
+    if (!activeTitle) {
+      setErrorMessage("Please enter an article title.");
       setActiveTab("en");
       return;
     }
+
+    const resolvedTitleEn = titleEn.trim() || activeTitle;
 
     setIsSubmitting(true);
     setErrorMessage(null);
 
     const payload = {
-      slug,
-      categoryId,
-      categoryName,
-      featuredImage,
-      author,
-      publishedAt,
-      status: overrideStatus || status,
+      slug:
+        slug ||
+        resolvedTitleEn
+          .toLowerCase()
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/(^-|-$)/g, ""),
+      categoryId: categoryId || "cat-1",
+      categoryName: categoryName || "General",
+      featuredImage: featuredImage || "/images/real/15aug.jpeg",
+      author: author || "MWS Media Cell",
+      publishedAt: publishedAt || new Date().toISOString().split("T")[0],
+      status: finalStatus,
       isFeatured,
       tags: tagsInput.split(",").map((t) => t.trim()).filter(Boolean),
       translations: {
         en: {
           language: "en",
-          title: titleEn,
+          title: resolvedTitleEn,
           excerpt: excerptEn,
           content: contentEn,
-          seoTitle: seoTitleEn || titleEn,
+          seoTitle: seoTitleEn || resolvedTitleEn,
           seoDescription: seoDescEn || excerptEn,
         },
         kn: titleKn.trim()
@@ -261,6 +271,17 @@ export default function EditNewsPage({
         </div>
 
         <div className="flex items-center gap-2">
+          {slug && (
+            <Link
+              href={`/news/${slug}`}
+              target="_blank"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-semibold rounded-lg bg-blue-50 text-blue-700 hover:bg-blue-100 border border-blue-200 transition-colors"
+            >
+              <Eye className="w-3.5 h-3.5" />
+              <span className="hidden sm:inline">View Live</span>
+            </Link>
+          )}
+
           <Button
             variant="outline"
             size="sm"
@@ -277,13 +298,14 @@ export default function EditNewsPage({
             onClick={() => handleUpdate("draft")}
             disabled={isSubmitting}
           >
-            Save Draft
+            Save as Draft
           </Button>
 
           <Button
             size="sm"
-            onClick={() => handleUpdate("published")}
+            onClick={() => handleUpdate(status === "draft" ? "published" : status)}
             disabled={isSubmitting}
+            className="bg-[#047857] hover:bg-[#036449] text-white"
           >
             {isSubmitting ? (
               <>
@@ -537,6 +559,57 @@ export default function EditNewsPage({
               </div>
             )}
           </Card>
+
+          {/* Bottom Action Bar */}
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-3 bg-white p-4 rounded-2xl border border-slate-200 shadow-xs">
+            <div className="flex items-center gap-2 text-xs">
+              <span className="font-semibold text-slate-700">Status:</span>
+              <span
+                className={`px-2.5 py-0.5 rounded-full text-[11px] font-bold ${
+                  status === "published"
+                    ? "bg-emerald-100 text-emerald-800 border border-emerald-200"
+                    : status === "draft"
+                    ? "bg-amber-100 text-amber-800 border border-amber-200"
+                    : "bg-slate-100 text-slate-700 border border-slate-200"
+                }`}
+              >
+                {status === "published"
+                  ? "🟢 Published — Live on Website"
+                  : status === "draft"
+                  ? "🟡 Draft — Hidden from Visitors"
+                  : "⚪ Archived"}
+              </span>
+            </div>
+            <div className="flex items-center gap-2 w-full sm:w-auto">
+              <Button
+                variant="outline"
+                size="sm"
+                className="w-full sm:w-auto"
+                onClick={() => handleUpdate("draft")}
+                disabled={isSubmitting}
+              >
+                Save as Draft
+              </Button>
+              <Button
+                size="sm"
+                className="w-full sm:w-auto bg-[#047857] hover:bg-[#036449] text-white font-bold"
+                onClick={() => handleUpdate(status === "draft" ? "published" : status)}
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? (
+                  <>
+                    <Loader2 className="w-4 h-4 animate-spin" />
+                    <span>Saving...</span>
+                  </>
+                ) : (
+                  <>
+                    <Save className="w-4 h-4" />
+                    <span>Update & Publish</span>
+                  </>
+                )}
+              </Button>
+            </div>
+          </div>
         </div>
 
         {/* Right Column: Settings & Media */}
@@ -545,6 +618,27 @@ export default function EditNewsPage({
             <h3 className="text-xs font-bold text-slate-900 uppercase tracking-wider">
               Publication Settings
             </h3>
+
+            {/* Publication Status Selector */}
+            <div>
+              <label className="block text-xs font-semibold text-slate-700 mb-1">
+                Publication Status *
+              </label>
+              <select
+                value={status}
+                onChange={(e) => setStatus(e.target.value as "published" | "draft" | "archived")}
+                className="w-full px-3 py-2 text-xs rounded-lg border border-slate-300 bg-white font-medium focus:outline-none focus:ring-2 focus:ring-[#047857]"
+              >
+                <option value="published">🟢 Published (Live on Main Website)</option>
+                <option value="draft">🟡 Draft (Hidden from Public)</option>
+                <option value="archived">⚪ Archived</option>
+              </select>
+              <p className="text-[11px] text-slate-500 mt-1">
+                {status === "published"
+                  ? "✓ Visible immediately on homepage, news archive, and search."
+                  : "⚠️ Hidden from public website visitors."}
+              </p>
+            </div>
 
             <div>
               <label className="block text-xs font-semibold text-slate-600 mb-1">

@@ -10,21 +10,21 @@ import { Card, Skeleton } from "@/components/ui/Card";
 import { Button } from "@/components/ui/Button";
 import { NewsArticle } from "@/lib/data/newsRepository";
 
-export function LatestNewsSection() {
+export function LatestNewsSection({ initialNews }: { initialNews?: NewsArticle[] } = {}) {
   const { t, language } = useLanguage();
-  const [news, setNews] = useState<NewsArticle[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [news, setNews] = useState<NewsArticle[]>(initialNews || []);
+  const [loading, setLoading] = useState(!initialNews || initialNews.length === 0);
 
   useEffect(() => {
     async function loadLatestNews() {
       try {
-        const res = await fetch("/api/news?status=published&limit=3", {
+        const res = await fetch("/api/news?status=published&limit=4", {
           cache: "no-store",
           headers: { "Pragma": "no-cache" },
         });
         if (res.ok) {
           const data = await res.json();
-          if (data.news) {
+          if (data.news && Array.isArray(data.news)) {
             setNews(data.news);
           }
         }
@@ -41,10 +41,10 @@ export function LatestNewsSection() {
   const getArticleTranslation = (item: NewsArticle) => {
     const trans =
       (language === "kn"
-        ? item.translations.kn
+        ? item.translations?.kn
         : language === "ur"
-        ? item.translations.ur
-        : item.translations.en) || item.translations.en;
+        ? item.translations?.ur
+        : item.translations?.en) || item.translations?.en;
 
     return {
       title: trans?.title || item.slug,
@@ -52,8 +52,8 @@ export function LatestNewsSection() {
     };
   };
 
-  const featured = news[0];
-  const sideNews = news.slice(1, 3);
+  const featured = news.find((n) => n.isFeatured) || news[0];
+  const sideNews = news.filter((n) => n.id !== featured?.id).slice(0, 2);
 
   return (
     <section className="py-16 sm:py-20 bg-slate-50/60 border-b border-slate-200/80">
