@@ -11,7 +11,7 @@ export async function GET(
   { params }: { params: Promise<{ id: string }> }
 ) {
   const { id } = await params;
-  const article = getNewsById(id);
+  const article = await getNewsById(id);
 
   if (!article) {
     return NextResponse.json({ error: "Article not found" }, { status: 404 });
@@ -35,7 +35,7 @@ export async function PUT(
     const body = await request.json();
 
     if (body.action === "toggle-publish") {
-      const updated = togglePublishStatus(id);
+      const updated = await togglePublishStatus(id);
       if (!updated) {
         return NextResponse.json({ error: "Article not found" }, { status: 404 });
       }
@@ -55,7 +55,7 @@ export async function PUT(
       return NextResponse.json({ success: true, article: updated });
     }
 
-    const updated = updateNews(id, body);
+    const updated = await updateNews(id, body);
     if (!updated) {
       return NextResponse.json({ error: "Article not found" }, { status: 404 });
     }
@@ -89,7 +89,7 @@ export async function DELETE(
   }
 
   const { id } = await params;
-  const success = deleteNews(id);
+  const success = await deleteNews(id);
 
   if (!success) {
     return NextResponse.json({ error: "Article not found" }, { status: 404 });

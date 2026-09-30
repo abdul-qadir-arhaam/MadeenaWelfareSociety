@@ -11,7 +11,7 @@ export async function GET(request: Request) {
   const category = searchParams.get("category") || "all";
   const search = searchParams.get("search") || "";
 
-  const news = getNewsList({ status, category, search });
+  const news = await getNewsList({ status, category, search });
   return NextResponse.json({ news });
 }
 
@@ -46,7 +46,7 @@ export async function POST(request: Request) {
         .replace(/(^-|-$)/g, "");
     const slug = rawSlug || `article-${Date.now()}`;
 
-    const newArticle = createNews({
+    const newArticle = await createNews({
       slug,
       categoryId: body.categoryId || "cat-1",
       categoryName: body.categoryName || "General",

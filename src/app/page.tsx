@@ -11,9 +11,9 @@ import { getNewsList } from "@/lib/data/newsRepository";
 export const dynamic = "force-dynamic";
 export const revalidate = 0;
 
-export default function HomePage() {
+export default async function HomePage() {
   const settings = getSiteSettings();
-  const publishedNews = getNewsList({ status: "published" });
+  const publishedNews = await getNewsList({ status: "published" });
 
   return (
     <>

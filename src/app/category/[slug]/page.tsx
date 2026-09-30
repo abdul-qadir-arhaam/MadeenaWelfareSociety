@@ -30,7 +30,7 @@ export default async function CategoryArchivePage({
     notFound();
   }
 
-  const allNews = getNewsList({ status: "published" });
+  const allNews = await getNewsList({ status: "published" });
   const categoryNews = allNews.filter(
     (item) =>
       item.categoryId === category.id ||

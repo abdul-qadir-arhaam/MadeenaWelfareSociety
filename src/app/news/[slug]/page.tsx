@@ -18,13 +18,13 @@ export default async function NewsDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const newsItem = getNewsBySlug(slug);
+  const newsItem = await getNewsBySlug(slug);
 
   if (!newsItem) {
     notFound();
   }
 
-  const allNews = getNewsList({ status: "published" });
+  const allNews = await getNewsList({ status: "published" });
   const otherNews = allNews.filter((n) => n.slug !== slug).slice(0, 4);
   const categories = getCategories("news");
 

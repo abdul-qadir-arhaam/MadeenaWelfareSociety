@@ -160,8 +160,72 @@ export const INITIAL_NEWS: NewsArticle[] = [
   },
 ];
 
+import { createAdminClient } from "@/lib/supabase/admin";
+import { createClient as createSupabaseClient } from "@supabase/supabase-js";
+
 const DATA_DIR = path.join(process.cwd(), "data");
 const NEWS_FILE = path.join(DATA_DIR, "news.json");
+const UUID_REGEX = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+function getSupabaseClient() {
+  const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
+  const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+
+  if (
+    !url ||
+    !url.startsWith("https://") ||
+    url.includes("placeholder")
+  ) {
+    return null;
+  }
+
+  if (serviceKey && !serviceKey.includes("placeholder")) {
+    try {
+      return createAdminClient();
+    } catch {
+      // Fall through to anon key
+    }
+  }
+
+  if (anonKey && !anonKey.includes("placeholder")) {
+    try {
+      return createSupabaseClient(url, anonKey, {
+        auth: { persistSession: false, autoRefreshToken: false },
+      });
+    } catch {
+      return null;
+    }
+  }
+
+  return null;
+}
+
+async function resolveCategoryUuid(supabase: any, categoryId?: string, categoryName?: string): Promise<string | null> {
+  if (categoryId && UUID_REGEX.test(categoryId)) {
+    return categoryId;
+  }
+  try {
+    const nameToMatch = categoryName || "General";
+    const { data: catRow } = await supabase
+      .from("categories")
+      .select("id")
+      .ilike("name", nameToMatch)
+      .maybeSingle();
+
+    if (catRow?.id) return catRow.id;
+
+    const { data: generalRow } = await supabase
+      .from("categories")
+      .select("id")
+      .eq("slug", "general")
+      .maybeSingle();
+
+    return generalRow?.id || null;
+  } catch {
+    return null;
+  }
+}
 
 function loadStoredNews(): NewsArticle[] {
   try {
@@ -174,12 +238,11 @@ function loadStoredNews(): NewsArticle[] {
     }
     const raw = fs.readFileSync(NEWS_FILE, "utf-8");
     const parsed = JSON.parse(raw);
-    if (Array.isArray(parsed)) {
+    if (Array.isArray(parsed) && parsed.length > 0) {
       return parsed as NewsArticle[];
     }
     return [...INITIAL_NEWS];
-  } catch (err) {
-    console.error("[newsRepository] Error reading news.json:", err);
+  } catch {
     return [...INITIAL_NEWS];
   }
 }
@@ -190,16 +253,142 @@ function persistNews(news: NewsArticle[]): void {
       fs.mkdirSync(DATA_DIR, { recursive: true });
     }
     fs.writeFileSync(NEWS_FILE, JSON.stringify(news, null, 2), "utf-8");
-  } catch (err) {
-    console.error("[newsRepository] Error writing news.json:", err);
+  } catch {
+    // Read-only filesystem on Vercel/serverless environments is safely caught
   }
 }
 
-export function getNewsList(filters?: {
+async function fetchNewsFromSupabase(filters?: {
   status?: string;
   category?: string;
   search?: string;
-}): NewsArticle[] {
+}): Promise<NewsArticle[] | null> {
+  const supabase = getSupabaseClient();
+  if (!supabase) return null;
+
+  try {
+    let query = supabase
+      .from("news")
+      .select(`
+        id,
+        slug,
+        category_id,
+        featured_image,
+        author,
+        published_at,
+        status,
+        is_featured,
+        tags,
+        categories (
+          id,
+          name,
+          slug
+        ),
+        news_translations (
+          language,
+          title,
+          excerpt,
+          content,
+          seo_title,
+          seo_description
+        )
+      `)
+      .order("published_at", { ascending: false });
+
+    if (filters?.status && filters.status !== "all") {
+      query = query.eq("status", filters.status);
+    }
+
+    const { data, error } = await query;
+    if (error) {
+      console.warn("[newsRepository] Supabase fetch warning:", error.message);
+      return null;
+    }
+
+    if (!data || !Array.isArray(data)) return null;
+
+    let articles: NewsArticle[] = data.map((row: any) => {
+      const translations: NewsArticle["translations"] = {
+        en: { language: "en", title: "", excerpt: "", content: "" },
+      };
+
+      (row.news_translations || []).forEach((t: any) => {
+        if (t.language === "en" || t.language === "kn" || t.language === "ur") {
+          translations[t.language as "en" | "kn" | "ur"] = {
+            language: t.language,
+            title: t.title || "",
+            excerpt: t.excerpt || "",
+            content: t.content || "",
+            seoTitle: t.seo_title || undefined,
+            seoDescription: t.seo_description || undefined,
+          };
+        }
+      });
+
+      const catObj = Array.isArray(row.categories) ? row.categories[0] : row.categories;
+      const categoryName = catObj?.name || "General";
+
+      return {
+        id: String(row.id),
+        slug: row.slug,
+        categoryId: row.category_id || "",
+        categoryName,
+        featuredImage: row.featured_image || "/images/real/15aug.jpeg",
+        author: row.author || "MWS Media Cell",
+        publishedAt: row.published_at
+          ? String(row.published_at).split("T")[0]
+          : new Date().toISOString().split("T")[0],
+        status: (row.status as "published" | "draft" | "archived") || "published",
+        isFeatured: Boolean(row.is_featured),
+        tags: Array.isArray(row.tags) ? row.tags : [],
+        translations,
+      };
+    });
+
+    if (filters?.category && filters.category !== "all") {
+      const catFilter = filters.category.toLowerCase().trim();
+      articles = articles.filter(
+        (n) =>
+          n.categoryId === filters.category ||
+          n.categoryName?.toLowerCase() === catFilter
+      );
+    }
+
+    if (filters?.search && filters.search.trim()) {
+      const q = filters.search.toLowerCase().trim();
+      articles = articles.filter((n) => {
+        const enTitle = n.translations?.en?.title?.toLowerCase() || "";
+        const enExcerpt = n.translations?.en?.excerpt?.toLowerCase() || "";
+        const urTitle = n.translations?.ur?.title?.toLowerCase() || "";
+        const knTitle = n.translations?.kn?.title?.toLowerCase() || "";
+        const slug = n.slug?.toLowerCase() || "";
+        return (
+          enTitle.includes(q) ||
+          enExcerpt.includes(q) ||
+          urTitle.includes(q) ||
+          knTitle.includes(q) ||
+          slug.includes(q)
+        );
+      });
+    }
+
+    return articles;
+  } catch (err) {
+    console.warn("[newsRepository] Supabase fetch exception:", err);
+    return null;
+  }
+}
+
+export async function getNewsList(filters?: {
+  status?: string;
+  category?: string;
+  search?: string;
+}): Promise<NewsArticle[]> {
+  const remoteNews = await fetchNewsFromSupabase(filters);
+  if (remoteNews !== null && remoteNews.length > 0) {
+    return remoteNews;
+  }
+
   let list = loadStoredNews();
 
   if (filters?.status && filters.status !== "all") {
@@ -233,7 +422,6 @@ export function getNewsList(filters?: {
     });
   }
 
-  // Sort by date descending safely without NaN pitfalls
   return list.sort((a, b) => {
     const timeA = a.publishedAt ? new Date(a.publishedAt).getTime() : 0;
     const timeB = b.publishedAt ? new Date(b.publishedAt).getTime() : 0;
@@ -244,52 +432,202 @@ export function getNewsList(filters?: {
   });
 }
 
-export function getNewsById(id: string): NewsArticle | undefined {
-  const list = loadStoredNews();
+export async function getNewsById(id: string): Promise<NewsArticle | undefined> {
+  const list = await getNewsList({ status: "all" });
   return list.find((n) => n.id === id);
 }
 
-export function getNewsBySlug(slug: string): NewsArticle | undefined {
-  const list = loadStoredNews();
-  return list.find((n) => n.slug === slug || n.slug.toLowerCase() === slug.toLowerCase());
+export async function getNewsBySlug(slug: string): Promise<NewsArticle | undefined> {
+  const normalized = (slug || "").toLowerCase().trim();
+  const list = await getNewsList({ status: "all" });
+  return list.find((n) => (n.slug || "").toLowerCase().trim() === normalized);
 }
 
-export function createNews(article: Omit<NewsArticle, "id">): NewsArticle {
+export async function createNews(article: Omit<NewsArticle, "id">): Promise<NewsArticle> {
+  const supabase = getSupabaseClient();
+  let createdArticle: NewsArticle | null = null;
+
+  if (supabase) {
+    try {
+      const validCategoryId = await resolveCategoryUuid(supabase, article.categoryId, article.categoryName);
+
+      const { data: newsRow, error: newsErr } = await supabase
+        .from("news")
+        .insert({
+          slug: article.slug,
+          category_id: validCategoryId,
+          featured_image: article.featuredImage || "/images/real/15aug.jpeg",
+          author: article.author || "MWS Media Cell",
+          published_at: article.publishedAt
+            ? new Date(article.publishedAt).toISOString()
+            : new Date().toISOString(),
+          status: article.status || "published",
+          is_featured: Boolean(article.isFeatured),
+          tags: Array.isArray(article.tags) ? article.tags : [],
+        })
+        .select()
+        .single();
+
+      if (newsErr) {
+        console.error("[newsRepository] Supabase news insert error:", newsErr);
+      } else if (newsRow) {
+        const transRows: any[] = [];
+        if (article.translations.en?.title) {
+          transRows.push({
+            news_id: newsRow.id,
+            language: "en",
+            title: article.translations.en.title,
+            excerpt: article.translations.en.excerpt || "",
+            content: article.translations.en.content || "",
+            seo_title: article.translations.en.seoTitle || article.translations.en.title,
+            seo_description: article.translations.en.seoDescription || article.translations.en.excerpt || "",
+          });
+        }
+        if (article.translations.kn?.title) {
+          transRows.push({
+            news_id: newsRow.id,
+            language: "kn",
+            title: article.translations.kn.title,
+            excerpt: article.translations.kn.excerpt || "",
+            content: article.translations.kn.content || "",
+            seo_title: article.translations.kn.seoTitle || article.translations.kn.title,
+            seo_description: article.translations.kn.seoDescription || article.translations.kn.excerpt || "",
+          });
+        }
+        if (article.translations.ur?.title) {
+          transRows.push({
+            news_id: newsRow.id,
+            language: "ur",
+            title: article.translations.ur.title,
+            excerpt: article.translations.ur.excerpt || "",
+            content: article.translations.ur.content || "",
+            seo_title: article.translations.ur.seoTitle || article.translations.ur.title,
+            seo_description: article.translations.ur.seoDescription || article.translations.ur.excerpt || "",
+          });
+        }
+
+        if (transRows.length > 0) {
+          const { error: transErr } = await supabase.from("news_translations").insert(transRows);
+          if (transErr) {
+            console.error("[newsRepository] Supabase translations insert error:", transErr);
+          }
+        }
+
+        createdArticle = {
+          ...article,
+          id: String(newsRow.id),
+          categoryId: validCategoryId || article.categoryId || "cat-1",
+        };
+      }
+    } catch (err) {
+      console.error("[newsRepository] Supabase createNews exception:", err);
+    }
+  }
+
   const list = loadStoredNews();
-  const newArticle: NewsArticle = {
+  const fallbackArticle: NewsArticle = createdArticle || {
     ...article,
     id: `news-${Date.now()}`,
     status: article.status || "published",
     publishedAt: article.publishedAt || new Date().toISOString().split("T")[0],
   };
-  list.unshift(newArticle);
+
+  list.unshift(fallbackArticle);
   persistNews(list);
-  return newArticle;
+
+  return fallbackArticle;
 }
 
-export function updateNews(id: string, updates: Partial<NewsArticle>): NewsArticle | null {
+export async function updateNews(id: string, updates: Partial<NewsArticle>): Promise<NewsArticle | null> {
+  const supabase = getSupabaseClient();
+  if (supabase) {
+    try {
+      const updatePayload: any = {
+        updated_at: new Date().toISOString(),
+      };
+      if (updates.slug) updatePayload.slug = updates.slug;
+      if (updates.featuredImage) updatePayload.featured_image = updates.featuredImage;
+      if (updates.author) updatePayload.author = updates.author;
+      if (updates.publishedAt) updatePayload.published_at = new Date(updates.publishedAt).toISOString();
+      if (updates.status) updatePayload.status = updates.status;
+      if (updates.isFeatured !== undefined) updatePayload.is_featured = updates.isFeatured;
+      if (updates.tags) updatePayload.tags = updates.tags;
+
+      if (updates.categoryId || updates.categoryName) {
+        const catId = await resolveCategoryUuid(supabase, updates.categoryId, updates.categoryName);
+        if (catId) updatePayload.category_id = catId;
+      }
+
+      await supabase.from("news").update(updatePayload).eq("id", id);
+
+      if (updates.translations) {
+        for (const lang of ["en", "kn", "ur"] as const) {
+          const trans = updates.translations[lang];
+          if (trans && trans.title) {
+            await supabase.from("news_translations").upsert(
+              {
+                news_id: id,
+                language: lang,
+                title: trans.title,
+                excerpt: trans.excerpt || "",
+                content: trans.content || "",
+                seo_title: trans.seoTitle || trans.title,
+                seo_description: trans.seoDescription || trans.excerpt || "",
+                updated_at: new Date().toISOString(),
+              },
+              { onConflict: "news_id, language" }
+            );
+          }
+        }
+      }
+    } catch (err) {
+      console.error("[newsRepository] Supabase updateNews exception:", err);
+    }
+  }
+
   const list = loadStoredNews();
   const index = list.findIndex((n) => n.id === id);
-  if (index === -1) return null;
-  list[index] = { ...list[index], ...updates };
+  if (index === -1) {
+    if (supabase) {
+      const remote = await getNewsById(id);
+      return remote || null;
+    }
+    return null;
+  }
+
+  list[index] = {
+    ...list[index],
+    ...updates,
+    translations: {
+      ...list[index].translations,
+      ...(updates.translations || {}),
+    },
+  };
   persistNews(list);
   return list[index];
 }
 
-export function deleteNews(id: string): boolean {
+export async function deleteNews(id: string): Promise<boolean> {
+  const supabase = getSupabaseClient();
+  if (supabase) {
+    try {
+      await supabase.from("news").delete().eq("id", id);
+    } catch (err) {
+      console.error("[newsRepository] Supabase deleteNews exception:", err);
+    }
+  }
+
   const list = loadStoredNews();
   const index = list.findIndex((n) => n.id === id);
-  if (index === -1) return false;
+  if (index === -1) return Boolean(supabase);
   list.splice(index, 1);
   persistNews(list);
   return true;
 }
 
-export function togglePublishStatus(id: string): NewsArticle | null {
-  const list = loadStoredNews();
-  const article = list.find((n) => n.id === id);
+export async function togglePublishStatus(id: string): Promise<NewsArticle | null> {
+  const article = await getNewsById(id);
   if (!article) return null;
-  article.status = article.status === "published" ? "draft" : "published";
-  persistNews(list);
-  return article;
+  const newStatus = article.status === "published" ? "draft" : "published";
+  return updateNews(id, { status: newStatus });
 }

@@ -12,7 +12,7 @@ export async function GET(request: Request) {
     const search = searchParams.get("search") || "";
     const limit = searchParams.get("limit") ? parseInt(searchParams.get("limit")!, 10) : undefined;
 
-    let news = getNewsList({ status, category, search });
+    let news = await getNewsList({ status, category, search });
     if (limit && !isNaN(limit)) {
       news = news.slice(0, limit);
     }

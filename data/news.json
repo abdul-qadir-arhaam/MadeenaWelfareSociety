@@ -1,5 +1,30 @@
 [
   {
+    "slug": "test",
+    "categoryId": "cat-1",
+    "categoryName": "General",
+    "featuredImage": "/uploads/screenshot-2026-01-24-035758-1790799438639-apep.png",
+    "author": "MWS Media Cell",
+    "publishedAt": "2026-09-30",
+    "status": "published",
+    "isFeatured": false,
+    "tags": [
+      "Bhatkal",
+      "MadeenaWelfare"
+    ],
+    "translations": {
+      "en": {
+        "language": "en",
+        "title": "test",
+        "excerpt": "test ",
+        "content": "test ",
+        "seoTitle": "test",
+        "seoDescription": "test "
+      }
+    },
+    "id": "news-1790799443050"
+  },
+  {
     "id": "news-1",
     "slug": "independence-day-celebration",
     "categoryId": "cat-5",

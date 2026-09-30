@@ -3,7 +3,7 @@ import { getNewsList } from "@/lib/data/newsRepository";
 import { getGalleryAlbums } from "@/lib/data/galleryRepository";
 import { getCategories } from "@/lib/data/categoryRepository";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
   // Static Core Routes
@@ -25,7 +25,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   }));
 
   // Dynamic News Articles
-  const news = getNewsList({ status: "published" });
+  const news = await getNewsList({ status: "published" });
   const newsRoutes = news.map((item) => ({
     url: `${baseUrl}/news/${item.slug}`,
     lastModified: new Date(item.publishedAt || new Date()),
