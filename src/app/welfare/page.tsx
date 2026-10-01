@@ -32,15 +32,26 @@ interface WelfareProgram {
 }
 
 export default function WelfarePage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [activeCategory, setActiveCategory] = useState<string>("All");
+  const isUrdu = language === "ur";
 
   const impactStats = [
-    { label: "Educational Aid Distributed", value: "₹10+ Lakhs", icon: GraduationCap },
-    { label: "Food & Ration Kits Provided", value: "1,200+", icon: HandHeart },
-    { label: "Medical Aid & Surgeries", value: "350+ Cases", icon: Heart },
-    { label: "Active Service in Bhatkal", value: "33+ Years", icon: Users },
+    { label: t.welfare.statEdu, value: t.welfare.statEduVal, icon: GraduationCap },
+    { label: t.welfare.statFood, value: t.welfare.statFoodVal, icon: HandHeart },
+    { label: t.welfare.statHealth, value: t.welfare.statHealthVal, icon: Heart },
+    { label: t.welfare.statLegacy, value: t.welfare.statLegacyVal, icon: Users },
   ];
+
+  const categoryLabels: Record<string, string> = {
+    All: t.welfare.allCategory,
+    Education: isUrdu ? "تعلیمی امداد" : "Education",
+    "Health Programs": isUrdu ? "طبی خدمات" : "Health Programs",
+    "Food Distribution": isUrdu ? "راشن تقسیم" : "Food Distribution",
+    "Community Support": isUrdu ? "سماجی یکجہتی" : "Community Support",
+    Charity: isUrdu ? "صدقات و خیرات" : "Charity",
+    "Youth Welfare": isUrdu ? "نوجوانوں کی بہبود" : "Youth Welfare",
+  };
 
   const categories = [
     "All",
@@ -127,13 +138,13 @@ export default function WelfarePage() {
       {/* Header */}
       <div className="max-w-3xl mb-12">
         <span className="text-xs font-bold uppercase tracking-widest text-[#047857] bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
-          Humanitarian Initiatives
+          {isUrdu ? "فلاحی و سماجی خدمات" : "Humanitarian Initiatives"}
         </span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-[#0B2238] tracking-tight mt-3">
-          Welfare Services & Community Programs
+        <h1 className={`text-3xl sm:text-5xl font-extrabold text-[#0B2238] tracking-tight mt-3 ${isUrdu ? "font-urdu" : ""}`}>
+          {t.welfare.pageTitle}
         </h1>
-        <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
-          Serving Bhatkal since 1993 with transparency, dignity, and compassion. Discover our key programs in education, medical assistance, and emergency relief.
+        <p className={`mt-3 text-base sm:text-lg text-slate-600 leading-relaxed ${isUrdu ? "font-urdu" : ""}`}>
+          {t.welfare.pageSubtitle}
         </p>
       </div>
 
@@ -153,7 +164,7 @@ export default function WelfarePage() {
                 <span className="text-2xl sm:text-3xl font-extrabold text-[#0B2238] block tracking-tight">
                   {stat.value}
                 </span>
-                <span className="text-xs text-slate-500 font-medium mt-0.5 block">
+                <span className={`text-xs text-slate-500 font-medium mt-0.5 block ${isUrdu ? "font-urdu" : ""}`}>
                   {stat.label}
                 </span>
               </div>
@@ -173,9 +184,9 @@ export default function WelfarePage() {
               activeCategory === cat
                 ? "bg-[#047857] text-white shadow-sm"
                 : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
-            }`}
+            } ${isUrdu ? "font-urdu text-sm" : ""}`}
           >
-            {cat}
+            {categoryLabels[cat] || cat}
           </button>
         ))}
       </div>

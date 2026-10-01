@@ -6,11 +6,14 @@ import Link from "next/link";
 import { Trophy, Award, Star, Calendar, Filter, ArrowRight, ShieldCheck } from "lucide-react";
 import { Card } from "@/components/ui/Card";
 import { Achievement } from "@/lib/data/achievementsRepository";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function AchievementsPage() {
+  const { t, language } = useLanguage();
   const [achievements, setAchievements] = useState<Achievement[]>([]);
   const [activeCategory, setActiveCategory] = useState<string>("All");
   const [isLoading, setIsLoading] = useState(true);
+  const isUrdu = language === "ur";
 
   useEffect(() => {
     async function loadAchievements() {
@@ -29,6 +32,13 @@ export default function AchievementsPage() {
     loadAchievements();
   }, []);
 
+  const categoryLabels: Record<string, string> = {
+    All: t.achievements.allFilter,
+    Sports: t.achievements.sportsFilter,
+    "Social Work": t.achievements.socialFilter,
+    Education: t.achievements.eduFilter,
+  };
+
   const categories = ["All", "Sports", "Social Work", "Education"];
 
   const filtered =
@@ -41,13 +51,13 @@ export default function AchievementsPage() {
       {/* Header */}
       <div className="max-w-3xl mb-12">
         <span className="text-xs font-bold uppercase tracking-widest text-[#047857] bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
-          Championships & Milestones
+          {t.achievements.honorsBadge}
         </span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-[#0B2238] tracking-tight mt-3">
-          Our Achievements & Honors
+        <h1 className={`text-3xl sm:text-5xl font-extrabold text-[#0B2238] tracking-tight mt-3 ${isUrdu ? "font-urdu" : ""}`}>
+          {t.achievements.pageTitle}
         </h1>
-        <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
-          Honoring three decades of dedication, sporting triumphs, academic milestones, and humanitarian service in Bhatkal.
+        <p className={`mt-3 text-base sm:text-lg text-slate-600 leading-relaxed ${isUrdu ? "font-urdu" : ""}`}>
+          {t.achievements.pageSubtitle}
         </p>
       </div>
 
@@ -62,9 +72,9 @@ export default function AchievementsPage() {
               activeCategory === cat
                 ? "bg-[#047857] text-white shadow-xs"
                 : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
-            }`}
+            } ${isUrdu ? "font-urdu text-sm" : ""}`}
           >
-            {cat}
+            {categoryLabels[cat] || cat}
           </button>
         ))}
       </div>

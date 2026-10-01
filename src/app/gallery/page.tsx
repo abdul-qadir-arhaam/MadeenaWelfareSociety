@@ -33,7 +33,7 @@ import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
 
 export default function GalleryPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
 
   // View mode: "posts" (default) or "albums"
   const [viewMode, setViewMode] = useState<"posts" | "albums">("posts");
@@ -134,15 +134,33 @@ export default function GalleryPage() {
 
   // Open Lightbox for a specific post
   const handleOpenPostLightbox = (post: GalleryPost, photoIndex = 0) => {
+    const postTitle =
+      (language === "ur"
+        ? post.translations?.ur?.title
+        : language === "kn"
+        ? post.translations?.kn?.title
+        : post.translations?.en?.title) || post.title;
+
+    const postCaption =
+      (language === "ur"
+        ? post.translations?.ur?.caption
+        : language === "kn"
+        ? post.translations?.kn?.caption
+        : post.translations?.en?.caption) || post.caption;
+
     const photosToDisplay =
       post.photos && post.photos.length > 0
-        ? post.photos
+        ? post.photos.map((p) => ({
+            ...p,
+            title: postTitle,
+            caption: postCaption,
+          }))
         : [
             {
               id: post.id,
               src: post.coverImage,
-              title: post.title,
-              caption: post.caption,
+              title: postTitle,
+              caption: postCaption,
               date: post.date,
             },
           ];
@@ -201,13 +219,13 @@ export default function GalleryPage() {
         <div className="max-w-3xl">
           <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-emerald-50 text-[#047857] text-xs font-extrabold uppercase tracking-wider rounded-full border border-emerald-100 mb-3">
             <Camera className="w-3.5 h-3.5" />
-            <span>MWS Visual Archive & Gallery</span>
+            <span>{t.nav.gallery}</span>
           </div>
           <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0B2238] tracking-tight">
-            Moments, Memories & Photo Stories
+            {t.gallery.pageTitle}
           </h1>
           <p className="mt-3 text-sm sm:text-base text-slate-600 leading-relaxed">
-            Browse authentic photo stories, youth sports championships, community welfare drives, and historic moments from Madeena Welfare Society Bhatkal.
+            {t.gallery.pageSubtitle}
           </p>
         </div>
 
@@ -222,7 +240,7 @@ export default function GalleryPage() {
             }`}
           >
             <Grid className="w-3.5 h-3.5" />
-            <span>All Posts ({posts.length})</span>
+            <span>{t.gallery.allPostsTab} ({posts.length})</span>
           </button>
 
           <button
@@ -234,7 +252,7 @@ export default function GalleryPage() {
             }`}
           >
             <Layers className="w-3.5 h-3.5" />
-            <span>Curated Albums ({albums.length})</span>
+            <span>{t.gallery.albumsTab} ({albums.length})</span>
           </button>
         </div>
       </div>
@@ -255,7 +273,7 @@ export default function GalleryPage() {
                   : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-100"
               }`}
             >
-              All Categories
+              {t.gallery.allCategories}
             </button>
 
             {categories.map((cat) => (
@@ -339,6 +357,20 @@ export default function GalleryPage() {
                 const currentLikes = likesCount[post.id] ?? post.likes ?? 0;
                 const photoCount = post.photos?.length || 1;
 
+                const displayTitle =
+                  (language === "ur"
+                    ? post.translations?.ur?.title
+                    : language === "kn"
+                    ? post.translations?.kn?.title
+                    : post.translations?.en?.title) || post.title;
+
+                const displayCaption =
+                  (language === "ur"
+                    ? post.translations?.ur?.caption
+                    : language === "kn"
+                    ? post.translations?.kn?.caption
+                    : post.translations?.en?.caption) || post.caption;
+
                 return (
                   <Card
                     key={post.id}
@@ -352,14 +384,14 @@ export default function GalleryPage() {
                       >
                         <Image
                           src={post.coverImage}
-                          alt={post.title}
+                          alt={displayTitle}
                           fill
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-4 text-white">
                           <div className="flex items-center gap-1.5 text-xs font-semibold">
                             <ZoomIn className="w-4 h-4" />
-                            <span>View Full Photo</span>
+                            <span>{t.gallery.viewFullPhoto}</span>
                           </div>
                         </div>
 
@@ -372,7 +404,7 @@ export default function GalleryPage() {
                           {photoCount > 1 && (
                             <span className="inline-flex items-center gap-1 text-[11px] font-bold text-white bg-black/60 backdrop-blur-md px-2 py-0.5 rounded-full shadow-xs">
                               <Images className="w-3 h-3 text-emerald-400" />
-                              <span>{photoCount} Photos</span>
+                              <span>{photoCount} {t.gallery.photosCount}</span>
                             </span>
                           )}
                         </div>
@@ -406,13 +438,13 @@ export default function GalleryPage() {
                           onClick={() => handleOpenPostLightbox(post, 0)}
                           className="text-base font-bold text-[#0B2238] group-hover:text-[#047857] transition-colors cursor-pointer leading-snug line-clamp-1"
                         >
-                          {post.title}
+                          {displayTitle}
                         </h3>
 
                         {/* Caption */}
-                        {post.caption && (
+                        {displayCaption && (
                           <p className="mt-2 text-xs sm:text-sm text-slate-500 line-clamp-2 leading-relaxed">
-                            {post.caption}
+                            {displayCaption}
                           </p>
                         )}
                       </div>
@@ -426,7 +458,7 @@ export default function GalleryPage() {
                         className="text-xs font-bold text-[#047857] hover:underline flex items-center gap-1.5 cursor-pointer"
                       >
                         <ZoomIn className="w-3.5 h-3.5" />
-                        <span>View Slideshow</span>
+                        <span>{t.gallery.viewSlideshow}</span>
                       </button>
 
                       {/* Like & Share */}
@@ -438,7 +470,7 @@ export default function GalleryPage() {
                               ? "text-red-600 bg-red-50"
                               : "text-slate-500 hover:text-red-500 hover:bg-slate-100"
                           }`}
-                          title="Like this photo post"
+                          title={t.gallery.like}
                         >
                           <Heart
                             className={`w-3.5 h-3.5 ${isLiked ? "fill-red-500 text-red-500" : ""}`}
@@ -449,7 +481,7 @@ export default function GalleryPage() {
                         <button
                           onClick={() => handleShare(post)}
                           className="p-1.5 text-slate-400 hover:text-[#047857] hover:bg-slate-100 rounded-md transition-colors"
-                          title="Share post"
+                          title={t.gallery.share}
                         >
                           {copiedId === post.id ? (
                             <Check className="w-3.5 h-3.5 text-emerald-600" />

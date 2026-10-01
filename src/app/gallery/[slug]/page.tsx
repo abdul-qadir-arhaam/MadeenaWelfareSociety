@@ -8,12 +8,14 @@ import { GALLERY_ALBUMS, GalleryAlbum } from "@/lib/data/galleryData";
 import { Lightbox } from "@/components/gallery/Lightbox";
 import { Badge } from "@/components/ui/Badge";
 import { Card } from "@/components/ui/Card";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 export default function AlbumDetailPage({
   params,
 }: {
   params: Promise<{ slug: string }>;
 }) {
+  const { t, language } = useLanguage();
   const { slug } = use(params);
   const staticAlbum = GALLERY_ALBUMS.find((a) => a.slug === slug);
   const [album, setAlbum] = useState<GalleryAlbum | undefined>(staticAlbum);
@@ -55,7 +57,7 @@ export default function AlbumDetailPage({
   if (!album) {
     return (
       <div className="py-24 max-w-7xl mx-auto px-4 text-center">
-        <h2 className="text-xl font-bold text-[#0B2238]">Album Not Found</h2>
+        <h2 className="text-xl font-bold text-[#0B2238]">{t.gallery.noAlbums}</h2>
         <p className="text-xs text-slate-500 mt-2">
           The requested photo album could not be found or has been moved.
         </p>
@@ -64,7 +66,7 @@ export default function AlbumDetailPage({
           className="inline-flex items-center gap-1.5 text-xs font-bold text-[#047857] mt-4 hover:underline"
         >
           <ArrowLeft className="w-3.5 h-3.5 rtl:rotate-180" />
-          <span>Return to Gallery</span>
+          <span>{t.gallery.backToPosts}</span>
         </Link>
       </div>
     );
@@ -75,6 +77,24 @@ export default function AlbumDetailPage({
     setLightboxOpen(true);
   };
 
+  const albumTitle =
+    (language === "ur"
+      ? album.translations?.ur?.title
+      : language === "kn"
+      ? album.translations?.kn?.title
+      : album.translations?.en?.title) ||
+    album.title;
+
+  const albumDescription =
+    (language === "ur"
+      ? album.translations?.ur?.description
+      : language === "kn"
+      ? album.translations?.kn?.description
+      : album.translations?.en?.description) ||
+    album.description;
+
+  const isRtl = language === "ur";
+
   return (
     <div className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       {/* Back link */}
@@ -84,7 +104,7 @@ export default function AlbumDetailPage({
           className="inline-flex items-center gap-2 text-sm font-semibold text-[#047857] hover:underline"
         >
           <ArrowLeft className="w-4 h-4 rtl:rotate-180" />
-          <span>Back to All Gallery Posts</span>
+          <span>{t.gallery.backToPosts}</span>
         </Link>
       </div>
 
@@ -98,23 +118,23 @@ export default function AlbumDetailPage({
           </div>
           <span className="inline-flex items-center gap-1 text-xs font-semibold text-[#047857] bg-emerald-50 px-2.5 py-0.5 rounded-full border border-emerald-100">
             <Images className="w-3.5 h-3.5" />
-            {album.photos?.length || 0} Photos in Album
+            {album.photos?.length || 0} {t.gallery.photosCount}
           </span>
         </div>
 
-        <h1 className="text-2xl sm:text-4xl font-extrabold text-[#0B2238] tracking-tight">
-          {album.title}
+        <h1 className={`text-2xl sm:text-4xl font-extrabold text-[#0B2238] tracking-tight ${isRtl ? "font-urdu" : ""}`}>
+          {albumTitle}
         </h1>
 
-        <p className="mt-3 text-sm sm:text-base text-slate-600 max-w-3xl leading-relaxed">
-          {album.description}
+        <p className={`mt-3 text-sm sm:text-base text-slate-600 max-w-3xl leading-relaxed ${isRtl ? "font-urdu" : ""}`}>
+          {albumDescription}
         </p>
       </div>
 
       {/* Photo Grid displaying all photos in the album */}
       {(!album.photos || album.photos.length === 0) ? (
         <div className="py-16 text-center text-slate-400 text-xs">
-          No photos found in this album yet.
+          {t.gallery.noPhotosAlbum}
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">

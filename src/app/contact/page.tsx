@@ -7,8 +7,9 @@ import { Button } from "@/components/ui/Button";
 import { Card } from "@/components/ui/Card";
 
 export default function ContactPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
   const [submitted, setSubmitted] = useState(false);
+  const isUrdu = language === "ur";
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,13 +20,13 @@ export default function ContactPage() {
     <div className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mb-12">
         <span className="text-xs font-bold uppercase tracking-widest text-[#047857] bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
-          Reach Out
-        </span>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0B2238] mt-3">
           {t.nav.contact}
+        </span>
+        <h1 className={`text-3xl sm:text-4xl font-extrabold text-[#0B2238] mt-3 ${isUrdu ? "font-urdu" : ""}`}>
+          {t.contact.pageTitle}
         </h1>
-        <p className="mt-3 text-base text-slate-600">
-          {t.getInTouch.subtitle}
+        <p className={`mt-3 text-base text-slate-600 ${isUrdu ? "font-urdu" : ""}`}>
+          {t.contact.pageSubtitle}
         </p>
       </div>
 
@@ -38,9 +39,9 @@ export default function ContactPage() {
                 <MapPin className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-[#0B2238]">Office Address</h3>
-                <p className="text-sm text-slate-600 mt-1 leading-relaxed">
-                  Madeena Welfare Society Campus, Main Road, Bhatkal, Karnataka — 581320
+                <h3 className={`text-base font-bold text-[#0B2238] ${isUrdu ? "font-urdu" : ""}`}>{t.contact.officeAddress}</h3>
+                <p className={`text-sm text-slate-600 mt-1 leading-relaxed ${isUrdu ? "font-urdu" : ""}`}>
+                  {t.contact.officeAddressVal}
                 </p>
               </div>
             </div>
@@ -52,11 +53,11 @@ export default function ContactPage() {
                 <Mail className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-[#0B2238]">Email Inquiries</h3>
+                <h3 className={`text-base font-bold text-[#0B2238] ${isUrdu ? "font-urdu" : ""}`}>{t.contact.emailInquiries}</h3>
                 <p className="text-sm text-slate-600 mt-1">
                   contact@madeenaws.bhatkal.org
                 </p>
-                <p className="text-xs text-slate-400 mt-0.5">We reply within 24–48 hours</p>
+                <p className={`text-xs text-slate-400 mt-0.5 ${isUrdu ? "font-urdu" : ""}`}>{t.contact.emailDesc}</p>
               </div>
             </div>
           </Card>
@@ -67,11 +68,11 @@ export default function ContactPage() {
                 <Phone className="w-6 h-6" />
               </div>
               <div>
-                <h3 className="text-base font-bold text-[#0B2238]">Helpline & WhatsApp</h3>
-                <p className="text-sm text-slate-600 mt-1">
+                <h3 className={`text-base font-bold text-[#0B2238] ${isUrdu ? "font-urdu" : ""}`}>{t.contact.phoneSupport}</h3>
+                <p className="text-sm text-slate-600 mt-1" dir="ltr">
                   +91 91123 45678 / +91 8386 226789
                 </p>
-                <p className="text-xs text-slate-400 mt-0.5">Mon - Sat: 9:00 AM - 6:00 PM</p>
+                <p className={`text-xs text-slate-400 mt-0.5 ${isUrdu ? "font-urdu" : ""}`}>{t.contact.phoneDesc}</p>
               </div>
             </div>
           </Card>
@@ -83,36 +84,38 @@ export default function ContactPage() {
             {submitted ? (
               <div className="text-center py-10 space-y-3">
                 <CheckCircle className="w-14 h-14 text-emerald-600 mx-auto" />
-                <h3 className="text-xl font-bold text-[#0B2238]">Thank You!</h3>
-                <p className="text-sm text-slate-600 max-w-md mx-auto">
-                  Your message has been received by Madeena Welfare Society Bhatkal. Our community coordinators will reach out shortly.
+                <h3 className={`text-xl font-bold text-[#0B2238] ${isUrdu ? "font-urdu" : ""}`}>
+                  {isUrdu ? "شکریہ!" : "Thank You!"}
+                </h3>
+                <p className={`text-sm text-slate-600 max-w-md mx-auto ${isUrdu ? "font-urdu" : ""}`}>
+                  {t.contact.formSuccess}
                 </p>
                 <Button
                   variant="outline-pill"
                   onClick={() => setSubmitted(false)}
-                  className="mt-4"
+                  className={`mt-4 ${isUrdu ? "font-urdu text-xs" : ""}`}
                 >
-                  Send Another Message
+                  {isUrdu ? "ایک اور پیغام بھیجیں" : "Send Another Message"}
                 </Button>
               </div>
             ) : (
               <form onSubmit={handleSubmit} className="space-y-5">
-                <h3 className="text-xl font-bold text-[#0B2238]">Send a Direct Message</h3>
+                <h3 className={`text-xl font-bold text-[#0B2238] ${isUrdu ? "font-urdu" : ""}`}>{t.contact.formTitle}</h3>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                      Your Name
+                    <label className={`block text-xs font-semibold text-slate-700 mb-1.5 ${isUrdu ? "font-urdu" : ""}`}>
+                      {t.contact.formName}
                     </label>
                     <input
                       required
                       type="text"
-                      placeholder="e.g. Mohammed Farhan"
+                      placeholder={isUrdu ? "مثلاً محمد فرحان" : "e.g. Mohammed Farhan"}
                       className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#047857]"
                     />
                   </div>
                   <div>
-                    <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                      Phone Number
+                    <label className={`block text-xs font-semibold text-slate-700 mb-1.5 ${isUrdu ? "font-urdu" : ""}`}>
+                      {isUrdu ? "فون نمبر" : "Phone Number"}
                     </label>
                     <input
                       required
@@ -124,8 +127,8 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                    Email Address
+                  <label className={`block text-xs font-semibold text-slate-700 mb-1.5 ${isUrdu ? "font-urdu" : ""}`}>
+                    {t.contact.formEmail}
                   </label>
                   <input
                     type="email"
@@ -135,32 +138,32 @@ export default function ContactPage() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                    Subject / Program Area
+                  <label className={`block text-xs font-semibold text-slate-700 mb-1.5 ${isUrdu ? "font-urdu" : ""}`}>
+                    {t.contact.formSubject}
                   </label>
-                  <select className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#047857] bg-white">
-                    <option>General Welfare Inquiry</option>
-                    <option>Education Scholarship Support</option>
-                    <option>Medical & Healthcare Assistance</option>
-                    <option>Emergency Relief</option>
-                    <option>Volunteer Opportunity</option>
+                  <select className={`w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#047857] bg-white ${isUrdu ? "font-urdu" : ""}`}>
+                    <option>{isUrdu ? "عام فلاحی معلومات" : "General Welfare Inquiry"}</option>
+                    <option>{isUrdu ? "تعلیمی اسکالرشپ و انعامات" : "Education Scholarship Support"}</option>
+                    <option>{isUrdu ? "طبی امداد و ایمرجنسی" : "Medical & Healthcare Assistance"}</option>
+                    <option>{isUrdu ? "ہنگامی راشن و ریلیف" : "Emergency Relief"}</option>
+                    <option>{isUrdu ? "رضاکارانہ شمولیت" : "Volunteer Opportunity"}</option>
                   </select>
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                    Your Message
+                  <label className={`block text-xs font-semibold text-slate-700 mb-1.5 ${isUrdu ? "font-urdu" : ""}`}>
+                    {t.contact.formMessage}
                   </label>
                   <textarea
                     required
                     rows={4}
-                    placeholder="How can Madeena Welfare Society assist you?"
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#047857]"
+                    placeholder={isUrdu ? "مدینہ ویلفیئر سوسائٹی آپ کی کس طرح رہنمائی کر سکتی ہے؟" : "How can Madeena Welfare Society assist you?"}
+                    className={`w-full px-3.5 py-2.5 rounded-lg border border-slate-300 text-sm focus:outline-none focus:ring-2 focus:ring-[#047857] ${isUrdu ? "font-urdu" : ""}`}
                   ></textarea>
                 </div>
 
-                <Button type="submit" size="lg" className="w-full">
-                  <span>Send Message</span>
+                <Button type="submit" size="lg" className={`w-full ${isUrdu ? "font-urdu" : ""}`}>
+                  <span>{t.contact.formSendBtn}</span>
                   <Send className="w-4 h-4 rtl:rotate-180" />
                 </Button>
               </form>

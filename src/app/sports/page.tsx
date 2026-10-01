@@ -18,6 +18,7 @@ import {
 import { Card } from "@/components/ui/Card";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
+import { useLanguage } from "@/lib/i18n/LanguageContext";
 
 interface SportsItem {
   id: string;
@@ -32,7 +33,18 @@ interface SportsItem {
 }
 
 export default function SportsPage() {
+  const { t, language } = useLanguage();
   const [activeTab, setActiveTab] = useState<string>("All");
+  const isUrdu = language === "ur";
+
+  const tabLabels: Record<string, string> = {
+    All: t.sports.allTab,
+    Cricket: t.sports.cricketTab,
+    "Player Spotlight": t.sports.spotlightsTab,
+    "Night League": t.sports.nightLeagueTab,
+    Football: t.sports.footballTab,
+    Tournaments: t.sports.tournamentsTab,
+  };
 
   const disciplines = ["All", "Cricket", "Player Spotlight", "Night League", "Football", "Tournaments"];
 
@@ -118,13 +130,13 @@ export default function SportsPage() {
       {/* Header */}
       <div className="max-w-3xl mb-12">
         <span className="text-xs font-bold uppercase tracking-widest text-[#047857] bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
-          Youth & Fitness Division
+          {isUrdu ? "کھیل کود اور نوجوانان" : "Youth & Fitness Division"}
         </span>
-        <h1 className="text-3xl sm:text-5xl font-extrabold text-[#0B2238] tracking-tight mt-3">
-          Sports Tournaments & Club Champions
+        <h1 className={`text-3xl sm:text-5xl font-extrabold text-[#0B2238] tracking-tight mt-3 ${isUrdu ? "font-urdu" : ""}`}>
+          {t.sports.pageTitle}
         </h1>
-        <p className="mt-3 text-base sm:text-lg text-slate-600 leading-relaxed">
-          Nurturing sportsmanship, physical fitness, and brotherhood. Explore our championship wins, match heroics, player spotlights, and upcoming league fixtures across Bhatkal.
+        <p className={`mt-3 text-base sm:text-lg text-slate-600 leading-relaxed ${isUrdu ? "font-urdu" : ""}`}>
+          {t.sports.pageSubtitle}
         </p>
       </div>
 
@@ -136,20 +148,20 @@ export default function SportsPage() {
           </div>
           <div>
             <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-400/20 text-amber-300 border border-amber-400/30 uppercase tracking-widest">
-              Current Titleholders
+              {t.sports.championBadge}
             </span>
-            <h2 className="text-xl sm:text-2xl font-bold mt-1 text-white">
-              Cosmos Golden Jubilee Trophy Champions (₹75,000)
+            <h2 className={`text-xl sm:text-2xl font-bold mt-1 text-white ${isUrdu ? "font-urdu" : ""}`}>
+              {t.hero.championshipTitle}
             </h2>
-            <p className="text-xs sm:text-sm text-slate-300 mt-1 max-w-xl">
-              Madeena Welfare Society cricket team defeated top coastal Karnataka teams to bring the prestigious trophy home to Madeena Colony.
+            <p className={`text-xs sm:text-sm text-slate-300 mt-1 max-w-xl ${isUrdu ? "font-urdu" : ""}`}>
+              {t.hero.championshipFelicitation}
             </p>
           </div>
         </div>
 
         <Link href="/gallery/community-sports-event">
           <Button variant="secondary" className="whitespace-nowrap flex items-center gap-2 font-semibold text-xs sm:text-sm shadow-sm">
-            <span>View Trophy Photos</span>
+            <span>{t.sports.viewMatchPhotos}</span>
             <ArrowRight className="w-4 h-4 rtl:rotate-180" />
           </Button>
         </Link>
@@ -166,9 +178,9 @@ export default function SportsPage() {
               activeTab === d
                 ? "bg-[#047857] text-white shadow-sm"
                 : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
-            }`}
+            } ${isUrdu ? "font-urdu text-sm" : ""}`}
           >
-            {d}
+            {tabLabels[d] || d}
           </button>
         ))}
       </div>

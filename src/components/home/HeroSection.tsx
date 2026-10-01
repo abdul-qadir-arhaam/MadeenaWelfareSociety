@@ -83,10 +83,7 @@ export function HeroSection({ initialBackgroundImage }: HeroSectionProps) {
 
             {/* Main Headline */}
             <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.12] drop-shadow-md">
-              Madeena Welfare Society
-              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-rose-300 to-amber-200 mt-1 sm:mt-2">
-                Bhatkal
-              </span>
+              {t.hero.title}
             </h1>
 
             {/* Subtitle */}
@@ -110,7 +107,7 @@ export function HeroSection({ initialBackgroundImage }: HeroSectionProps) {
               <Link href="/achievements">
                 <button className="inline-flex items-center justify-center font-bold px-6 py-3.5 text-base rounded-xl gap-2.5 bg-white/10 hover:bg-white/20 text-white border border-white/30 backdrop-blur-md shadow-lg hover:shadow-xl hover:-translate-y-0.5 active:scale-98 transition-all duration-200 cursor-pointer group">
                   <Trophy className="w-4 h-4 text-amber-300 group-hover:scale-110 transition-transform" />
-                  <span>Championship Honors</span>
+                  <span>{t.hero.honorsBtn}</span>
                 </button>
               </Link>
             </div>
@@ -118,16 +115,28 @@ export function HeroSection({ initialBackgroundImage }: HeroSectionProps) {
             {/* Authentic Club Milestones Strip (Glassmorphism) */}
             <div className="pt-6 border-t border-white/15 w-full grid grid-cols-3 gap-4 sm:gap-6">
               <div className="flex flex-col">
-                <span className="text-2xl sm:text-3xl font-black text-white drop-shadow-xs">60+</span>
-                <span className="text-xs font-bold text-slate-300/90 mt-0.5">Years of Legacy</span>
+                <span className="text-2xl sm:text-3xl font-black text-white drop-shadow-xs">
+                  {t.hero.statsLegacy}
+                </span>
+                <span className="text-xs font-bold text-slate-300/90 mt-0.5">
+                  {t.hero.statsLegacyLabel}
+                </span>
               </div>
               <div className="flex flex-col">
-                <span className="text-2xl sm:text-3xl font-black text-red-400 drop-shadow-xs">₹75K</span>
-                <span className="text-xs font-bold text-slate-300/90 mt-0.5">Cosmos Champions</span>
+                <span className="text-2xl sm:text-3xl font-black text-red-400 drop-shadow-xs">
+                  {t.hero.statsChampions}
+                </span>
+                <span className="text-xs font-bold text-slate-300/90 mt-0.5">
+                  {t.hero.statsChampionsLabel}
+                </span>
               </div>
               <div className="flex flex-col">
-                <span className="text-2xl sm:text-3xl font-black text-blue-300 drop-shadow-xs">83+</span>
-                <span className="text-xs font-bold text-slate-300/90 mt-0.5">Merit Scholars</span>
+                <span className="text-2xl sm:text-3xl font-black text-blue-300 drop-shadow-xs">
+                  {t.hero.statsScholars}
+                </span>
+                <span className="text-xs font-bold text-slate-300/90 mt-0.5">
+                  {t.hero.statsScholarsLabel}
+                </span>
               </div>
             </div>
           </div>
@@ -151,13 +160,13 @@ export function HeroSection({ initialBackgroundImage }: HeroSectionProps) {
                   <div className="absolute bottom-4 left-4 right-4 text-white">
                     <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 bg-red-600 text-white rounded-md text-[10px] font-black uppercase tracking-wider mb-1.5 shadow-xs">
                       <Trophy className="w-3 h-3 text-amber-300" />
-                      <span>₹75,000 Grand Title</span>
+                      <span>{t.hero.championshipSubtitle}</span>
                     </div>
                     <p className="text-sm font-bold text-white leading-tight">
-                      Championship Victory & Medals Felicitation
+                      {t.hero.championshipTitle}
                     </p>
                     <p className="text-[11px] text-slate-300 mt-1">
-                      Victorious squad decorated with gold medals and the Cosmos Trophy in Bhatkal.
+                      {t.hero.championshipFelicitation}
                     </p>
                   </div>
                 </div>
@@ -169,10 +178,10 @@ export function HeroSection({ initialBackgroundImage }: HeroSectionProps) {
                   </div>
                   <div className="text-start pr-1">
                     <span className="block text-[10px] font-extrabold uppercase tracking-wider text-amber-400">
-                      Champions
+                      {t.sports.championBadge}
                     </span>
                     <span className="text-xs font-bold text-white leading-tight">
-                      Cosmos Jubilee Cup
+                      {t.hero.statsChampionsLabel}
                     </span>
                   </div>
                 </div>
@@ -182,10 +191,10 @@ export function HeroSection({ initialBackgroundImage }: HeroSectionProps) {
                   <ShieldCheck className="w-5 h-5 text-blue-400 flex-shrink-0" />
                   <div className="text-start">
                     <span className="block text-[10px] font-bold text-slate-300 uppercase tracking-wider">
-                      Regd. USA 1960
+                      {t.hero.regdBadge}
                     </span>
                     <span className="text-xs font-bold text-white leading-tight">
-                      Bhatkal, Karnataka
+                      {t.orgSubtitle}
                     </span>
                   </div>
                 </div>

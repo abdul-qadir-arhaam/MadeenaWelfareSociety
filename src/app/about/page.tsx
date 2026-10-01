@@ -6,19 +6,20 @@ import { useLanguage } from "@/lib/i18n/LanguageContext";
 import { Card } from "@/components/ui/Card";
 
 export default function AboutPage() {
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const isUrdu = language === "ur";
 
   return (
     <div className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mb-12">
         <span className="text-xs font-bold uppercase tracking-widest text-[#047857] bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
-          Madeena Welfare Society Bhatkal
+          {t.orgName}
         </span>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-[#0B2238] mt-3">
-          {t.nav.about}
+        <h1 className={`text-3xl sm:text-4xl font-extrabold text-[#0B2238] mt-3 ${isUrdu ? "font-urdu" : ""}`}>
+          {t.about.pageTitle}
         </h1>
-        <p className="mt-3 text-base text-slate-600">
-          Serving the community of Bhatkal with compassion, commitment, and dedication.
+        <p className={`mt-3 text-base text-slate-600 ${isUrdu ? "font-urdu" : ""}`}>
+          {t.about.pageSubtitle}
         </p>
       </div>
 
@@ -31,57 +32,61 @@ export default function AboutPage() {
             className="object-cover"
           />
         </div>
-        <div className="space-y-4 text-slate-600 leading-relaxed text-sm sm:text-base">
-          <h2 className="text-xl sm:text-2xl font-bold text-[#0B2238]">Our Vision & Mission</h2>
-          <p>
-            Madeena Welfare Society Bhatkal was founded with the core mission of uplifting the community through accessible education, medical aid, disaster relief, youth empowerment, and cultural sports activities.
-          </p>
-          <p>
-            We strive to foster unity, provide dependable assistance to underprivileged families, celebrate community achievements, and create a healthier, stronger, and more resilient society.
-          </p>
+        <div className={`space-y-4 text-slate-600 leading-relaxed text-sm sm:text-base ${isUrdu ? "font-urdu" : ""}`}>
+          <h2 className="text-xl sm:text-2xl font-bold text-[#0B2238]">{t.about.visionTitle}</h2>
+          <p>{t.about.visionP1}</p>
+          <p>{t.about.visionP2}</p>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
         <Card className="p-6 border-slate-200">
-          <h3 className="font-bold text-[#0B2238] text-lg">Compassionate Service</h3>
-          <p className="text-sm text-slate-500 mt-2">
-            Directly addressing grassroots needs through food drives, emergency medical relief, and family support in Madeena Colony and Bhatkal taluk.
-          </p>
+          <h3 className={`font-bold text-[#0B2238] text-lg ${isUrdu ? "font-urdu" : ""}`}>{t.about.card1Title}</h3>
+          <p className={`text-sm text-slate-500 mt-2 ${isUrdu ? "font-urdu" : ""}`}>{t.about.card1Desc}</p>
         </Card>
         <Card className="p-6 border-slate-200">
-          <h3 className="font-bold text-[#0B2238] text-lg">Youth & Education</h3>
-          <p className="text-sm text-slate-500 mt-2">
-            Hosting the annual Madina Ta&apos;leemi Award, honoring 80+ meritorious students annually across Hifz, Fazilat, SSLC, PUC, and professional degrees.
-          </p>
+          <h3 className={`font-bold text-[#0B2238] text-lg ${isUrdu ? "font-urdu" : ""}`}>{t.about.card2Title}</h3>
+          <p className={`text-sm text-slate-500 mt-2 ${isUrdu ? "font-urdu" : ""}`}>{t.about.card2Desc}</p>
         </Card>
         <Card className="p-6 border-slate-200">
-          <h3 className="font-bold text-[#0B2238] text-lg">Sports & Unity</h3>
-          <p className="text-sm text-slate-500 mt-2">
-            Fielding the renowned MWS sports team across BMYF cricket and football tournaments, inspiring youth through active sportsmanship.
-          </p>
+          <h3 className={`font-bold text-[#0B2238] text-lg ${isUrdu ? "font-urdu" : ""}`}>{t.about.card3Title}</h3>
+          <p className={`text-sm text-slate-500 mt-2 ${isUrdu ? "font-urdu" : ""}`}>{t.about.card3Desc}</p>
         </Card>
       </div>
 
       {/* Leadership & Executive Body */}
       <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 mb-12">
-        <h2 className="text-2xl font-bold text-[#0B2238] mb-6">Executive Leadership & Governance</h2>
+        <h2 className={`text-2xl font-bold text-[#0B2238] mb-6 ${isUrdu ? "font-urdu" : ""}`}>
+          {isUrdu ? "انتظامیہ و مجلسِ عاملہ" : "Executive Leadership & Governance"}
+        </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="bg-white p-5 rounded-xl border border-slate-200">
-            <span className="text-xs font-bold uppercase text-[#047857]">President</span>
-            <h3 className="text-lg font-bold text-[#0B2238] mt-1">Maulana Irfan Nadwi</h3>
-            <p className="text-xs text-slate-500 mt-1">Leading community welfare, institutional oversight, and public initiatives.</p>
+            <span className="text-xs font-bold uppercase text-[#047857]">
+              {isUrdu ? "صدر" : "President"}
+            </span>
+            <h3 className={`text-lg font-bold text-[#0B2238] mt-1 ${isUrdu ? "font-urdu" : ""}`}>
+              {isUrdu ? "مولانا عرفان ندوی" : "Maulana Irfan Nadwi"}
+            </h3>
+            <p className={`text-xs text-slate-500 mt-1 ${isUrdu ? "font-urdu" : ""}`}>
+              {isUrdu ? "ادارہ جاتی سرپرستی، عوامی فلاح اور اجتماعی رہنمائی۔" : "Leading community welfare, institutional oversight, and public initiatives."}
+            </p>
           </div>
           <div className="bg-white p-5 rounded-xl border border-slate-200">
-            <span className="text-xs font-bold uppercase text-[#047857]">General Secretary</span>
-            <h3 className="text-lg font-bold text-[#0B2238] mt-1">Maulana Abdul Samee Nadwi</h3>
-            <p className="text-xs text-slate-500 mt-1">Managing administration, community outreach, and educational programs.</p>
+            <span className="text-xs font-bold uppercase text-[#047857]">
+              {isUrdu ? "جنرل سکریٹری" : "General Secretary"}
+            </span>
+            <h3 className={`text-lg font-bold text-[#0B2238] mt-1 ${isUrdu ? "font-urdu" : ""}`}>
+              {isUrdu ? "مولانا عبد السمیع ندوی" : "Maulana Abdul Samee Nadwi"}
+            </h3>
+            <p className={`text-xs text-slate-500 mt-1 ${isUrdu ? "font-urdu" : ""}`}>
+              {isUrdu ? "انتظامی امور، تعلیمی منصوبے اور پریس و ابلاغ۔" : "Managing administration, community outreach, and educational programs."}
+            </p>
           </div>
         </div>
 
         <div className="mt-6 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-slate-500">
-            Headquarters: Madeena Welfare Society Campus, Madeena Colony, Bhatkal, Karnataka — 581320 (Regd. USA 1960).
+          <p className={`text-xs text-slate-500 ${isUrdu ? "font-urdu" : ""}`}>
+            {isUrdu ? "مرکزی دفتر: مدینہ ویلفیئر سوسائٹی کیمپس، مدینہ کالونی، بھٹکل، کرناٹک — 581320 (رجسٹرڈ 1960ء)" : "Headquarters: Madeena Welfare Society Campus, Madeena Colony, Bhatkal, Karnataka — 581320 (Regd. USA 1960)."}
           </p>
           <a
             href="https://www.instagram.com/madeenawelfaresociety?stkn=dzMwd3I0bm1leXk2"
@@ -89,7 +94,7 @@ export default function AboutPage() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 text-xs font-bold text-[#047857] hover:underline"
           >
-            <span>Follow our updates on Instagram @madeenawelfaresociety →</span>
+            <span>Instagram @madeenawelfaresociety →</span>
           </a>
         </div>
       </div>

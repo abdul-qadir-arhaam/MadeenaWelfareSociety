@@ -63,12 +63,12 @@ export function NewsPageClient({ initialNews }: NewsPageClientProps) {
     <div className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div className="max-w-3xl mb-12">
         <span className="text-xs font-bold uppercase tracking-widest text-red-700 bg-red-50 px-3 py-1 rounded-full border border-red-200">
-          Official Press & Announcements
+          {language === "ur" ? "سرکاری پریس و اعلانات" : "Official Press & Announcements"}
         </span>
-        <h1 className="text-3xl sm:text-4xl font-black text-[#0B2238] mt-3">
+        <h1 className={`text-3xl sm:text-4xl font-black text-[#0B2238] mt-3 ${language === "ur" ? "font-urdu" : ""}`}>
           {t.news.sectionTitle}
         </h1>
-        <p className="mt-3 text-base text-slate-600">
+        <p className={`mt-3 text-base text-slate-600 ${language === "ur" ? "font-urdu" : ""}`}>
           {t.news.sectionSubtitle}
         </p>
       </div>
@@ -86,8 +86,10 @@ export function NewsPageClient({ initialNews }: NewsPageClientProps) {
         </div>
       ) : newsList.length === 0 ? (
         <div className="text-center py-16 bg-slate-50 rounded-2xl border border-dashed border-slate-300">
-          <p className="text-base font-bold text-slate-700">No published articles at the moment.</p>
-          <p className="text-xs text-slate-500 mt-1">Please check back soon for latest community bulletins.</p>
+          <p className="text-base font-bold text-slate-700">{t.news.noArticles}</p>
+          <p className="text-xs text-slate-500 mt-1">
+            {language === "ur" ? "براہ کرم تازہ ترین اعلانات کے لیے جلد دوبارہ ملاحظہ فرمائیں۔" : "Please check back soon for latest community bulletins."}
+          </p>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

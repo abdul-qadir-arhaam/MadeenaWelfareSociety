@@ -15,6 +15,11 @@ export interface GalleryAlbum {
   description: string;
   containCover?: boolean;
   photos: GalleryPhoto[];
+  translations?: {
+    en?: { title: string; description?: string };
+    kn?: { title: string; description?: string };
+    ur?: { title: string; description?: string };
+  };
 }
 
 export interface GalleryPost {
