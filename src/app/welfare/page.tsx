@@ -149,22 +149,22 @@ export default function WelfarePage() {
       </div>
 
       {/* Impact Statistics Counter */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-12">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6 mb-8 sm:mb-12">
         {impactStats.map((stat, idx) => {
           const Icon = stat.icon;
           return (
             <div
               key={idx}
-              className="bg-white p-5 sm:p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between"
+              className="bg-white p-4 sm:p-6 rounded-2xl border border-slate-200 shadow-xs flex flex-col justify-between"
             >
-              <div className="w-10 h-10 rounded-xl bg-emerald-50 text-[#047857] flex items-center justify-center mb-3">
-                <Icon className="w-5 h-5" />
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl bg-emerald-50 text-[#047857] flex items-center justify-center mb-2.5 sm:mb-3">
+                <Icon className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
               <div>
-                <span className="text-2xl sm:text-3xl font-extrabold text-[#0B2238] block tracking-tight">
+                <span className="text-xl sm:text-3xl font-extrabold text-[#0B2238] block tracking-tight">
                   {stat.value}
                 </span>
-                <span className={`text-xs text-slate-500 font-medium mt-0.5 block ${isUrdu ? "font-urdu" : ""}`}>
+                <span className={`text-[11px] sm:text-xs text-slate-500 font-medium mt-0.5 block leading-tight ${isUrdu ? "font-urdu" : ""}`}>
                   {stat.label}
                 </span>
               </div>
@@ -174,7 +174,7 @@ export default function WelfarePage() {
       </div>
 
       {/* Category Filter Chips */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 text-xs scrollbar-none">
+      <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-8 text-xs scrollbar-none touch-pan-x">
         {categories.map((cat) => (
           <button
             key={cat}

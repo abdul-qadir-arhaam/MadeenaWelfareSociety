@@ -42,10 +42,10 @@ export function AchievementsSpotlight() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-white border-b border-slate-200/80">
+    <section className="py-12 sm:py-20 bg-white border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-12">
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-red-50 text-red-700 text-xs font-extrabold uppercase tracking-wider rounded-full border border-red-200 mb-2">
               <Trophy className="w-3.5 h-3.5 text-red-600" />
@@ -59,12 +59,12 @@ export function AchievementsSpotlight() {
             </p>
           </div>
 
-          <div>
-            <Link href="/achievements">
+          <div className="w-full sm:w-auto">
+            <Link href="/achievements" className="block sm:inline-block w-full sm:w-auto">
               <Button
                 variant="outline-red"
                 size="md"
-                className="font-bold text-xs sm:text-sm group"
+                className="w-full sm:w-auto justify-center font-bold text-xs sm:text-sm group min-h-[44px]"
               >
                 <span>View Full Trophy Cabinet</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
@@ -74,15 +74,15 @@ export function AchievementsSpotlight() {
         </div>
 
         {/* 3 Honors Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-5 sm:gap-8">
           {achievements.map((item, idx) => (
             <Card
               key={idx}
-              className="border-slate-200/90 bg-white p-5 flex flex-col justify-between hover:border-red-300 hover:shadow-xl group transition-all duration-300"
+              className="border-slate-200/90 bg-white p-4 sm:p-5 flex flex-col justify-between hover:border-red-300 hover:shadow-xl group transition-all duration-300 active:scale-[0.99]"
             >
               <div>
                 {/* Photo container with floating badges */}
-                <div className="relative aspect-16/10 rounded-xl overflow-hidden mb-5 bg-slate-100">
+                <div className="relative aspect-16/10 rounded-xl overflow-hidden mb-4 sm:mb-5 bg-slate-100">
                   <Image
                     src={item.image}
                     alt={item.title}

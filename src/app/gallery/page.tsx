@@ -226,10 +226,10 @@ export default function GalleryPage() {
         </div>
 
         {/* View Switcher: Posts Feed vs Albums */}
-        <div className="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 self-start md:self-auto flex-shrink-0">
+        <div className="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 w-full sm:w-auto flex-shrink-0">
           <button
             onClick={() => setViewMode("posts")}
-            className={`px-4 py-2 text-xs font-bold rounded-lg transition-all flex items-center gap-2 ${
+            className={`flex-1 sm:flex-initial justify-center px-4 py-2.5 sm:py-2 text-xs font-bold rounded-lg transition-all flex items-center gap-2 min-h-[40px] ${
               viewMode === "posts"
                 ? "bg-white text-[#047857] shadow-xs"
                 : "text-slate-600 hover:text-[#0B2238]"
@@ -241,7 +241,7 @@ export default function GalleryPage() {
 
           <button
             onClick={() => setViewMode("albums")}
-            className={`px-4 py-2 text-xs font-bold rounded-lg transition-all flex items-center gap-2 ${
+            className={`flex-1 sm:flex-initial justify-center px-4 py-2.5 sm:py-2 text-xs font-bold rounded-lg transition-all flex items-center gap-2 min-h-[40px] ${
               viewMode === "albums"
                 ? "bg-white text-[#047857] shadow-xs"
                 : "text-slate-600 hover:text-[#0B2238]"
@@ -254,10 +254,10 @@ export default function GalleryPage() {
       </div>
 
       {/* Filter and Search Bar */}
-      <div className="bg-slate-50 p-4 sm:p-5 rounded-2xl border border-slate-200/90 mb-10 space-y-4">
-        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4">
+      <div className="bg-slate-50 p-3 sm:p-5 rounded-2xl border border-slate-200/90 mb-8 sm:mb-10 space-y-3 sm:space-y-4">
+        <div className="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-3 sm:gap-4">
           {/* Category Chips */}
-          <div className="flex items-center gap-1.5 overflow-x-auto pb-1 md:pb-0 scrollbar-none">
+          <div className="flex items-center gap-1.5 overflow-x-auto pb-1.5 md:pb-0 scrollbar-none touch-pan-x">
             <button
               onClick={() => {
                 setSelectedCategory("all");

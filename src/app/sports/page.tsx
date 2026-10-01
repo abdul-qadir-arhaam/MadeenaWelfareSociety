@@ -141,34 +141,36 @@ export default function SportsPage() {
       </div>
 
       {/* Trophy Spotlight Banner */}
-      <div className="bg-gradient-to-r from-[#0B2238] to-[#123658] text-white rounded-3xl p-6 sm:p-8 mb-12 shadow-lg border border-slate-800 flex flex-col lg:flex-row items-center justify-between gap-6">
-        <div className="flex items-center gap-5">
-          <div className="w-16 h-16 rounded-2xl bg-amber-500/20 border border-amber-400/40 text-amber-400 flex items-center justify-center flex-shrink-0 shadow-inner">
-            <Trophy className="w-8 h-8" />
+      <div className="bg-gradient-to-r from-[#0B2238] to-[#123658] text-white rounded-2xl sm:rounded-3xl p-5 sm:p-8 mb-8 sm:mb-12 shadow-lg border border-slate-800 flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-start gap-4 sm:gap-5 w-full">
+          <div className="w-14 h-14 sm:w-16 sm:h-16 rounded-2xl bg-amber-500/20 border border-amber-400/40 text-amber-400 flex items-center justify-center flex-shrink-0 shadow-inner">
+            <Trophy className="w-7 h-7 sm:w-8 sm:h-8" />
           </div>
           <div>
-            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-400/20 text-amber-300 border border-amber-400/30 uppercase tracking-widest">
+            <span className="px-2.5 py-0.5 rounded-full text-[10px] font-bold bg-amber-400/20 text-amber-300 border border-amber-400/30 uppercase tracking-widest inline-block">
               {t.sports.championBadge}
             </span>
-            <h2 className={`text-xl sm:text-2xl font-bold mt-1 text-white ${isUrdu ? "font-urdu" : ""}`}>
+            <h2 className={`text-lg sm:text-2xl font-bold mt-1.5 text-white ${isUrdu ? "font-urdu" : ""}`}>
               {t.hero.championshipTitle}
             </h2>
-            <p className={`text-xs sm:text-sm text-slate-300 mt-1 max-w-xl ${isUrdu ? "font-urdu" : ""}`}>
+            <p className={`text-xs sm:text-sm text-slate-300 mt-1 max-w-xl leading-relaxed ${isUrdu ? "font-urdu" : ""}`}>
               {t.hero.championshipFelicitation}
             </p>
           </div>
         </div>
 
-        <Link href="/gallery/community-sports-event">
-          <Button variant="secondary" className="whitespace-nowrap flex items-center gap-2 font-semibold text-xs sm:text-sm shadow-sm">
-            <span>{t.sports.viewMatchPhotos}</span>
-            <ArrowRight className="w-4 h-4 rtl:rotate-180" />
-          </Button>
-        </Link>
+        <div className="w-full lg:w-auto flex-shrink-0">
+          <Link href="/gallery/community-sports-event" className="block sm:inline-block w-full lg:w-auto">
+            <Button variant="secondary" className="w-full lg:w-auto whitespace-nowrap flex items-center justify-center gap-2 font-semibold text-xs sm:text-sm shadow-sm min-h-[44px]">
+              <span>{t.sports.viewMatchPhotos}</span>
+              <ArrowRight className="w-4 h-4 rtl:rotate-180" />
+            </Button>
+          </Link>
+        </div>
       </div>
 
       {/* Filter Tabs */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 text-xs scrollbar-none">
+      <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-8 text-xs scrollbar-none touch-pan-x">
         {disciplines.map((d) => (
           <button
             key={d}

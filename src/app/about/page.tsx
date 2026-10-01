@@ -55,11 +55,11 @@ export default function AboutPage() {
       </div>
 
       {/* Leadership & Executive Body */}
-      <div className="bg-slate-50 rounded-2xl p-8 border border-slate-200 mb-12">
-        <h2 className={`text-2xl font-bold text-[#0B2238] mb-6 ${isUrdu ? "font-urdu" : ""}`}>
+      <div className="bg-slate-50 rounded-2xl p-5 sm:p-8 border border-slate-200 mb-10 sm:mb-12">
+        <h2 className={`text-xl sm:text-2xl font-bold text-[#0B2238] mb-4 sm:mb-6 ${isUrdu ? "font-urdu" : ""}`}>
           {isUrdu ? "انتظامیہ و مجلسِ عاملہ" : "Executive Leadership & Governance"}
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
           <div className="bg-white p-5 rounded-xl border border-slate-200">
             <span className="text-xs font-bold uppercase text-[#047857]">
               {isUrdu ? "صدر" : "President"}

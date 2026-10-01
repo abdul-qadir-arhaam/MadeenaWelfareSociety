@@ -10,9 +10,9 @@ export function GetInTouchSection() {
   const { t } = useLanguage();
 
   return (
-    <section className="py-16 sm:py-20 bg-white">
+    <section className="py-12 sm:py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative rounded-3xl bg-[#0B2238] border border-blue-900/80 p-8 sm:p-12 overflow-hidden shadow-2xl">
+        <div className="relative rounded-2xl sm:rounded-3xl bg-[#0B2238] border border-blue-900/80 p-5 sm:p-12 overflow-hidden shadow-2xl">
           {/* Subtle Background Radial Highlights */}
           <div className="absolute top-0 right-0 -mt-10 -mr-10 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
           <div className="absolute bottom-0 left-0 -mb-10 -ml-10 w-72 h-72 bg-red-600/20 rounded-full blur-3xl pointer-events-none" />

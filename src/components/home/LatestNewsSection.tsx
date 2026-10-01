@@ -54,10 +54,10 @@ export function LatestNewsSection({ initialNews }: { initialNews?: NewsArticle[]
   const sideNews = news.filter((n) => n.id !== featured?.id).slice(0, 2);
 
   return (
-    <section className="py-16 sm:py-20 bg-slate-50/60 border-b border-slate-200/80">
+    <section className="py-12 sm:py-20 bg-slate-50/60 border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-12">
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-blue-50 text-blue-800 text-xs font-extrabold uppercase tracking-wider rounded-full border border-blue-200 mb-2">
               <Newspaper className="w-3.5 h-3.5 text-blue-700" />
@@ -71,12 +71,12 @@ export function LatestNewsSection({ initialNews }: { initialNews?: NewsArticle[]
             </p>
           </div>
 
-          <div>
-            <Link href="/news">
+          <div className="w-full sm:w-auto">
+            <Link href="/news" className="block sm:inline-block w-full sm:w-auto">
               <Button
                 variant="outline-pill"
                 size="md"
-                className="font-bold text-xs sm:text-sm group"
+                className="w-full sm:w-auto justify-center font-bold text-xs sm:text-sm group min-h-[44px]"
               >
                 <span>{t.news.viewAllNews}</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />

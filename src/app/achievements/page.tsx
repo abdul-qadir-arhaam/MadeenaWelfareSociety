@@ -62,7 +62,7 @@ export default function AchievementsPage() {
       </div>
 
       {/* Category Filter Chips */}
-      <div className="flex items-center gap-2 overflow-x-auto pb-4 mb-8 text-xs scrollbar-none">
+      <div className="flex items-center gap-2 overflow-x-auto pb-3 mb-8 text-xs scrollbar-none touch-pan-x">
         {categories.map((cat) => (
           <button
             key={cat}

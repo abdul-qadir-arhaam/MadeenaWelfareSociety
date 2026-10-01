@@ -43,10 +43,10 @@ export function GallerySection() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-white border-b border-slate-200/80">
+    <section className="py-12 sm:py-20 bg-white border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-12">
           <div>
             <div className="inline-flex items-center gap-1.5 px-3 py-1 bg-red-50 text-red-700 text-xs font-extrabold uppercase tracking-wider rounded-full border border-red-200 mb-2">
               <Camera className="w-3.5 h-3.5 text-red-600" />
@@ -60,12 +60,12 @@ export function GallerySection() {
             </p>
           </div>
 
-          <div>
-            <Link href="/gallery">
+          <div className="w-full sm:w-auto">
+            <Link href="/gallery" className="block sm:inline-block w-full sm:w-auto">
               <Button
                 variant="outline-red"
                 size="md"
-                className="font-bold text-xs sm:text-sm group"
+                className="w-full sm:w-auto justify-center font-bold text-xs sm:text-sm group min-h-[44px]"
               >
                 <span>{t.gallery.viewAllPhotos}</span>
                 <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
@@ -75,10 +75,10 @@ export function GallerySection() {
         </div>
 
         {/* 4 Photo Cards Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-5 sm:gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {galleryItems.map((item) => (
-            <Link key={item.id} href={item.href} className="group block">
-              <div className="overflow-hidden rounded-2xl border border-slate-200/90 bg-slate-50 aspect-4/3 relative shadow-xs group-hover:shadow-xl group-hover:border-blue-400 transition-all duration-300">
+            <Link key={item.id} href={item.href} className="group block active:scale-[0.98] transition-transform">
+              <div className="overflow-hidden rounded-xl sm:rounded-2xl border border-slate-200/90 bg-slate-50 aspect-4/3 relative shadow-xs group-hover:shadow-xl group-hover:border-blue-400 transition-all duration-300">
                 <Image
                   src={item.image}
                   alt={item.title}

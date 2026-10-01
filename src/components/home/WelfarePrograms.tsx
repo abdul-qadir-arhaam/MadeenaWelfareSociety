@@ -57,10 +57,10 @@ export function WelfarePrograms() {
   ];
 
   return (
-    <section className="py-16 sm:py-20 bg-slate-50/70 border-b border-slate-200/80">
+    <section className="py-12 sm:py-20 bg-slate-50/70 border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-12">
+        <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-12">
           <div className="text-start">
             <span className="inline-block px-3 py-1 bg-blue-50 text-blue-800 text-xs font-extrabold uppercase tracking-wider rounded-full border border-blue-200 mb-2">
               Community Pillars
@@ -75,7 +75,7 @@ export function WelfarePrograms() {
 
           <Link
             href="/welfare"
-            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-blue-700 hover:text-red-600 transition-colors group flex-shrink-0"
+            className="inline-flex items-center justify-center sm:justify-start gap-1.5 py-2 px-3.5 sm:p-0 rounded-xl bg-blue-50 sm:bg-transparent text-xs sm:text-sm font-bold text-blue-700 hover:text-red-600 transition-colors group flex-shrink-0"
           >
             <span>Explore All Initiatives</span>
             <ArrowRight className="w-4 h-4 group-hover:translate-x-1 rtl:group-hover:-translate-x-1 rtl:rotate-180 transition-transform" />
@@ -83,24 +83,24 @@ export function WelfarePrograms() {
         </div>
 
         {/* 4-Card Program Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {programs.map((program, index) => {
             const Icon = program.icon;
             return (
-              <Link key={index} href={program.href} className="group block">
+              <Link key={index} href={program.href} className="group block active:scale-[0.99] transition-transform">
                 <Card className="h-full flex flex-col justify-between relative border-slate-200/90 hover:border-blue-400/90 transition-all duration-300">
                   {/* Top Color Accent Stripe */}
                   <div
                     className={`h-1.5 w-full bg-gradient-to-r ${program.topStripe} group-hover:h-2 transition-all duration-300`}
                   />
 
-                  <div className="p-6">
+                  <div className="p-5 sm:p-6">
                     {/* Top Row: Icon + Subtag */}
-                    <div className="flex items-center justify-between gap-2 mb-5">
+                    <div className="flex items-center justify-between gap-2 mb-4 sm:mb-5">
                       <div
-                        className={`w-12 h-12 rounded-2xl ${program.accentBg} text-white flex items-center justify-center shadow-md shadow-slate-900/10 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300`}
+                        className={`w-11 h-11 sm:w-12 sm:h-12 rounded-2xl ${program.accentBg} text-white flex items-center justify-center shadow-md shadow-slate-900/10 group-hover:scale-110 group-hover:-rotate-3 transition-transform duration-300`}
                       >
-                        <Icon className="w-6 h-6" />
+                        <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                       </div>
                       <span
                         className={`text-[10px] font-bold px-2 py-0.5 rounded-full border ${program.badgeColor}`}
@@ -115,13 +115,13 @@ export function WelfarePrograms() {
                     </h3>
 
                     {/* Description */}
-                    <p className="mt-2.5 text-xs sm:text-sm text-slate-500 leading-relaxed">
+                    <p className="mt-2 text-xs sm:text-sm text-slate-500 leading-relaxed">
                       {program.description}
                     </p>
                   </div>
 
                   {/* Card Footer Indicator */}
-                  <div className="px-6 pb-5 pt-2 flex items-center justify-between text-xs font-bold text-slate-400 group-hover:text-blue-700 transition-colors border-t border-slate-100">
+                  <div className="px-5 sm:px-6 pb-4 sm:pb-5 pt-2 flex items-center justify-between text-xs font-bold text-slate-400 group-hover:text-blue-700 transition-colors border-t border-slate-100">
                     <span>Learn More</span>
                     <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 rtl:group-hover:-translate-x-1.5 rtl:rotate-180 transition-transform" />
                   </div>

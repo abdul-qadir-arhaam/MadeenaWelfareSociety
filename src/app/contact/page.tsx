@@ -17,62 +17,71 @@ export default function ContactPage() {
   };
 
   return (
-    <div className="py-12 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div className="max-w-3xl mb-12">
+    <div className="py-10 sm:py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-3xl mb-8 sm:mb-12">
         <span className="text-xs font-bold uppercase tracking-widest text-[#047857] bg-emerald-50 px-3 py-1 rounded-full border border-emerald-100">
           {t.nav.contact}
         </span>
-        <h1 className={`text-3xl sm:text-4xl font-extrabold text-[#0B2238] mt-3 ${isUrdu ? "font-urdu" : ""}`}>
+        <h1 className={`text-2xl sm:text-4xl font-extrabold text-[#0B2238] mt-3 ${isUrdu ? "font-urdu" : ""}`}>
           {t.contact.pageTitle}
         </h1>
-        <p className={`mt-3 text-base text-slate-600 ${isUrdu ? "font-urdu" : ""}`}>
+        <p className={`mt-2 sm:mt-3 text-sm sm:text-base text-slate-600 ${isUrdu ? "font-urdu" : ""}`}>
           {t.contact.pageSubtitle}
         </p>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-12">
         {/* Contact Info Cards */}
-        <div className="lg:col-span-5 space-y-6">
-          <Card className="p-6 border-slate-200">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#047857] flex items-center justify-center flex-shrink-0">
-                <MapPin className="w-6 h-6" />
+        <div className="lg:col-span-5 space-y-4 sm:space-y-6">
+          <Card className="p-4 sm:p-6 border-slate-200">
+            <div className="flex items-start gap-3.5 sm:gap-4">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-emerald-50 text-[#047857] flex items-center justify-center flex-shrink-0">
+                <MapPin className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <h3 className={`text-base font-bold text-[#0B2238] ${isUrdu ? "font-urdu" : ""}`}>{t.contact.officeAddress}</h3>
-                <p className={`text-sm text-slate-600 mt-1 leading-relaxed ${isUrdu ? "font-urdu" : ""}`}>
+                <h3 className={`text-sm sm:text-base font-bold text-[#0B2238] ${isUrdu ? "font-urdu" : ""}`}>{t.contact.officeAddress}</h3>
+                <p className={`text-xs sm:text-sm text-slate-600 mt-1 leading-relaxed ${isUrdu ? "font-urdu" : ""}`}>
                   {t.contact.officeAddressVal}
                 </p>
               </div>
             </div>
           </Card>
 
-          <Card className="p-6 border-slate-200">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#047857] flex items-center justify-center flex-shrink-0">
-                <Mail className="w-6 h-6" />
+          <Card className="p-4 sm:p-6 border-slate-200">
+            <div className="flex items-start gap-3.5 sm:gap-4">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-emerald-50 text-[#047857] flex items-center justify-center flex-shrink-0">
+                <Mail className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <h3 className={`text-base font-bold text-[#0B2238] ${isUrdu ? "font-urdu" : ""}`}>{t.contact.emailInquiries}</h3>
-                <p className="text-sm text-slate-600 mt-1">
+                <h3 className={`text-sm sm:text-base font-bold text-[#0B2238] ${isUrdu ? "font-urdu" : ""}`}>{t.contact.emailInquiries}</h3>
+                <a
+                  href="mailto:contact@madeenaws.bhatkal.org"
+                  className="text-xs sm:text-sm text-blue-700 hover:underline mt-1 block font-medium"
+                >
                   contact@madeenaws.bhatkal.org
-                </p>
-                <p className={`text-xs text-slate-400 mt-0.5 ${isUrdu ? "font-urdu" : ""}`}>{t.contact.emailDesc}</p>
+                </a>
+                <p className={`text-[11px] sm:text-xs text-slate-400 mt-0.5 ${isUrdu ? "font-urdu" : ""}`}>{t.contact.emailDesc}</p>
               </div>
             </div>
           </Card>
 
-          <Card className="p-6 border-slate-200">
-            <div className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-xl bg-emerald-50 text-[#047857] flex items-center justify-center flex-shrink-0">
-                <Phone className="w-6 h-6" />
+          <Card className="p-4 sm:p-6 border-slate-200">
+            <div className="flex items-start gap-3.5 sm:gap-4">
+              <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-emerald-50 text-[#047857] flex items-center justify-center flex-shrink-0">
+                <Phone className="w-5 h-5 sm:w-6 sm:h-6" />
               </div>
               <div>
-                <h3 className={`text-base font-bold text-[#0B2238] ${isUrdu ? "font-urdu" : ""}`}>{t.contact.phoneSupport}</h3>
-                <p className="text-sm text-slate-600 mt-1" dir="ltr">
-                  +91 91123 45678 / +91 8386 226789
-                </p>
-                <p className={`text-xs text-slate-400 mt-0.5 ${isUrdu ? "font-urdu" : ""}`}>{t.contact.phoneDesc}</p>
+                <h3 className={`text-sm sm:text-base font-bold text-[#0B2238] ${isUrdu ? "font-urdu" : ""}`}>{t.contact.phoneSupport}</h3>
+                <div className="flex flex-wrap gap-x-3 gap-y-1 mt-1 text-xs sm:text-sm text-blue-700 font-semibold" dir="ltr">
+                  <a href="tel:+918386226193" className="hover:underline flex items-center gap-1">
+                    <span>+91 8386 226193</span>
+                  </a>
+                  <span className="text-slate-300">/</span>
+                  <a href="tel:+919112345678" className="hover:underline flex items-center gap-1">
+                    <span>+91 91123 45678</span>
+                  </a>
+                </div>
+                <p className={`text-[11px] sm:text-xs text-slate-400 mt-0.5 ${isUrdu ? "font-urdu" : ""}`}>{t.contact.phoneDesc}</p>
               </div>
             </div>
           </Card>
@@ -80,7 +89,7 @@ export default function ContactPage() {
 
         {/* Contact Form */}
         <div className="lg:col-span-7">
-          <Card className="p-8 border-slate-200">
+          <Card className="p-5 sm:p-8 border-slate-200">
             {submitted ? (
               <div className="text-center py-10 space-y-3">
                 <CheckCircle className="w-14 h-14 text-emerald-600 mx-auto" />
