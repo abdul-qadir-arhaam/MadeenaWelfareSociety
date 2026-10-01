@@ -137,15 +137,11 @@ export default function GalleryPage() {
     const postTitle =
       (language === "ur"
         ? post.translations?.ur?.title
-        : language === "kn"
-        ? post.translations?.kn?.title
         : post.translations?.en?.title) || post.title;
 
     const postCaption =
       (language === "ur"
         ? post.translations?.ur?.caption
-        : language === "kn"
-        ? post.translations?.kn?.caption
         : post.translations?.en?.caption) || post.caption;
 
     const photosToDisplay =
@@ -360,15 +356,11 @@ export default function GalleryPage() {
                 const displayTitle =
                   (language === "ur"
                     ? post.translations?.ur?.title
-                    : language === "kn"
-                    ? post.translations?.kn?.title
                     : post.translations?.en?.title) || post.title;
 
                 const displayCaption =
                   (language === "ur"
                     ? post.translations?.ur?.caption
-                    : language === "kn"
-                    ? post.translations?.kn?.caption
                     : post.translations?.en?.caption) || post.caption;
 
                 return (

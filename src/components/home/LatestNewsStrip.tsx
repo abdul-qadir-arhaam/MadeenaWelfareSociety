@@ -34,9 +34,7 @@ export function LatestNewsStrip({ initialNews }: { initialNews?: NewsArticle[] }
     news.length > 0
       ? news.map((item) => {
           const trans =
-            (language === "kn"
-              ? item.translations?.kn
-              : language === "ur"
+            (language === "ur"
               ? item.translations?.ur
               : item.translations?.en) || item.translations?.en;
           return {

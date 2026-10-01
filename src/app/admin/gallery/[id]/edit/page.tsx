@@ -43,13 +43,11 @@ export default function EditGalleryAlbumPage() {
   const router = useRouter();
   const albumId = params?.id as string;
 
-  const [activeLangTab, setActiveLangTab] = useState<"en" | "kn" | "ur">("en");
+  const [activeLangTab, setActiveLangTab] = useState<"en" | "ur">("en");
   const [titleEn, setTitleEn] = useState("");
-  const [titleKn, setTitleKn] = useState("");
   const [titleUr, setTitleUr] = useState("");
 
   const [descEn, setDescEn] = useState("");
-  const [descKn, setDescKn] = useState("");
   const [descUr, setDescUr] = useState("");
 
   const [category, setCategory] = useState("Sports");
@@ -73,11 +71,9 @@ export default function EditGalleryAlbumPage() {
         if (data.album) {
           const alb: ManagedGalleryAlbum = data.album;
           setTitleEn(alb.title || "");
-          setTitleKn(alb.translations?.kn?.title || alb.title || "");
           setTitleUr(alb.translations?.ur?.title || alb.title || "");
 
           setDescEn(alb.description || "");
-          setDescKn(alb.translations?.kn?.description || alb.description || "");
           setDescUr(alb.translations?.ur?.description || alb.description || "");
 
           setCategory(alb.category || "General");
@@ -150,7 +146,6 @@ export default function EditGalleryAlbumPage() {
       photos,
       translations: {
         en: { title: titleEn, description: descEn },
-        kn: { title: titleKn || titleEn, description: descKn || descEn },
         ur: { title: titleUr || titleEn, description: descUr || descEn },
       },
     };
@@ -267,15 +262,6 @@ export default function EditGalleryAlbumPage() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => setActiveLangTab("kn")}
-                  className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${
-                    activeLangTab === "kn" ? "bg-white text-slate-900 shadow-xs" : "text-slate-500"
-                  }`}
-                >
-                  ಕನ್ನಡ (Kannada)
-                </button>
-                <button
-                  type="button"
                   onClick={() => setActiveLangTab("ur")}
                   className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${
                     activeLangTab === "ur" ? "bg-white text-slate-900 shadow-xs" : "text-slate-500"
@@ -309,34 +295,6 @@ export default function EditGalleryAlbumPage() {
                     rows={4}
                     value={descEn}
                     onChange={(e) => setDescEn(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#047857]"
-                  />
-                </div>
-              </div>
-            )}
-
-            {/* Tab: Kannada */}
-            {activeLangTab === "kn" && (
-              <div className="space-y-4">
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                    ಆಲ್ಬಮ್ ಶೀರ್ಷಿಕೆ (ಕನ್ನಡ)
-                  </label>
-                  <input
-                    type="text"
-                    value={titleKn}
-                    onChange={(e) => setTitleKn(e.target.value)}
-                    className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#047857]"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-slate-700 mb-1.5">
-                    ವಿವರಣೆ (ಕನ್ನಡ)
-                  </label>
-                  <textarea
-                    rows={4}
-                    value={descKn}
-                    onChange={(e) => setDescKn(e.target.value)}
                     className="w-full px-3.5 py-2.5 rounded-lg border border-slate-200 text-sm focus:outline-none focus:ring-2 focus:ring-[#047857]"
                   />
                 </div>

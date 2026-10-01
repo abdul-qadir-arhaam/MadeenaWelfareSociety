@@ -31,7 +31,7 @@ export const DEFAULT_SETTINGS: SiteSettings = {
   email: "contact@madeenaws.bhatkal.org",
   phone: "+91 8386 226193",
   secondaryPhone: "+91 94481 23456",
-  address: "Madeena Colony, Main Road",
+  address: "Madeena Colony",
   city: "Bhatkal",
   state: "Karnataka",
   pincode: "581320",

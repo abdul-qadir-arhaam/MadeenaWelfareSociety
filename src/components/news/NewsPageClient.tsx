@@ -42,9 +42,7 @@ export function NewsPageClient({ initialNews }: NewsPageClientProps) {
 
   const newsList = news.map((item) => {
     const translation =
-      (language === "kn"
-        ? item.translations?.kn
-        : language === "ur"
+      (language === "ur"
         ? item.translations?.ur
         : item.translations?.en) || item.translations?.en;
 

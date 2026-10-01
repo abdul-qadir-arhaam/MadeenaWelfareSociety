@@ -40,9 +40,7 @@ export function LatestNewsSection({ initialNews }: { initialNews?: NewsArticle[]
 
   const getArticleTranslation = (item: NewsArticle) => {
     const trans =
-      (language === "kn"
-        ? item.translations?.kn
-        : language === "ur"
+      (language === "ur"
         ? item.translations?.ur
         : item.translations?.en) || item.translations?.en;
 

@@ -1,4 +1,4 @@
-export type Language = "en" | "kn" | "ur";
+export type Language = "en" | "ur";
 
 export interface LanguageConfig {
   code: Language;
@@ -12,12 +12,6 @@ export const LANGUAGES: Record<Language, LanguageConfig> = {
     code: "en",
     name: "English",
     nativeName: "EN",
-    direction: "ltr",
-  },
-  kn: {
-    code: "kn",
-    name: "Kannada",
-    nativeName: "ಕನ್ನಡ",
     direction: "ltr",
   },
   ur: {

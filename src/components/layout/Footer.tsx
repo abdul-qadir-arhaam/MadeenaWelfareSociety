@@ -103,8 +103,8 @@ export function Footer() {
         <div className="border-t border-slate-800/80 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-400">
           <p>{t.footer.rights}</p>
           <div className="flex items-center gap-2 text-[11px] text-slate-500">
-            <span className="w-2 h-2 rounded-full bg-red-600"></span>
-            <span>Regd. USA 1960 • Madeena Colony, Bhatkal, Karnataka</span>
+            <span className="w-2 h-2 rounded-full bg-emerald-500"></span>
+            <span>Madeena Colony, Bhatkal, Karnataka — 581320</span>
           </div>
         </div>
       </div>

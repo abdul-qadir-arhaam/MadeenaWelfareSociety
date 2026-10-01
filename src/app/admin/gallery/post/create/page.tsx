@@ -61,13 +61,11 @@ function CreateGalleryPostContent() {
   const [newAlbumDescription, setNewAlbumDescription] = useState("");
 
   // Post fields
-  const [activeLangTab, setActiveLangTab] = useState<"en" | "kn" | "ur">("en");
+  const [activeLangTab, setActiveLangTab] = useState<"en" | "ur">("en");
   const [titleEn, setTitleEn] = useState("");
-  const [titleKn, setTitleKn] = useState("");
   const [titleUr, setTitleUr] = useState("");
 
   const [captionEn, setCaptionEn] = useState("");
-  const [captionKn, setCaptionKn] = useState("");
   const [captionUr, setCaptionUr] = useState("");
 
   const [category, setCategory] = useState("Sports");
@@ -183,7 +181,6 @@ function CreateGalleryPostContent() {
       status,
       translations: {
         en: { title: titleEn.trim(), caption: captionEn.trim() },
-        kn: { title: titleKn.trim() || titleEn.trim(), caption: captionKn.trim() || captionEn.trim() },
         ur: { title: titleUr.trim() || titleEn.trim(), caption: captionUr.trim() || captionEn.trim() },
       },
     };
@@ -534,18 +531,18 @@ function CreateGalleryPostContent() {
           {/* Multilingual Tabs */}
           <div className="flex items-center gap-1 bg-slate-100 p-1 rounded-lg">
             <Languages className="w-3.5 h-3.5 text-slate-400 ms-1.5 me-0.5" />
-            {(["en", "kn", "ur"] as const).map((lang) => (
+            {(["en", "ur"] as const).map((lang) => (
               <button
                 key={lang}
                 type="button"
                 onClick={() => setActiveLangTab(lang)}
-                className={`px-2.5 py-1 text-xs font-semibold rounded-md transition-all ${
+                className={`px-3 py-1 text-xs font-semibold rounded-md transition-all ${
                   activeLangTab === lang
                     ? "bg-white text-[#047857] shadow-xs"
                     : "text-slate-500 hover:text-slate-900"
                 }`}
               >
-                {lang.toUpperCase()}
+                {lang === "en" ? "English" : "اردو (Urdu)"}
               </button>
             ))}
           </div>
@@ -565,15 +562,6 @@ function CreateGalleryPostContent() {
               className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#047857]"
             />
           )}
-          {activeLangTab === "kn" && (
-            <input
-              type="text"
-              value={titleKn}
-              onChange={(e) => setTitleKn(e.target.value)}
-              placeholder="ಪೋಸ್ಟ್ ಶೀರ್ಷಿಕೆ (ಕನ್ನಡದಲ್ಲಿ)..."
-              className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#047857]"
-            />
-          )}
           {activeLangTab === "ur" && (
             <input
               type="text"
@@ -581,7 +569,7 @@ function CreateGalleryPostContent() {
               value={titleUr}
               onChange={(e) => setTitleUr(e.target.value)}
               placeholder="پوسٹ کا عنوان اردو میں..."
-              className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#047857]"
+              className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#047857] font-urdu"
             />
           )}
         </div>
@@ -600,15 +588,6 @@ function CreateGalleryPostContent() {
               className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#047857]"
             />
           )}
-          {activeLangTab === "kn" && (
-            <textarea
-              value={captionKn}
-              onChange={(e) => setCaptionKn(e.target.value)}
-              rows={3}
-              placeholder="ವಿವರಣೆ ಅಥವಾ ಕಥೆ..."
-              className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#047857]"
-            />
-          )}
           {activeLangTab === "ur" && (
             <textarea
               dir="rtl"
@@ -616,7 +595,7 @@ function CreateGalleryPostContent() {
               onChange={(e) => setCaptionUr(e.target.value)}
               rows={3}
               placeholder="پوسٹ کی تفصیل یا واقعہ..."
-              className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#047857]"
+              className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-[#047857] font-urdu"
             />
           )}
         </div>

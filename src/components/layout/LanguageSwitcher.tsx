@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export function LanguageSwitcher({ className }: { className?: string }) {
   const { language, setLanguage } = useLanguage();
 
-  const languageList: Language[] = ["en", "ur", "kn"];
+  const languageList: Language[] = ["en", "ur"];
 
   return (
     <div

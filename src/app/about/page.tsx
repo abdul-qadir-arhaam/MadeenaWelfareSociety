@@ -86,7 +86,7 @@ export default function AboutPage() {
 
         <div className="mt-6 pt-6 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className={`text-xs text-slate-500 ${isUrdu ? "font-urdu" : ""}`}>
-            {isUrdu ? "مرکزی دفتر: مدینہ ویلفیئر سوسائٹی کیمپس، مدینہ کالونی، بھٹکل، کرناٹک — 581320 (رجسٹرڈ 1960ء)" : "Headquarters: Madeena Welfare Society Campus, Madeena Colony, Bhatkal, Karnataka — 581320 (Regd. USA 1960)."}
+            {isUrdu ? "مرکزی دفتر: مدینہ ویلفیئر سوسائٹی کیمپس، مدینہ کالونی، بھٹکل، کرناٹک — 581320" : "Headquarters: Madeena Welfare Society Campus, Madeena Colony, Bhatkal, Karnataka — 581320."}
           </p>
           <a
             href="https://www.instagram.com/madeenawelfaresociety?stkn=dzMwd3I0bm1leXk2"

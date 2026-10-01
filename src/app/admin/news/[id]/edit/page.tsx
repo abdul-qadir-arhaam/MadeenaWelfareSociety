@@ -35,7 +35,7 @@ export default function EditNewsPage({
   const { id } = use(params);
   const router = useRouter();
 
-  const [activeTab, setActiveTab] = useState<"en" | "kn" | "ur">("en");
+  const [activeTab, setActiveTab] = useState<"en" | "ur">("en");
   const [loading, setLoading] = useState(true);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -57,11 +57,6 @@ export default function EditNewsPage({
   const [contentEn, setContentEn] = useState("");
   const [seoTitleEn, setSeoTitleEn] = useState("");
   const [seoDescEn, setSeoDescEn] = useState("");
-
-  // Kannada fields
-  const [titleKn, setTitleKn] = useState("");
-  const [excerptKn, setExcerptKn] = useState("");
-  const [contentKn, setContentKn] = useState("");
 
   // Urdu fields
   const [titleUr, setTitleUr] = useState("");
@@ -112,13 +107,6 @@ export default function EditNewsPage({
           setSeoTitleEn(a.translations.en?.seoTitle || "");
           setSeoDescEn(a.translations.en?.seoDescription || "");
 
-          // Kannada
-          if (a.translations.kn) {
-            setTitleKn(a.translations.kn.title || "");
-            setExcerptKn(a.translations.kn.excerpt || "");
-            setContentKn(a.translations.kn.content || "");
-          }
-
           // Urdu
           if (a.translations.ur) {
             setTitleUr(a.translations.ur.title || "");
@@ -143,8 +131,6 @@ export default function EditNewsPage({
   const insertFormatting = (prefix: string, suffix: string = "") => {
     if (activeTab === "en") {
       setContentEn((prev) => `${prev}\n${prefix}Text${suffix}\n`);
-    } else if (activeTab === "kn") {
-      setContentKn((prev) => `${prev}\n${prefix}ಪಠ್ಯ${suffix}\n`);
     } else {
       setContentUr((prev) => `${prev}\n${prefix}متن${suffix}\n`);
     }
@@ -152,7 +138,7 @@ export default function EditNewsPage({
 
   const handleUpdate = async (overrideStatus?: "draft" | "published" | "archived") => {
     const finalStatus = overrideStatus || status;
-    const activeTitle = titleEn.trim() || titleKn.trim() || titleUr.trim();
+    const activeTitle = titleEn.trim() || titleUr.trim();
 
     if (!activeTitle) {
       setErrorMessage("Please enter an article title.");
@@ -189,14 +175,6 @@ export default function EditNewsPage({
           seoTitle: seoTitleEn || resolvedTitleEn,
           seoDescription: seoDescEn || excerptEn,
         },
-        kn: titleKn.trim()
-          ? {
-              language: "kn",
-              title: titleKn,
-              excerpt: excerptKn,
-              content: contentKn,
-            }
-          : undefined,
         ur: titleUr.trim()
           ? {
               language: "ur",
@@ -349,19 +327,6 @@ export default function EditNewsPage({
 
               <button
                 type="button"
-                onClick={() => setActiveTab("kn")}
-                className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold rounded-t-lg transition-all border-b-2 ${
-                  activeTab === "kn"
-                    ? "bg-white text-blue-700 border-blue-600 shadow-xs"
-                    : "text-slate-500 hover:text-slate-800 border-transparent"
-                }`}
-              >
-                <span>ಕನ್ನಡ (Kannada)</span>
-                {titleKn && <span className="w-1.5 h-1.5 rounded-full bg-blue-500" />}
-              </button>
-
-              <button
-                type="button"
                 onClick={() => setActiveTab("ur")}
                 className={`flex items-center gap-2 px-4 py-2.5 text-xs font-bold rounded-t-lg transition-all border-b-2 ${
                   activeTab === "ur"
@@ -473,47 +438,6 @@ export default function EditNewsPage({
                       className="px-3 py-2 text-xs rounded-lg border border-slate-200"
                     />
                   </div>
-                </div>
-              </div>
-            )}
-
-            {/* Kannada Content */}
-            {activeTab === "kn" && (
-              <div className="p-6 space-y-4">
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                    ಶೀರ್ಷಿಕೆ (Kannada Title)
-                  </label>
-                  <input
-                    type="text"
-                    value={titleKn}
-                    onChange={(e) => setTitleKn(e.target.value)}
-                    className="w-full px-3.5 py-2.5 text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                    ಸಂಕ್ಷಿಪ್ತ ವಿವರಣೆ (Kannada Excerpt)
-                  </label>
-                  <textarea
-                    rows={2}
-                    value={excerptKn}
-                    onChange={(e) => setExcerptKn(e.target.value)}
-                    className="w-full px-3.5 py-2 text-xs rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600"
-                  />
-                </div>
-
-                <div>
-                  <label className="block text-xs font-bold text-slate-700 mb-1.5">
-                    ಪೂರ್ಣ ಸುದ್ದಿ (Kannada Body)
-                  </label>
-                  <textarea
-                    rows={10}
-                    value={contentKn}
-                    onChange={(e) => setContentKn(e.target.value)}
-                    className="w-full px-3.5 py-2.5 text-xs sm:text-sm rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600 leading-relaxed"
-                  />
                 </div>
               </div>
             )}

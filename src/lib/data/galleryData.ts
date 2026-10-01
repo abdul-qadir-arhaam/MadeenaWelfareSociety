@@ -352,7 +352,7 @@ export const GALLERY_ALBUMS: GalleryAlbum[] = [
     coverImage: "/images/official-logo.png",
     containCover: true,
     description:
-      "The authentic crest and emblem of Madeena Welfare Society Bhatkal (Regd. USA 1960). Representing welfare, education, sportsmanship, and dedicated service to the community.",
+      "The authentic crest and emblem of Madeena Welfare Society Bhatkal (Madeena Colony, Bhatkal, Karnataka). Representing welfare, education, sportsmanship, and dedicated service to the community.",
     photos: [
       {
         id: "lg-1",

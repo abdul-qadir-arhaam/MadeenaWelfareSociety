@@ -25,12 +25,9 @@ export function NewsDetailClient({ newsItem, otherNews, categories }: NewsDetail
   const translation =
     (language === "ur"
       ? newsItem.translations?.ur
-      : language === "kn"
-      ? newsItem.translations?.kn
       : newsItem.translations?.en) ||
     newsItem.translations?.en ||
-    newsItem.translations?.ur ||
-    newsItem.translations?.kn;
+    newsItem.translations?.ur;
 
   const title = translation?.title || newsItem.slug;
   const excerpt = translation?.excerpt || "";
@@ -172,8 +169,6 @@ export function NewsDetailClient({ newsItem, otherNews, categories }: NewsDetail
                 const tr =
                   (language === "ur"
                     ? item.translations?.ur
-                    : language === "kn"
-                    ? item.translations?.kn
                     : item.translations?.en) ||
                   item.translations?.en ||
                   item.translations?.ur;

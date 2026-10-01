@@ -60,7 +60,7 @@ const jsonLd = {
   "foundingDate": "1993",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Madeena Colony, Main Road",
+    "streetAddress": "Madeena Colony",
     "addressLocality": "Bhatkal",
     "addressRegion": "Karnataka",
     "postalCode": "581320",

@@ -80,16 +80,12 @@ export default function AlbumDetailPage({
   const albumTitle =
     (language === "ur"
       ? album.translations?.ur?.title
-      : language === "kn"
-      ? album.translations?.kn?.title
       : album.translations?.en?.title) ||
     album.title;
 
   const albumDescription =
     (language === "ur"
       ? album.translations?.ur?.description
-      : language === "kn"
-      ? album.translations?.kn?.description
       : album.translations?.en?.description) ||
     album.description;
 
