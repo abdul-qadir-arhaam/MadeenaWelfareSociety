@@ -201,6 +201,13 @@ export default function EditGalleryAlbumPage() {
         </div>
 
         <div className="flex items-center gap-2.5">
+          <Link
+            href={`/admin/gallery/post/create?albumId=${albumId}`}
+            className="px-3 py-2 bg-emerald-50 hover:bg-emerald-100 border border-emerald-200 rounded-lg text-xs font-bold text-[#047857] flex items-center gap-1.5 transition-colors"
+          >
+            <UploadCloud className="w-3.5 h-3.5" />
+            <span>Upload Photos to Album</span>
+          </Link>
           {slug && (
             <Link
               href={`/gallery/${slug}`}

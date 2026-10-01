@@ -17,6 +17,31 @@ export interface GalleryAlbum {
   photos: GalleryPhoto[];
 }
 
+export interface GalleryPost {
+  id: string;
+  slug: string;
+  title: string;
+  caption?: string;
+  content?: string;
+  category: string;
+  date: string;
+  coverImage: string;
+  photos: GalleryPhoto[];
+  albumId?: string;
+  albumSlug?: string;
+  albumTitle?: string;
+  status: "published" | "draft";
+  isFeatured?: boolean;
+  likes?: number;
+  tags?: string[];
+  createdAt: string;
+  translations?: {
+    en?: { title: string; caption?: string };
+    kn?: { title: string; caption?: string };
+    ur?: { title: string; caption?: string };
+  };
+}
+
 export const GALLERY_ALBUMS: GalleryAlbum[] = [
   {
     slug: "independence-day-celebration",
@@ -355,3 +380,29 @@ export const GALLERY_ALBUMS: GalleryAlbum[] = [
     ],
   },
 ];
+
+export const INITIAL_GALLERY_POSTS: GalleryPost[] = GALLERY_ALBUMS.flatMap((album, aIdx) =>
+  (album.photos || []).map((photo, pIdx) => ({
+    id: `post-${photo.id}`,
+    slug: `post-${photo.id}`,
+    title: photo.title || `${album.title} - Photo ${pIdx + 1}`,
+    caption: photo.caption || "",
+    content: photo.caption || "",
+    category: album.category || "General",
+    date: photo.date || album.date,
+    coverImage: photo.src,
+    photos: [photo],
+    albumId: `album-${aIdx + 1}`,
+    albumSlug: album.slug,
+    albumTitle: album.title,
+    status: "published" as const,
+    isFeatured: aIdx === 0 && pIdx < 3,
+    likes: 15 + ((aIdx * 7 + pIdx * 5) % 43),
+    tags: [album.category, "MWS", "Bhatkal"],
+    createdAt: new Date(Date.now() - (aIdx * 86400000 * 5 + pIdx * 3600000 * 4)).toISOString(),
+    translations: {
+      en: { title: photo.title, caption: photo.caption },
+    },
+  }))
+);
+

@@ -1,0 +1,2056 @@
+{
+  "albums": [
+    {
+      "id": "album-1790871981884",
+      "slug": "healthcare-medical-camps-2026",
+      "title": "Healthcare & Medical Camps 2026",
+      "category": "Welfare",
+      "date": "Oct 1, 2026",
+      "coverImage": "/images/real/15aug5.jpeg",
+      "description": "Annual healthcare drives for Madeena Colony",
+      "status": "published",
+      "isFeatured": false,
+      "photos": [
+        {
+          "id": "p-1790871981860-2",
+          "src": "/images/real/15aug5.jpeg",
+          "title": "Doctors and Volunteers at Camp",
+          "caption": "Medical team assembled",
+          "date": "Oct 2026"
+        },
+        {
+          "id": "photo-1790872111369-otcz",
+          "src": "/uploads/screenshot-2026-01-24-035758-1790872111363-kug9.png",
+          "title": "Screenshot 2026 01 24 035758",
+          "caption": "Uploaded image for post.",
+          "date": "October 1, 2026"
+        }
+      ],
+      "translations": {
+        "en": {
+          "title": "Healthcare & Medical Camps 2026",
+          "description": "Annual healthcare drives for Madeena Colony"
+        }
+      }
+    },
+    {
+      "slug": "independence-day-celebration",
+      "title": "Independence Day Celebration",
+      "category": "Celebration",
+      "date": "August 15, 2026",
+      "coverImage": "/images/real/15aug.jpeg",
+      "description": "Memorable glimpses from the 80th Independence Day flag hoisting, student parade, and merit kits distribution organized by Madeena Welfare Society at the Anjuman Institute campus in Bhatkal.",
+      "photos": [
+        {
+          "id": "id-1",
+          "src": "/images/real/15aug.jpeg",
+          "title": "Community Gathering & Flag Assembly",
+          "caption": "Community members, students with the tricolor, and dignitaries gathered at Anjuman Institute.",
+          "date": "Aug 15, 2026"
+        },
+        {
+          "id": "id-2",
+          "src": "/images/real/15aug1.jpeg",
+          "title": "Tricolor Flag Unfurling",
+          "caption": "Dignitaries unfurling the Indian National Flag with flower petals raining down.",
+          "date": "Aug 15, 2026"
+        },
+        {
+          "id": "id-3",
+          "src": "/images/real/15aug2.jpeg",
+          "title": "Saluting the National Flag",
+          "caption": "Dignitaries and community leaders saluting the flagpole during the anthem.",
+          "date": "Aug 15, 2026"
+        },
+        {
+          "id": "id-4",
+          "src": "/images/real/15aug3.jpeg",
+          "title": "Dignitaries at Flag Base",
+          "caption": "President and executive committee leaders standing in solemn attention.",
+          "date": "Aug 15, 2026"
+        },
+        {
+          "id": "id-5",
+          "src": "/images/real/15aug4.jpeg",
+          "title": "Leadership Tribute",
+          "caption": "Community elders and committee members paying tribute to the nation.",
+          "date": "Aug 15, 2026"
+        },
+        {
+          "id": "id-6",
+          "src": "/images/real/15aug5.jpeg",
+          "title": "Staff, Students & Children Assembly",
+          "caption": "Children in traditional attire alongside community volunteers and professors.",
+          "date": "Aug 15, 2026"
+        },
+        {
+          "id": "id-7",
+          "src": "/images/real/15aug6.jpeg",
+          "title": "Anjuman Institute Campus Assembly",
+          "caption": "Panoramic view of the patriotic assembly outside Anjuman Institute of Technology.",
+          "date": "Aug 15, 2026"
+        },
+        {
+          "id": "id-8",
+          "src": "/images/instagram/insta_post_11.jpg",
+          "title": "Official Address from the Rostrum",
+          "caption": "Keynote address delivered from the official Madeena Welfare Society rostrum.",
+          "date": "Aug 15, 2026"
+        },
+        {
+          "id": "p-1790871981318-1",
+          "src": "/images/instagram/posts/post_DSh4VECErEA_1.jpg",
+          "title": "Trophy Presentation",
+          "caption": "Proud moment on the dais",
+          "date": "Oct 2026"
+        }
+      ],
+      "id": "album-1",
+      "status": "published",
+      "isFeatured": true,
+      "translations": {
+        "en": {
+          "title": "Independence Day Celebration",
+          "description": "Memorable glimpses from the 80th Independence Day flag hoisting, student parade, and merit kits distribution organized by Madeena Welfare Society at the Anjuman Institute campus in Bhatkal."
+        },
+        "kn": {
+          "title": "Independence Day Celebration",
+          "description": "Memorable glimpses from the 80th Independence Day flag hoisting, student parade, and merit kits distribution organized by Madeena Welfare Society at the Anjuman Institute campus in Bhatkal."
+        },
+        "ur": {
+          "title": "Independence Day Celebration",
+          "description": "Memorable glimpses from the 80th Independence Day flag hoisting, student parade, and merit kits distribution organized by Madeena Welfare Society at the Anjuman Institute campus in Bhatkal."
+        }
+      }
+    },
+    {
+      "slug": "community-sports-event",
+      "title": "Community Sports & Cricket Championship",
+      "category": "Sports",
+      "date": "Official Instagram Archive",
+      "coverImage": "/images/instagram/posts/post_DSh4VECErEA_1.jpg",
+      "description": "Triumphant moments from the Madeena Welfare Society sports teams. From night turf leagues to the Cosmos Golden Jubilee Trophy, celebrating exceptional athletic spirit and victory in Bhatkal.",
+      "photos": [
+        {
+          "id": "sp-1",
+          "src": "/images/instagram/posts/post_DSh4VECErEA_1.jpg",
+          "title": "Championship Victory with Medals",
+          "caption": "The victorious Madeena squad proudly wearing gold medals and official tournament jerseys.",
+          "date": "Dec 21, 2025"
+        },
+        {
+          "id": "sp-2",
+          "src": "/images/instagram/insta_post_10.jpg",
+          "title": "Cosmos Golden Jubilee Trophy Winners (₹75,000)",
+          "caption": "The complete championship squad with the winner trophy and banner in Bhatkal.",
+          "date": "Dec 2025"
+        },
+        {
+          "id": "sp-3",
+          "src": "/images/instagram/insta_post_8.jpg",
+          "title": "Madeena Society Champions Poster",
+          "caption": "Official club felicitation poster celebrating outstanding teamwork and consistent performance.",
+          "date": "Instagram Post"
+        },
+        {
+          "id": "sp-4",
+          "src": "/images/instagram/insta_post_9.jpg",
+          "title": "Garlanded Victory Procession",
+          "caption": "Champion player carried on shoulders through Madeena Colony streets amid celebrations.",
+          "date": "Bhatkal Parade"
+        },
+        {
+          "id": "sp-5",
+          "src": "/images/instagram/posts/post_DUcvUHVkYX-_1.jpg",
+          "title": "Night Turf Tournament Squad",
+          "caption": "Players assembled under the stadium floodlights for the high-intensity evening cup.",
+          "date": "Turf League"
+        },
+        {
+          "id": "sp-6",
+          "src": "/images/instagram/insta_post_14.jpg",
+          "title": "Squad Team Spirit",
+          "caption": "Players gathered on the turf pitch celebrating unity and sportsmanship.",
+          "date": "League Match"
+        },
+        {
+          "id": "sp-7",
+          "src": "/images/instagram/insta_post_16.jpg",
+          "title": "Pitch Victory Rush",
+          "caption": "Players storming the field after winning the thrilling final by 6 wickets.",
+          "date": "Finals Victory"
+        },
+        {
+          "id": "sp-8",
+          "src": "/images/instagram/insta_post_15.jpg",
+          "title": "Match-Winning Knock (43 off 15 balls)",
+          "caption": "Effortless dominance from Ilyas Motia requiring 43 off 10 balls to seal the championship.",
+          "date": "Player of the Match"
+        },
+        {
+          "id": "sp-9",
+          "src": "/images/instagram/posts/post_DTnVq56kvaM_1.jpg",
+          "title": "Bowling Action Masterclass",
+          "caption": "Pace bowler in smooth delivery stride at Bhatkal sports grounds.",
+          "date": "BPL Highlight"
+        },
+        {
+          "id": "sp-10",
+          "src": "/images/instagram/insta_post_17.jpg",
+          "title": "Bhatkal Premier League Masterclass",
+          "caption": "Shamoun Shabandri recording outstanding bowling figures of 3-0-18-3.",
+          "date": "BPL 2026"
+        },
+        {
+          "id": "sp-11",
+          "src": "/images/instagram/insta_post_19.jpg",
+          "title": "Six Gigantic Sixes by Ubadah Barmawar",
+          "caption": "Sensational power hitting display dismantling the opposition attack.",
+          "date": "Match Reel"
+        },
+        {
+          "id": "sp-12",
+          "src": "/images/instagram/reels/reel_DUYmoRgAVLC_1.jpg",
+          "title": "Incredible Bhatkal Celebration Reel",
+          "caption": "Viral community celebration reel featured across Bhatkal media channels.",
+          "date": "Feb 5, 2026"
+        }
+      ],
+      "id": "album-2",
+      "status": "published",
+      "isFeatured": true,
+      "translations": {
+        "en": {
+          "title": "Community Sports & Cricket Championship",
+          "description": "Triumphant moments from the Madeena Welfare Society sports teams. From night turf leagues to the Cosmos Golden Jubilee Trophy, celebrating exceptional athletic spirit and victory in Bhatkal."
+        },
+        "kn": {
+          "title": "Community Sports & Cricket Championship",
+          "description": "Triumphant moments from the Madeena Welfare Society sports teams. From night turf leagues to the Cosmos Golden Jubilee Trophy, celebrating exceptional athletic spirit and victory in Bhatkal."
+        },
+        "ur": {
+          "title": "Community Sports & Cricket Championship",
+          "description": "Triumphant moments from the Madeena Welfare Society sports teams. From night turf leagues to the Cosmos Golden Jubilee Trophy, celebrating exceptional athletic spirit and victory in Bhatkal."
+        }
+      }
+    },
+    {
+      "slug": "instagram-feed-highlights",
+      "title": "Official Instagram Feed & Highlights",
+      "category": "Social Media",
+      "date": "@madeenawelfaresociety",
+      "coverImage": "/images/instagram/insta_post_8.jpg",
+      "description": "Direct feed from the official Instagram page (@madeenawelfaresociety). Featuring event posters, championship reels, community announcements, and festivity greetings.",
+      "photos": [
+        {
+          "id": "ig-1",
+          "src": "/images/instagram/insta_post_8.jpg",
+          "title": "Champions Felicitation & Crest",
+          "caption": "Official club post congratulating the sports team on their championship win.",
+          "date": "Official Feed"
+        },
+        {
+          "id": "ig-2",
+          "src": "/images/instagram/posts/post_DWEos2UD_VB_1.jpg",
+          "title": "Eid Ul Fitr Mubarak Post",
+          "caption": "Official Eid greetings to community members worldwide from Madeena Welfare Society.",
+          "date": "Mar 19, 2026"
+        },
+        {
+          "id": "ig-3",
+          "src": "/images/instagram/posts/post_DU5jtX9jD3-_1.jpg",
+          "title": "Ramadan Mubarak Announcement",
+          "caption": "Blessed Ramadan greetings and welfare relief schedule announcement.",
+          "date": "Mar 2026"
+        },
+        {
+          "id": "ig-4",
+          "src": "/images/instagram/reels/reel_DSr4abEjMRn_1.jpg",
+          "title": "Champions Celebration Video Reel",
+          "caption": "Highlight reel showcasing trophy presentation and celebration moments.",
+          "date": "Instagram Reel"
+        },
+        {
+          "id": "ig-5",
+          "src": "/images/instagram/reels/reel_DcEoePATMOv_1.jpg",
+          "title": "Tournament Highlight Reel",
+          "caption": "Key moments and match-winning performances from community tournament.",
+          "date": "Instagram Reel"
+        },
+        {
+          "id": "ig-6",
+          "src": "/images/instagram/reels/reel_DUYmoRgAVLC_1.jpg",
+          "title": "Victory Moment Reel",
+          "caption": "270+ likes on Instagram celebrating victory under stadium floodlights.",
+          "date": "Instagram Reel"
+        },
+        {
+          "id": "ig-7",
+          "src": "/images/instagram/reels/reel_DUYleL2kvg3_1.jpg",
+          "title": "Sports Brotherhood Reel",
+          "caption": "Team celebration and player camaraderie captured on the pitch.",
+          "date": "Instagram Reel"
+        },
+        {
+          "id": "ig-8",
+          "src": "/images/instagram/reels/reel_DSozDQWEmRy_1.jpg",
+          "title": "Match Deciding Moment",
+          "caption": "Final overs thriller and winning runs celebration.",
+          "date": "Instagram Reel"
+        },
+        {
+          "id": "ig-9",
+          "src": "/images/instagram/reels/reel_DT7RVjbkqQS_1.jpg",
+          "title": "Community Match Reel",
+          "caption": "Fielding and bowling action during the championship match.",
+          "date": "Instagram Reel"
+        },
+        {
+          "id": "ig-10",
+          "src": "/images/instagram/reels/reel_DTkVpSVkuuc_1.jpg",
+          "title": "Athletic Highlights Reel",
+          "caption": "Top bowling and batting performances captured on camera.",
+          "date": "Instagram Reel"
+        }
+      ],
+      "id": "album-3",
+      "status": "published",
+      "isFeatured": false,
+      "translations": {
+        "en": {
+          "title": "Official Instagram Feed & Highlights",
+          "description": "Direct feed from the official Instagram page (@madeenawelfaresociety). Featuring event posters, championship reels, community announcements, and festivity greetings."
+        },
+        "kn": {
+          "title": "Official Instagram Feed & Highlights",
+          "description": "Direct feed from the official Instagram page (@madeenawelfaresociety). Featuring event posters, championship reels, community announcements, and festivity greetings."
+        },
+        "ur": {
+          "title": "Official Instagram Feed & Highlights",
+          "description": "Direct feed from the official Instagram page (@madeenawelfaresociety). Featuring event posters, championship reels, community announcements, and festivity greetings."
+        }
+      }
+    },
+    {
+      "slug": "community-support-welfare",
+      "title": "Community Welfare & Festivities",
+      "category": "Welfare",
+      "date": "Community Outreach",
+      "coverImage": "/images/instagram/insta_post_12.jpg",
+      "description": "Grassroots community welfare initiatives by Madeena Welfare Society in Madeena Colony and surrounding Bhatkal areas, including festive ration distribution, civic programs, and healthcare support.",
+      "photos": [
+        {
+          "id": "wf-1",
+          "src": "/images/instagram/insta_post_12.jpg",
+          "title": "Eid Ul Fitr Welfare & Greetings",
+          "caption": "Special welfare packages distributed to underprivileged families ahead of Eid.",
+          "date": "Apr 2026"
+        },
+        {
+          "id": "wf-2",
+          "src": "/images/instagram/insta_post_13.jpg",
+          "title": "Ramadan Mubarak Welfare Drive",
+          "caption": "Annual Ramadan grocery distribution and community Iftar sponsorship drive.",
+          "date": "Mar 2026"
+        },
+        {
+          "id": "wf-3",
+          "src": "/images/real/15aug5.jpeg",
+          "title": "Community Volunteers & Leaders Assembly",
+          "caption": "Civic workers and volunteers assembled for neighborhood development planning.",
+          "date": "Community Hall"
+        },
+        {
+          "id": "wf-4",
+          "src": "/images/real/15aug6.jpeg",
+          "title": "Civic Outreach at Campus Grounds",
+          "caption": "General body gathering discussing student scholarship grants and welfare programs.",
+          "date": "Campus Grounds"
+        },
+        {
+          "id": "wf-5",
+          "src": "/images/instagram/posts/post_DWEos2UD_VB_1.jpg",
+          "title": "Community Goodwill Announcement",
+          "caption": "Official public message encouraging mutual support and charitable giving.",
+          "date": "Official Notice"
+        },
+        {
+          "id": "wf-6",
+          "src": "/images/instagram/posts/post_DU5jtX9jD3-_1.jpg",
+          "title": "Ramadan Charity Distribution Schedule",
+          "caption": "Timetable for medical relief and family financial grants during the holy month.",
+          "date": "Official Schedule"
+        }
+      ],
+      "id": "album-4",
+      "status": "published",
+      "isFeatured": false,
+      "translations": {
+        "en": {
+          "title": "Community Welfare & Festivities",
+          "description": "Grassroots community welfare initiatives by Madeena Welfare Society in Madeena Colony and surrounding Bhatkal areas, including festive ration distribution, civic programs, and healthcare support."
+        },
+        "kn": {
+          "title": "Community Welfare & Festivities",
+          "description": "Grassroots community welfare initiatives by Madeena Welfare Society in Madeena Colony and surrounding Bhatkal areas, including festive ration distribution, civic programs, and healthcare support."
+        },
+        "ur": {
+          "title": "Community Welfare & Festivities",
+          "description": "Grassroots community welfare initiatives by Madeena Welfare Society in Madeena Colony and surrounding Bhatkal areas, including festive ration distribution, civic programs, and healthcare support."
+        }
+      }
+    },
+    {
+      "slug": "our-logo-heritage",
+      "title": "Our Official Crest & Heritage",
+      "category": "Identity",
+      "date": "Established 1960",
+      "coverImage": "/images/official-logo.png",
+      "containCover": true,
+      "description": "The authentic crest and emblem of Madeena Welfare Society Bhatkal (Regd. USA 1960). Representing welfare, education, sportsmanship, and dedicated service to the community.",
+      "photos": [
+        {
+          "id": "lg-1",
+          "src": "/images/official-logo.png",
+          "title": "Official Madeena Welfare Society Crest",
+          "caption": "The authentic circular insignia with English and Urdu titles, three red stars, and green wreath.",
+          "date": "Official Crest"
+        },
+        {
+          "id": "lg-2",
+          "src": "/images/official-logo-white.png",
+          "title": "Vector Emblem for White Backgrounds",
+          "caption": "High-contrast version designed for documents, banners, and digital portal headers.",
+          "date": "Design Asset"
+        },
+        {
+          "id": "lg-3",
+          "src": "/images/instagram/insta_post_8.jpg",
+          "title": "Society Crest on Champions Felicitation",
+          "caption": "The official insignia proudly featured atop championship posters and announcements.",
+          "date": "Club Media"
+        },
+        {
+          "id": "lg-4",
+          "src": "/images/instagram/insta_post_11.jpg",
+          "title": "Society Insignia on Official Dais Rostrum",
+          "caption": "Official metallic seal mounted on the podium during major society conventions in Bhatkal.",
+          "date": "Assembly Rostrum"
+        }
+      ],
+      "id": "album-5",
+      "status": "published",
+      "isFeatured": false,
+      "translations": {
+        "en": {
+          "title": "Our Official Crest & Heritage",
+          "description": "The authentic crest and emblem of Madeena Welfare Society Bhatkal (Regd. USA 1960). Representing welfare, education, sportsmanship, and dedicated service to the community."
+        },
+        "kn": {
+          "title": "Our Official Crest & Heritage",
+          "description": "The authentic crest and emblem of Madeena Welfare Society Bhatkal (Regd. USA 1960). Representing welfare, education, sportsmanship, and dedicated service to the community."
+        },
+        "ur": {
+          "title": "Our Official Crest & Heritage",
+          "description": "The authentic crest and emblem of Madeena Welfare Society Bhatkal (Regd. USA 1960). Representing welfare, education, sportsmanship, and dedicated service to the community."
+        }
+      }
+    }
+  ],
+  "posts": [
+    {
+      "id": "post-1790872146282-o0u0",
+      "slug": "test-post",
+      "title": "test post",
+      "caption": "test",
+      "content": "test",
+      "category": "Welfare",
+      "date": "October 1, 2026",
+      "coverImage": "/uploads/screenshot-2026-01-24-035758-1790872111363-kug9.png",
+      "photos": [
+        {
+          "id": "photo-1790872111369-otcz",
+          "src": "/uploads/screenshot-2026-01-24-035758-1790872111363-kug9.png",
+          "title": "Screenshot 2026 01 24 035758",
+          "caption": "Uploaded image for post.",
+          "date": "October 1, 2026"
+        }
+      ],
+      "albumId": "album-1790871981884",
+      "albumSlug": "healthcare-medical-camps-2026",
+      "albumTitle": "Healthcare & Medical Camps 2026",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 0,
+      "tags": [],
+      "createdAt": "2026-10-01T16:29:06.282Z",
+      "translations": {
+        "en": {
+          "title": "test post",
+          "caption": "test"
+        },
+        "kn": {
+          "title": "test post",
+          "caption": "test"
+        },
+        "ur": {
+          "title": "test post",
+          "caption": "test"
+        }
+      }
+    },
+    {
+      "id": "post-1790871981884-nmpb",
+      "slug": "community-healthcare-camp-2026",
+      "title": "Community Healthcare Camp 2026",
+      "caption": "Free health checkups and medicine distribution",
+      "content": "Free health checkups and medicine distribution",
+      "category": "Welfare",
+      "date": "Oct 1, 2026",
+      "coverImage": "/images/real/15aug5.jpeg",
+      "photos": [
+        {
+          "id": "p-1790871981860-2",
+          "src": "/images/real/15aug5.jpeg",
+          "title": "Doctors and Volunteers at Camp",
+          "caption": "Medical team assembled",
+          "date": "Oct 2026"
+        },
+        {
+          "id": "photo-1790872111369-otcz",
+          "src": "/uploads/screenshot-2026-01-24-035758-1790872111363-kug9.png",
+          "title": "Screenshot 2026 01 24 035758",
+          "caption": "Uploaded image for post.",
+          "date": "October 1, 2026"
+        }
+      ],
+      "albumId": "album-1790871981884",
+      "albumSlug": "healthcare-medical-camps-2026",
+      "albumTitle": "Healthcare & Medical Camps 2026",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 0,
+      "tags": [],
+      "createdAt": "2026-10-01T16:26:21.884Z",
+      "translations": {
+        "en": {
+          "title": "Community Healthcare Camp 2026",
+          "caption": "Free health checkups and medicine distribution"
+        }
+      }
+    },
+    {
+      "id": "post-1790871981848-me1b",
+      "slug": "youth-match-winning-ceremony",
+      "title": "Youth Match Winning Ceremony",
+      "caption": "Trophy and medal celebrations in Bhatkal",
+      "content": "Trophy and medal celebrations in Bhatkal",
+      "category": "Sports",
+      "date": "Oct 1, 2026",
+      "coverImage": "/images/instagram/posts/post_DSh4VECErEA_1.jpg",
+      "photos": [
+        {
+          "id": "p-1790871981318-1",
+          "src": "/images/instagram/posts/post_DSh4VECErEA_1.jpg",
+          "title": "Trophy Presentation",
+          "caption": "Proud moment on the dais",
+          "date": "Oct 2026"
+        }
+      ],
+      "albumId": "album-1",
+      "albumSlug": "independence-day-celebration",
+      "albumTitle": "Independence Day Celebration",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 0,
+      "tags": [],
+      "createdAt": "2026-10-01T16:26:21.848Z",
+      "translations": {
+        "en": {
+          "title": "Youth Match Winning Ceremony",
+          "caption": "Trophy and medal celebrations in Bhatkal"
+        }
+      }
+    },
+    {
+      "id": "post-id-1",
+      "slug": "post-id-1",
+      "title": "Community Gathering & Flag Assembly",
+      "caption": "Community members, students with the tricolor, and dignitaries gathered at Anjuman Institute.",
+      "content": "Community members, students with the tricolor, and dignitaries gathered at Anjuman Institute.",
+      "category": "Celebration",
+      "date": "Aug 15, 2026",
+      "coverImage": "/images/real/15aug.jpeg",
+      "photos": [
+        {
+          "id": "id-1",
+          "src": "/images/real/15aug.jpeg",
+          "title": "Community Gathering & Flag Assembly",
+          "caption": "Community members, students with the tricolor, and dignitaries gathered at Anjuman Institute.",
+          "date": "Aug 15, 2026"
+        }
+      ],
+      "albumId": "album-1",
+      "albumSlug": "independence-day-celebration",
+      "albumTitle": "Independence Day Celebration",
+      "status": "published",
+      "isFeatured": true,
+      "likes": 12,
+      "tags": [
+        "Celebration",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-10-01T16:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Community Gathering & Flag Assembly",
+          "caption": "Community members, students with the tricolor, and dignitaries gathered at Anjuman Institute."
+        }
+      }
+    },
+    {
+      "id": "post-id-2",
+      "slug": "post-id-2",
+      "title": "Tricolor Flag Unfurling",
+      "caption": "Dignitaries unfurling the Indian National Flag with flower petals raining down.",
+      "content": "Dignitaries unfurling the Indian National Flag with flower petals raining down.",
+      "category": "Celebration",
+      "date": "Aug 15, 2026",
+      "coverImage": "/images/real/15aug1.jpeg",
+      "photos": [
+        {
+          "id": "id-2",
+          "src": "/images/real/15aug1.jpeg",
+          "title": "Tricolor Flag Unfurling",
+          "caption": "Dignitaries unfurling the Indian National Flag with flower petals raining down.",
+          "date": "Aug 15, 2026"
+        }
+      ],
+      "albumId": "album-1",
+      "albumSlug": "independence-day-celebration",
+      "albumTitle": "Independence Day Celebration",
+      "status": "published",
+      "isFeatured": true,
+      "likes": 17,
+      "tags": [
+        "Celebration",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-10-01T12:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Tricolor Flag Unfurling",
+          "caption": "Dignitaries unfurling the Indian National Flag with flower petals raining down."
+        }
+      }
+    },
+    {
+      "id": "post-id-3",
+      "slug": "post-id-3",
+      "title": "Saluting the National Flag",
+      "caption": "Dignitaries and community leaders saluting the flagpole during the anthem.",
+      "content": "Dignitaries and community leaders saluting the flagpole during the anthem.",
+      "category": "Celebration",
+      "date": "Aug 15, 2026",
+      "coverImage": "/images/real/15aug2.jpeg",
+      "photos": [
+        {
+          "id": "id-3",
+          "src": "/images/real/15aug2.jpeg",
+          "title": "Saluting the National Flag",
+          "caption": "Dignitaries and community leaders saluting the flagpole during the anthem.",
+          "date": "Aug 15, 2026"
+        }
+      ],
+      "albumId": "album-1",
+      "albumSlug": "independence-day-celebration",
+      "albumTitle": "Independence Day Celebration",
+      "status": "published",
+      "isFeatured": true,
+      "likes": 22,
+      "tags": [
+        "Celebration",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-10-01T08:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Saluting the National Flag",
+          "caption": "Dignitaries and community leaders saluting the flagpole during the anthem."
+        }
+      }
+    },
+    {
+      "id": "post-id-4",
+      "slug": "post-id-4",
+      "title": "Dignitaries at Flag Base",
+      "caption": "President and executive committee leaders standing in solemn attention.",
+      "content": "President and executive committee leaders standing in solemn attention.",
+      "category": "Celebration",
+      "date": "Aug 15, 2026",
+      "coverImage": "/images/real/15aug3.jpeg",
+      "photos": [
+        {
+          "id": "id-4",
+          "src": "/images/real/15aug3.jpeg",
+          "title": "Dignitaries at Flag Base",
+          "caption": "President and executive committee leaders standing in solemn attention.",
+          "date": "Aug 15, 2026"
+        }
+      ],
+      "albumId": "album-1",
+      "albumSlug": "independence-day-celebration",
+      "albumTitle": "Independence Day Celebration",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 27,
+      "tags": [
+        "Celebration",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-10-01T04:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Dignitaries at Flag Base",
+          "caption": "President and executive committee leaders standing in solemn attention."
+        }
+      }
+    },
+    {
+      "id": "post-id-5",
+      "slug": "post-id-5",
+      "title": "Leadership Tribute",
+      "caption": "Community elders and committee members paying tribute to the nation.",
+      "content": "Community elders and committee members paying tribute to the nation.",
+      "category": "Celebration",
+      "date": "Aug 15, 2026",
+      "coverImage": "/images/real/15aug4.jpeg",
+      "photos": [
+        {
+          "id": "id-5",
+          "src": "/images/real/15aug4.jpeg",
+          "title": "Leadership Tribute",
+          "caption": "Community elders and committee members paying tribute to the nation.",
+          "date": "Aug 15, 2026"
+        }
+      ],
+      "albumId": "album-1",
+      "albumSlug": "independence-day-celebration",
+      "albumTitle": "Independence Day Celebration",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 32,
+      "tags": [
+        "Celebration",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-10-01T00:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Leadership Tribute",
+          "caption": "Community elders and committee members paying tribute to the nation."
+        }
+      }
+    },
+    {
+      "id": "post-id-6",
+      "slug": "post-id-6",
+      "title": "Staff, Students & Children Assembly",
+      "caption": "Children in traditional attire alongside community volunteers and professors.",
+      "content": "Children in traditional attire alongside community volunteers and professors.",
+      "category": "Celebration",
+      "date": "Aug 15, 2026",
+      "coverImage": "/images/real/15aug5.jpeg",
+      "photos": [
+        {
+          "id": "id-6",
+          "src": "/images/real/15aug5.jpeg",
+          "title": "Staff, Students & Children Assembly",
+          "caption": "Children in traditional attire alongside community volunteers and professors.",
+          "date": "Aug 15, 2026"
+        }
+      ],
+      "albumId": "album-1",
+      "albumSlug": "independence-day-celebration",
+      "albumTitle": "Independence Day Celebration",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 37,
+      "tags": [
+        "Celebration",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-30T20:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Staff, Students & Children Assembly",
+          "caption": "Children in traditional attire alongside community volunteers and professors."
+        }
+      }
+    },
+    {
+      "id": "post-id-7",
+      "slug": "post-id-7",
+      "title": "Anjuman Institute Campus Assembly",
+      "caption": "Panoramic view of the patriotic assembly outside Anjuman Institute of Technology.",
+      "content": "Panoramic view of the patriotic assembly outside Anjuman Institute of Technology.",
+      "category": "Celebration",
+      "date": "Aug 15, 2026",
+      "coverImage": "/images/real/15aug6.jpeg",
+      "photos": [
+        {
+          "id": "id-7",
+          "src": "/images/real/15aug6.jpeg",
+          "title": "Anjuman Institute Campus Assembly",
+          "caption": "Panoramic view of the patriotic assembly outside Anjuman Institute of Technology.",
+          "date": "Aug 15, 2026"
+        }
+      ],
+      "albumId": "album-1",
+      "albumSlug": "independence-day-celebration",
+      "albumTitle": "Independence Day Celebration",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 42,
+      "tags": [
+        "Celebration",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-30T16:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Anjuman Institute Campus Assembly",
+          "caption": "Panoramic view of the patriotic assembly outside Anjuman Institute of Technology."
+        }
+      }
+    },
+    {
+      "id": "post-id-8",
+      "slug": "post-id-8",
+      "title": "Official Address from the Rostrum",
+      "caption": "Keynote address delivered from the official Madeena Welfare Society rostrum.",
+      "content": "Keynote address delivered from the official Madeena Welfare Society rostrum.",
+      "category": "Celebration",
+      "date": "Aug 15, 2026",
+      "coverImage": "/images/instagram/insta_post_11.jpg",
+      "photos": [
+        {
+          "id": "id-8",
+          "src": "/images/instagram/insta_post_11.jpg",
+          "title": "Official Address from the Rostrum",
+          "caption": "Keynote address delivered from the official Madeena Welfare Society rostrum.",
+          "date": "Aug 15, 2026"
+        }
+      ],
+      "albumId": "album-1",
+      "albumSlug": "independence-day-celebration",
+      "albumTitle": "Independence Day Celebration",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 47,
+      "tags": [
+        "Celebration",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-30T12:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Official Address from the Rostrum",
+          "caption": "Keynote address delivered from the official Madeena Welfare Society rostrum."
+        }
+      }
+    },
+    {
+      "id": "post-sp-1",
+      "slug": "post-sp-1",
+      "title": "Championship Victory with Medals",
+      "caption": "The victorious Madeena squad proudly wearing gold medals and official tournament jerseys.",
+      "content": "The victorious Madeena squad proudly wearing gold medals and official tournament jerseys.",
+      "category": "Sports",
+      "date": "Dec 21, 2025",
+      "coverImage": "/images/instagram/posts/post_DSh4VECErEA_1.jpg",
+      "photos": [
+        {
+          "id": "sp-1",
+          "src": "/images/instagram/posts/post_DSh4VECErEA_1.jpg",
+          "title": "Championship Victory with Medals",
+          "caption": "The victorious Madeena squad proudly wearing gold medals and official tournament jerseys.",
+          "date": "Dec 21, 2025"
+        }
+      ],
+      "albumId": "album-2",
+      "albumSlug": "community-sports-event",
+      "albumTitle": "Community Sports & Cricket Championship",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 19,
+      "tags": [
+        "Sports",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-26T16:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Championship Victory with Medals",
+          "caption": "The victorious Madeena squad proudly wearing gold medals and official tournament jerseys."
+        }
+      }
+    },
+    {
+      "id": "post-sp-2",
+      "slug": "post-sp-2",
+      "title": "Cosmos Golden Jubilee Trophy Winners (₹75,000)",
+      "caption": "The complete championship squad with the winner trophy and banner in Bhatkal.",
+      "content": "The complete championship squad with the winner trophy and banner in Bhatkal.",
+      "category": "Sports",
+      "date": "Dec 2025",
+      "coverImage": "/images/instagram/insta_post_10.jpg",
+      "photos": [
+        {
+          "id": "sp-2",
+          "src": "/images/instagram/insta_post_10.jpg",
+          "title": "Cosmos Golden Jubilee Trophy Winners (₹75,000)",
+          "caption": "The complete championship squad with the winner trophy and banner in Bhatkal.",
+          "date": "Dec 2025"
+        }
+      ],
+      "albumId": "album-2",
+      "albumSlug": "community-sports-event",
+      "albumTitle": "Community Sports & Cricket Championship",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 24,
+      "tags": [
+        "Sports",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-26T12:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Cosmos Golden Jubilee Trophy Winners (₹75,000)",
+          "caption": "The complete championship squad with the winner trophy and banner in Bhatkal."
+        }
+      }
+    },
+    {
+      "id": "post-sp-3",
+      "slug": "post-sp-3",
+      "title": "Madeena Society Champions Poster",
+      "caption": "Official club felicitation poster celebrating outstanding teamwork and consistent performance.",
+      "content": "Official club felicitation poster celebrating outstanding teamwork and consistent performance.",
+      "category": "Sports",
+      "date": "Instagram Post",
+      "coverImage": "/images/instagram/insta_post_8.jpg",
+      "photos": [
+        {
+          "id": "sp-3",
+          "src": "/images/instagram/insta_post_8.jpg",
+          "title": "Madeena Society Champions Poster",
+          "caption": "Official club felicitation poster celebrating outstanding teamwork and consistent performance.",
+          "date": "Instagram Post"
+        }
+      ],
+      "albumId": "album-2",
+      "albumSlug": "community-sports-event",
+      "albumTitle": "Community Sports & Cricket Championship",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 29,
+      "tags": [
+        "Sports",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-26T08:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Madeena Society Champions Poster",
+          "caption": "Official club felicitation poster celebrating outstanding teamwork and consistent performance."
+        }
+      }
+    },
+    {
+      "id": "post-sp-4",
+      "slug": "post-sp-4",
+      "title": "Garlanded Victory Procession",
+      "caption": "Champion player carried on shoulders through Madeena Colony streets amid celebrations.",
+      "content": "Champion player carried on shoulders through Madeena Colony streets amid celebrations.",
+      "category": "Sports",
+      "date": "Bhatkal Parade",
+      "coverImage": "/images/instagram/insta_post_9.jpg",
+      "photos": [
+        {
+          "id": "sp-4",
+          "src": "/images/instagram/insta_post_9.jpg",
+          "title": "Garlanded Victory Procession",
+          "caption": "Champion player carried on shoulders through Madeena Colony streets amid celebrations.",
+          "date": "Bhatkal Parade"
+        }
+      ],
+      "albumId": "album-2",
+      "albumSlug": "community-sports-event",
+      "albumTitle": "Community Sports & Cricket Championship",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 34,
+      "tags": [
+        "Sports",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-26T04:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Garlanded Victory Procession",
+          "caption": "Champion player carried on shoulders through Madeena Colony streets amid celebrations."
+        }
+      }
+    },
+    {
+      "id": "post-sp-5",
+      "slug": "post-sp-5",
+      "title": "Night Turf Tournament Squad",
+      "caption": "Players assembled under the stadium floodlights for the high-intensity evening cup.",
+      "content": "Players assembled under the stadium floodlights for the high-intensity evening cup.",
+      "category": "Sports",
+      "date": "Turf League",
+      "coverImage": "/images/instagram/posts/post_DUcvUHVkYX-_1.jpg",
+      "photos": [
+        {
+          "id": "sp-5",
+          "src": "/images/instagram/posts/post_DUcvUHVkYX-_1.jpg",
+          "title": "Night Turf Tournament Squad",
+          "caption": "Players assembled under the stadium floodlights for the high-intensity evening cup.",
+          "date": "Turf League"
+        }
+      ],
+      "albumId": "album-2",
+      "albumSlug": "community-sports-event",
+      "albumTitle": "Community Sports & Cricket Championship",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 39,
+      "tags": [
+        "Sports",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-26T00:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Night Turf Tournament Squad",
+          "caption": "Players assembled under the stadium floodlights for the high-intensity evening cup."
+        }
+      }
+    },
+    {
+      "id": "post-sp-6",
+      "slug": "post-sp-6",
+      "title": "Squad Team Spirit",
+      "caption": "Players gathered on the turf pitch celebrating unity and sportsmanship.",
+      "content": "Players gathered on the turf pitch celebrating unity and sportsmanship.",
+      "category": "Sports",
+      "date": "League Match",
+      "coverImage": "/images/instagram/insta_post_14.jpg",
+      "photos": [
+        {
+          "id": "sp-6",
+          "src": "/images/instagram/insta_post_14.jpg",
+          "title": "Squad Team Spirit",
+          "caption": "Players gathered on the turf pitch celebrating unity and sportsmanship.",
+          "date": "League Match"
+        }
+      ],
+      "albumId": "album-2",
+      "albumSlug": "community-sports-event",
+      "albumTitle": "Community Sports & Cricket Championship",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 44,
+      "tags": [
+        "Sports",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-25T20:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Squad Team Spirit",
+          "caption": "Players gathered on the turf pitch celebrating unity and sportsmanship."
+        }
+      }
+    },
+    {
+      "id": "post-sp-7",
+      "slug": "post-sp-7",
+      "title": "Pitch Victory Rush",
+      "caption": "Players storming the field after winning the thrilling final by 6 wickets.",
+      "content": "Players storming the field after winning the thrilling final by 6 wickets.",
+      "category": "Sports",
+      "date": "Finals Victory",
+      "coverImage": "/images/instagram/insta_post_16.jpg",
+      "photos": [
+        {
+          "id": "sp-7",
+          "src": "/images/instagram/insta_post_16.jpg",
+          "title": "Pitch Victory Rush",
+          "caption": "Players storming the field after winning the thrilling final by 6 wickets.",
+          "date": "Finals Victory"
+        }
+      ],
+      "albumId": "album-2",
+      "albumSlug": "community-sports-event",
+      "albumTitle": "Community Sports & Cricket Championship",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 49,
+      "tags": [
+        "Sports",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-25T16:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Pitch Victory Rush",
+          "caption": "Players storming the field after winning the thrilling final by 6 wickets."
+        }
+      }
+    },
+    {
+      "id": "post-sp-8",
+      "slug": "post-sp-8",
+      "title": "Match-Winning Knock (43 off 15 balls)",
+      "caption": "Effortless dominance from Ilyas Motia requiring 43 off 10 balls to seal the championship.",
+      "content": "Effortless dominance from Ilyas Motia requiring 43 off 10 balls to seal the championship.",
+      "category": "Sports",
+      "date": "Player of the Match",
+      "coverImage": "/images/instagram/insta_post_15.jpg",
+      "photos": [
+        {
+          "id": "sp-8",
+          "src": "/images/instagram/insta_post_15.jpg",
+          "title": "Match-Winning Knock (43 off 15 balls)",
+          "caption": "Effortless dominance from Ilyas Motia requiring 43 off 10 balls to seal the championship.",
+          "date": "Player of the Match"
+        }
+      ],
+      "albumId": "album-2",
+      "albumSlug": "community-sports-event",
+      "albumTitle": "Community Sports & Cricket Championship",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 54,
+      "tags": [
+        "Sports",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-25T12:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Match-Winning Knock (43 off 15 balls)",
+          "caption": "Effortless dominance from Ilyas Motia requiring 43 off 10 balls to seal the championship."
+        }
+      }
+    },
+    {
+      "id": "post-sp-9",
+      "slug": "post-sp-9",
+      "title": "Bowling Action Masterclass",
+      "caption": "Pace bowler in smooth delivery stride at Bhatkal sports grounds.",
+      "content": "Pace bowler in smooth delivery stride at Bhatkal sports grounds.",
+      "category": "Sports",
+      "date": "BPL Highlight",
+      "coverImage": "/images/instagram/posts/post_DTnVq56kvaM_1.jpg",
+      "photos": [
+        {
+          "id": "sp-9",
+          "src": "/images/instagram/posts/post_DTnVq56kvaM_1.jpg",
+          "title": "Bowling Action Masterclass",
+          "caption": "Pace bowler in smooth delivery stride at Bhatkal sports grounds.",
+          "date": "BPL Highlight"
+        }
+      ],
+      "albumId": "album-2",
+      "albumSlug": "community-sports-event",
+      "albumTitle": "Community Sports & Cricket Championship",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 16,
+      "tags": [
+        "Sports",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-25T08:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Bowling Action Masterclass",
+          "caption": "Pace bowler in smooth delivery stride at Bhatkal sports grounds."
+        }
+      }
+    },
+    {
+      "id": "post-sp-10",
+      "slug": "post-sp-10",
+      "title": "Bhatkal Premier League Masterclass",
+      "caption": "Shamoun Shabandri recording outstanding bowling figures of 3-0-18-3.",
+      "content": "Shamoun Shabandri recording outstanding bowling figures of 3-0-18-3.",
+      "category": "Sports",
+      "date": "BPL 2026",
+      "coverImage": "/images/instagram/insta_post_17.jpg",
+      "photos": [
+        {
+          "id": "sp-10",
+          "src": "/images/instagram/insta_post_17.jpg",
+          "title": "Bhatkal Premier League Masterclass",
+          "caption": "Shamoun Shabandri recording outstanding bowling figures of 3-0-18-3.",
+          "date": "BPL 2026"
+        }
+      ],
+      "albumId": "album-2",
+      "albumSlug": "community-sports-event",
+      "albumTitle": "Community Sports & Cricket Championship",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 21,
+      "tags": [
+        "Sports",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-25T04:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Bhatkal Premier League Masterclass",
+          "caption": "Shamoun Shabandri recording outstanding bowling figures of 3-0-18-3."
+        }
+      }
+    },
+    {
+      "id": "post-sp-11",
+      "slug": "post-sp-11",
+      "title": "Six Gigantic Sixes by Ubadah Barmawar",
+      "caption": "Sensational power hitting display dismantling the opposition attack.",
+      "content": "Sensational power hitting display dismantling the opposition attack.",
+      "category": "Sports",
+      "date": "Match Reel",
+      "coverImage": "/images/instagram/insta_post_19.jpg",
+      "photos": [
+        {
+          "id": "sp-11",
+          "src": "/images/instagram/insta_post_19.jpg",
+          "title": "Six Gigantic Sixes by Ubadah Barmawar",
+          "caption": "Sensational power hitting display dismantling the opposition attack.",
+          "date": "Match Reel"
+        }
+      ],
+      "albumId": "album-2",
+      "albumSlug": "community-sports-event",
+      "albumTitle": "Community Sports & Cricket Championship",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 26,
+      "tags": [
+        "Sports",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-25T00:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Six Gigantic Sixes by Ubadah Barmawar",
+          "caption": "Sensational power hitting display dismantling the opposition attack."
+        }
+      }
+    },
+    {
+      "id": "post-sp-12",
+      "slug": "post-sp-12",
+      "title": "Incredible Bhatkal Celebration Reel",
+      "caption": "Viral community celebration reel featured across Bhatkal media channels.",
+      "content": "Viral community celebration reel featured across Bhatkal media channels.",
+      "category": "Sports",
+      "date": "Feb 5, 2026",
+      "coverImage": "/images/instagram/reels/reel_DUYmoRgAVLC_1.jpg",
+      "photos": [
+        {
+          "id": "sp-12",
+          "src": "/images/instagram/reels/reel_DUYmoRgAVLC_1.jpg",
+          "title": "Incredible Bhatkal Celebration Reel",
+          "caption": "Viral community celebration reel featured across Bhatkal media channels.",
+          "date": "Feb 5, 2026"
+        }
+      ],
+      "albumId": "album-2",
+      "albumSlug": "community-sports-event",
+      "albumTitle": "Community Sports & Cricket Championship",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 31,
+      "tags": [
+        "Sports",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-24T20:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Incredible Bhatkal Celebration Reel",
+          "caption": "Viral community celebration reel featured across Bhatkal media channels."
+        }
+      }
+    },
+    {
+      "id": "post-ig-1",
+      "slug": "post-ig-1",
+      "title": "Champions Felicitation & Crest",
+      "caption": "Official club post congratulating the sports team on their championship win.",
+      "content": "Official club post congratulating the sports team on their championship win.",
+      "category": "Social Media",
+      "date": "Official Feed",
+      "coverImage": "/images/instagram/insta_post_8.jpg",
+      "photos": [
+        {
+          "id": "ig-1",
+          "src": "/images/instagram/insta_post_8.jpg",
+          "title": "Champions Felicitation & Crest",
+          "caption": "Official club post congratulating the sports team on their championship win.",
+          "date": "Official Feed"
+        }
+      ],
+      "albumId": "album-3",
+      "albumSlug": "instagram-feed-highlights",
+      "albumTitle": "Official Instagram Feed & Highlights",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 26,
+      "tags": [
+        "Social Media",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-21T16:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Champions Felicitation & Crest",
+          "caption": "Official club post congratulating the sports team on their championship win."
+        }
+      }
+    },
+    {
+      "id": "post-ig-2",
+      "slug": "post-ig-2",
+      "title": "Eid Ul Fitr Mubarak Post",
+      "caption": "Official Eid greetings to community members worldwide from Madeena Welfare Society.",
+      "content": "Official Eid greetings to community members worldwide from Madeena Welfare Society.",
+      "category": "Social Media",
+      "date": "Mar 19, 2026",
+      "coverImage": "/images/instagram/posts/post_DWEos2UD_VB_1.jpg",
+      "photos": [
+        {
+          "id": "ig-2",
+          "src": "/images/instagram/posts/post_DWEos2UD_VB_1.jpg",
+          "title": "Eid Ul Fitr Mubarak Post",
+          "caption": "Official Eid greetings to community members worldwide from Madeena Welfare Society.",
+          "date": "Mar 19, 2026"
+        }
+      ],
+      "albumId": "album-3",
+      "albumSlug": "instagram-feed-highlights",
+      "albumTitle": "Official Instagram Feed & Highlights",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 31,
+      "tags": [
+        "Social Media",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-21T12:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Eid Ul Fitr Mubarak Post",
+          "caption": "Official Eid greetings to community members worldwide from Madeena Welfare Society."
+        }
+      }
+    },
+    {
+      "id": "post-ig-3",
+      "slug": "post-ig-3",
+      "title": "Ramadan Mubarak Announcement",
+      "caption": "Blessed Ramadan greetings and welfare relief schedule announcement.",
+      "content": "Blessed Ramadan greetings and welfare relief schedule announcement.",
+      "category": "Social Media",
+      "date": "Mar 2026",
+      "coverImage": "/images/instagram/posts/post_DU5jtX9jD3-_1.jpg",
+      "photos": [
+        {
+          "id": "ig-3",
+          "src": "/images/instagram/posts/post_DU5jtX9jD3-_1.jpg",
+          "title": "Ramadan Mubarak Announcement",
+          "caption": "Blessed Ramadan greetings and welfare relief schedule announcement.",
+          "date": "Mar 2026"
+        }
+      ],
+      "albumId": "album-3",
+      "albumSlug": "instagram-feed-highlights",
+      "albumTitle": "Official Instagram Feed & Highlights",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 36,
+      "tags": [
+        "Social Media",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-21T08:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Ramadan Mubarak Announcement",
+          "caption": "Blessed Ramadan greetings and welfare relief schedule announcement."
+        }
+      }
+    },
+    {
+      "id": "post-ig-4",
+      "slug": "post-ig-4",
+      "title": "Champions Celebration Video Reel",
+      "caption": "Highlight reel showcasing trophy presentation and celebration moments.",
+      "content": "Highlight reel showcasing trophy presentation and celebration moments.",
+      "category": "Social Media",
+      "date": "Instagram Reel",
+      "coverImage": "/images/instagram/reels/reel_DSr4abEjMRn_1.jpg",
+      "photos": [
+        {
+          "id": "ig-4",
+          "src": "/images/instagram/reels/reel_DSr4abEjMRn_1.jpg",
+          "title": "Champions Celebration Video Reel",
+          "caption": "Highlight reel showcasing trophy presentation and celebration moments.",
+          "date": "Instagram Reel"
+        }
+      ],
+      "albumId": "album-3",
+      "albumSlug": "instagram-feed-highlights",
+      "albumTitle": "Official Instagram Feed & Highlights",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 41,
+      "tags": [
+        "Social Media",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-21T04:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Champions Celebration Video Reel",
+          "caption": "Highlight reel showcasing trophy presentation and celebration moments."
+        }
+      }
+    },
+    {
+      "id": "post-ig-5",
+      "slug": "post-ig-5",
+      "title": "Tournament Highlight Reel",
+      "caption": "Key moments and match-winning performances from community tournament.",
+      "content": "Key moments and match-winning performances from community tournament.",
+      "category": "Social Media",
+      "date": "Instagram Reel",
+      "coverImage": "/images/instagram/reels/reel_DcEoePATMOv_1.jpg",
+      "photos": [
+        {
+          "id": "ig-5",
+          "src": "/images/instagram/reels/reel_DcEoePATMOv_1.jpg",
+          "title": "Tournament Highlight Reel",
+          "caption": "Key moments and match-winning performances from community tournament.",
+          "date": "Instagram Reel"
+        }
+      ],
+      "albumId": "album-3",
+      "albumSlug": "instagram-feed-highlights",
+      "albumTitle": "Official Instagram Feed & Highlights",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 46,
+      "tags": [
+        "Social Media",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-21T00:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Tournament Highlight Reel",
+          "caption": "Key moments and match-winning performances from community tournament."
+        }
+      }
+    },
+    {
+      "id": "post-ig-6",
+      "slug": "post-ig-6",
+      "title": "Victory Moment Reel",
+      "caption": "270+ likes on Instagram celebrating victory under stadium floodlights.",
+      "content": "270+ likes on Instagram celebrating victory under stadium floodlights.",
+      "category": "Social Media",
+      "date": "Instagram Reel",
+      "coverImage": "/images/instagram/reels/reel_DUYmoRgAVLC_1.jpg",
+      "photos": [
+        {
+          "id": "ig-6",
+          "src": "/images/instagram/reels/reel_DUYmoRgAVLC_1.jpg",
+          "title": "Victory Moment Reel",
+          "caption": "270+ likes on Instagram celebrating victory under stadium floodlights.",
+          "date": "Instagram Reel"
+        }
+      ],
+      "albumId": "album-3",
+      "albumSlug": "instagram-feed-highlights",
+      "albumTitle": "Official Instagram Feed & Highlights",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 51,
+      "tags": [
+        "Social Media",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-20T20:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Victory Moment Reel",
+          "caption": "270+ likes on Instagram celebrating victory under stadium floodlights."
+        }
+      }
+    },
+    {
+      "id": "post-ig-7",
+      "slug": "post-ig-7",
+      "title": "Sports Brotherhood Reel",
+      "caption": "Team celebration and player camaraderie captured on the pitch.",
+      "content": "Team celebration and player camaraderie captured on the pitch.",
+      "category": "Social Media",
+      "date": "Instagram Reel",
+      "coverImage": "/images/instagram/reels/reel_DUYleL2kvg3_1.jpg",
+      "photos": [
+        {
+          "id": "ig-7",
+          "src": "/images/instagram/reels/reel_DUYleL2kvg3_1.jpg",
+          "title": "Sports Brotherhood Reel",
+          "caption": "Team celebration and player camaraderie captured on the pitch.",
+          "date": "Instagram Reel"
+        }
+      ],
+      "albumId": "album-3",
+      "albumSlug": "instagram-feed-highlights",
+      "albumTitle": "Official Instagram Feed & Highlights",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 13,
+      "tags": [
+        "Social Media",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-20T16:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Sports Brotherhood Reel",
+          "caption": "Team celebration and player camaraderie captured on the pitch."
+        }
+      }
+    },
+    {
+      "id": "post-ig-8",
+      "slug": "post-ig-8",
+      "title": "Match Deciding Moment",
+      "caption": "Final overs thriller and winning runs celebration.",
+      "content": "Final overs thriller and winning runs celebration.",
+      "category": "Social Media",
+      "date": "Instagram Reel",
+      "coverImage": "/images/instagram/reels/reel_DSozDQWEmRy_1.jpg",
+      "photos": [
+        {
+          "id": "ig-8",
+          "src": "/images/instagram/reels/reel_DSozDQWEmRy_1.jpg",
+          "title": "Match Deciding Moment",
+          "caption": "Final overs thriller and winning runs celebration.",
+          "date": "Instagram Reel"
+        }
+      ],
+      "albumId": "album-3",
+      "albumSlug": "instagram-feed-highlights",
+      "albumTitle": "Official Instagram Feed & Highlights",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 18,
+      "tags": [
+        "Social Media",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-20T12:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Match Deciding Moment",
+          "caption": "Final overs thriller and winning runs celebration."
+        }
+      }
+    },
+    {
+      "id": "post-ig-9",
+      "slug": "post-ig-9",
+      "title": "Community Match Reel",
+      "caption": "Fielding and bowling action during the championship match.",
+      "content": "Fielding and bowling action during the championship match.",
+      "category": "Social Media",
+      "date": "Instagram Reel",
+      "coverImage": "/images/instagram/reels/reel_DT7RVjbkqQS_1.jpg",
+      "photos": [
+        {
+          "id": "ig-9",
+          "src": "/images/instagram/reels/reel_DT7RVjbkqQS_1.jpg",
+          "title": "Community Match Reel",
+          "caption": "Fielding and bowling action during the championship match.",
+          "date": "Instagram Reel"
+        }
+      ],
+      "albumId": "album-3",
+      "albumSlug": "instagram-feed-highlights",
+      "albumTitle": "Official Instagram Feed & Highlights",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 23,
+      "tags": [
+        "Social Media",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-20T08:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Community Match Reel",
+          "caption": "Fielding and bowling action during the championship match."
+        }
+      }
+    },
+    {
+      "id": "post-ig-10",
+      "slug": "post-ig-10",
+      "title": "Athletic Highlights Reel",
+      "caption": "Top bowling and batting performances captured on camera.",
+      "content": "Top bowling and batting performances captured on camera.",
+      "category": "Social Media",
+      "date": "Instagram Reel",
+      "coverImage": "/images/instagram/reels/reel_DTkVpSVkuuc_1.jpg",
+      "photos": [
+        {
+          "id": "ig-10",
+          "src": "/images/instagram/reels/reel_DTkVpSVkuuc_1.jpg",
+          "title": "Athletic Highlights Reel",
+          "caption": "Top bowling and batting performances captured on camera.",
+          "date": "Instagram Reel"
+        }
+      ],
+      "albumId": "album-3",
+      "albumSlug": "instagram-feed-highlights",
+      "albumTitle": "Official Instagram Feed & Highlights",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 28,
+      "tags": [
+        "Social Media",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-20T04:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Athletic Highlights Reel",
+          "caption": "Top bowling and batting performances captured on camera."
+        }
+      }
+    },
+    {
+      "id": "post-wf-1",
+      "slug": "post-wf-1",
+      "title": "Eid Ul Fitr Welfare & Greetings",
+      "caption": "Special welfare packages distributed to underprivileged families ahead of Eid.",
+      "content": "Special welfare packages distributed to underprivileged families ahead of Eid.",
+      "category": "Welfare",
+      "date": "Apr 2026",
+      "coverImage": "/images/instagram/insta_post_12.jpg",
+      "photos": [
+        {
+          "id": "wf-1",
+          "src": "/images/instagram/insta_post_12.jpg",
+          "title": "Eid Ul Fitr Welfare & Greetings",
+          "caption": "Special welfare packages distributed to underprivileged families ahead of Eid.",
+          "date": "Apr 2026"
+        }
+      ],
+      "albumId": "album-4",
+      "albumSlug": "community-support-welfare",
+      "albumTitle": "Community Welfare & Festivities",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 33,
+      "tags": [
+        "Welfare",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-16T16:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Eid Ul Fitr Welfare & Greetings",
+          "caption": "Special welfare packages distributed to underprivileged families ahead of Eid."
+        }
+      }
+    },
+    {
+      "id": "post-wf-2",
+      "slug": "post-wf-2",
+      "title": "Ramadan Mubarak Welfare Drive",
+      "caption": "Annual Ramadan grocery distribution and community Iftar sponsorship drive.",
+      "content": "Annual Ramadan grocery distribution and community Iftar sponsorship drive.",
+      "category": "Welfare",
+      "date": "Mar 2026",
+      "coverImage": "/images/instagram/insta_post_13.jpg",
+      "photos": [
+        {
+          "id": "wf-2",
+          "src": "/images/instagram/insta_post_13.jpg",
+          "title": "Ramadan Mubarak Welfare Drive",
+          "caption": "Annual Ramadan grocery distribution and community Iftar sponsorship drive.",
+          "date": "Mar 2026"
+        }
+      ],
+      "albumId": "album-4",
+      "albumSlug": "community-support-welfare",
+      "albumTitle": "Community Welfare & Festivities",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 38,
+      "tags": [
+        "Welfare",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-16T12:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Ramadan Mubarak Welfare Drive",
+          "caption": "Annual Ramadan grocery distribution and community Iftar sponsorship drive."
+        }
+      }
+    },
+    {
+      "id": "post-wf-3",
+      "slug": "post-wf-3",
+      "title": "Community Volunteers & Leaders Assembly",
+      "caption": "Civic workers and volunteers assembled for neighborhood development planning.",
+      "content": "Civic workers and volunteers assembled for neighborhood development planning.",
+      "category": "Welfare",
+      "date": "Community Hall",
+      "coverImage": "/images/real/15aug5.jpeg",
+      "photos": [
+        {
+          "id": "wf-3",
+          "src": "/images/real/15aug5.jpeg",
+          "title": "Community Volunteers & Leaders Assembly",
+          "caption": "Civic workers and volunteers assembled for neighborhood development planning.",
+          "date": "Community Hall"
+        }
+      ],
+      "albumId": "album-4",
+      "albumSlug": "community-support-welfare",
+      "albumTitle": "Community Welfare & Festivities",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 43,
+      "tags": [
+        "Welfare",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-16T08:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Community Volunteers & Leaders Assembly",
+          "caption": "Civic workers and volunteers assembled for neighborhood development planning."
+        }
+      }
+    },
+    {
+      "id": "post-wf-4",
+      "slug": "post-wf-4",
+      "title": "Civic Outreach at Campus Grounds",
+      "caption": "General body gathering discussing student scholarship grants and welfare programs.",
+      "content": "General body gathering discussing student scholarship grants and welfare programs.",
+      "category": "Welfare",
+      "date": "Campus Grounds",
+      "coverImage": "/images/real/15aug6.jpeg",
+      "photos": [
+        {
+          "id": "wf-4",
+          "src": "/images/real/15aug6.jpeg",
+          "title": "Civic Outreach at Campus Grounds",
+          "caption": "General body gathering discussing student scholarship grants and welfare programs.",
+          "date": "Campus Grounds"
+        }
+      ],
+      "albumId": "album-4",
+      "albumSlug": "community-support-welfare",
+      "albumTitle": "Community Welfare & Festivities",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 48,
+      "tags": [
+        "Welfare",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-16T04:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Civic Outreach at Campus Grounds",
+          "caption": "General body gathering discussing student scholarship grants and welfare programs."
+        }
+      }
+    },
+    {
+      "id": "post-wf-5",
+      "slug": "post-wf-5",
+      "title": "Community Goodwill Announcement",
+      "caption": "Official public message encouraging mutual support and charitable giving.",
+      "content": "Official public message encouraging mutual support and charitable giving.",
+      "category": "Welfare",
+      "date": "Official Notice",
+      "coverImage": "/images/instagram/posts/post_DWEos2UD_VB_1.jpg",
+      "photos": [
+        {
+          "id": "wf-5",
+          "src": "/images/instagram/posts/post_DWEos2UD_VB_1.jpg",
+          "title": "Community Goodwill Announcement",
+          "caption": "Official public message encouraging mutual support and charitable giving.",
+          "date": "Official Notice"
+        }
+      ],
+      "albumId": "album-4",
+      "albumSlug": "community-support-welfare",
+      "albumTitle": "Community Welfare & Festivities",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 53,
+      "tags": [
+        "Welfare",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-16T00:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Community Goodwill Announcement",
+          "caption": "Official public message encouraging mutual support and charitable giving."
+        }
+      }
+    },
+    {
+      "id": "post-wf-6",
+      "slug": "post-wf-6",
+      "title": "Ramadan Charity Distribution Schedule",
+      "caption": "Timetable for medical relief and family financial grants during the holy month.",
+      "content": "Timetable for medical relief and family financial grants during the holy month.",
+      "category": "Welfare",
+      "date": "Official Schedule",
+      "coverImage": "/images/instagram/posts/post_DU5jtX9jD3-_1.jpg",
+      "photos": [
+        {
+          "id": "wf-6",
+          "src": "/images/instagram/posts/post_DU5jtX9jD3-_1.jpg",
+          "title": "Ramadan Charity Distribution Schedule",
+          "caption": "Timetable for medical relief and family financial grants during the holy month.",
+          "date": "Official Schedule"
+        }
+      ],
+      "albumId": "album-4",
+      "albumSlug": "community-support-welfare",
+      "albumTitle": "Community Welfare & Festivities",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 15,
+      "tags": [
+        "Welfare",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-15T20:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Ramadan Charity Distribution Schedule",
+          "caption": "Timetable for medical relief and family financial grants during the holy month."
+        }
+      }
+    },
+    {
+      "id": "post-lg-1",
+      "slug": "post-lg-1",
+      "title": "Official Madeena Welfare Society Crest",
+      "caption": "The authentic circular insignia with English and Urdu titles, three red stars, and green wreath.",
+      "content": "The authentic circular insignia with English and Urdu titles, three red stars, and green wreath.",
+      "category": "Identity",
+      "date": "Official Crest",
+      "coverImage": "/images/official-logo.png",
+      "photos": [
+        {
+          "id": "lg-1",
+          "src": "/images/official-logo.png",
+          "title": "Official Madeena Welfare Society Crest",
+          "caption": "The authentic circular insignia with English and Urdu titles, three red stars, and green wreath.",
+          "date": "Official Crest"
+        }
+      ],
+      "albumId": "album-5",
+      "albumSlug": "our-logo-heritage",
+      "albumTitle": "Our Official Crest & Heritage",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 40,
+      "tags": [
+        "Identity",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-11T16:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Official Madeena Welfare Society Crest",
+          "caption": "The authentic circular insignia with English and Urdu titles, three red stars, and green wreath."
+        }
+      }
+    },
+    {
+      "id": "post-lg-2",
+      "slug": "post-lg-2",
+      "title": "Vector Emblem for White Backgrounds",
+      "caption": "High-contrast version designed for documents, banners, and digital portal headers.",
+      "content": "High-contrast version designed for documents, banners, and digital portal headers.",
+      "category": "Identity",
+      "date": "Design Asset",
+      "coverImage": "/images/official-logo-white.png",
+      "photos": [
+        {
+          "id": "lg-2",
+          "src": "/images/official-logo-white.png",
+          "title": "Vector Emblem for White Backgrounds",
+          "caption": "High-contrast version designed for documents, banners, and digital portal headers.",
+          "date": "Design Asset"
+        }
+      ],
+      "albumId": "album-5",
+      "albumSlug": "our-logo-heritage",
+      "albumTitle": "Our Official Crest & Heritage",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 45,
+      "tags": [
+        "Identity",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-11T12:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Vector Emblem for White Backgrounds",
+          "caption": "High-contrast version designed for documents, banners, and digital portal headers."
+        }
+      }
+    },
+    {
+      "id": "post-lg-3",
+      "slug": "post-lg-3",
+      "title": "Society Crest on Champions Felicitation",
+      "caption": "The official insignia proudly featured atop championship posters and announcements.",
+      "content": "The official insignia proudly featured atop championship posters and announcements.",
+      "category": "Identity",
+      "date": "Club Media",
+      "coverImage": "/images/instagram/insta_post_8.jpg",
+      "photos": [
+        {
+          "id": "lg-3",
+          "src": "/images/instagram/insta_post_8.jpg",
+          "title": "Society Crest on Champions Felicitation",
+          "caption": "The official insignia proudly featured atop championship posters and announcements.",
+          "date": "Club Media"
+        }
+      ],
+      "albumId": "album-5",
+      "albumSlug": "our-logo-heritage",
+      "albumTitle": "Our Official Crest & Heritage",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 50,
+      "tags": [
+        "Identity",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-11T08:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Society Crest on Champions Felicitation",
+          "caption": "The official insignia proudly featured atop championship posters and announcements."
+        }
+      }
+    },
+    {
+      "id": "post-lg-4",
+      "slug": "post-lg-4",
+      "title": "Society Insignia on Official Dais Rostrum",
+      "caption": "Official metallic seal mounted on the podium during major society conventions in Bhatkal.",
+      "content": "Official metallic seal mounted on the podium during major society conventions in Bhatkal.",
+      "category": "Identity",
+      "date": "Assembly Rostrum",
+      "coverImage": "/images/instagram/insta_post_11.jpg",
+      "photos": [
+        {
+          "id": "lg-4",
+          "src": "/images/instagram/insta_post_11.jpg",
+          "title": "Society Insignia on Official Dais Rostrum",
+          "caption": "Official metallic seal mounted on the podium during major society conventions in Bhatkal.",
+          "date": "Assembly Rostrum"
+        }
+      ],
+      "albumId": "album-5",
+      "albumSlug": "our-logo-heritage",
+      "albumTitle": "Our Official Crest & Heritage",
+      "status": "published",
+      "isFeatured": false,
+      "likes": 12,
+      "tags": [
+        "Identity",
+        "MWS",
+        "Bhatkal"
+      ],
+      "createdAt": "2026-09-11T04:26:20.992Z",
+      "translations": {
+        "en": {
+          "title": "Society Insignia on Official Dais Rostrum",
+          "caption": "Official metallic seal mounted on the podium during major society conventions in Bhatkal."
+        }
+      }
+    }
+  ]
+}

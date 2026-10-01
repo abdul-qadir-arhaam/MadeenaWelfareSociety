@@ -53,25 +53,10 @@ export default function CreateGalleryAlbumPage() {
   const [eventDate, setEventDate] = useState(
     new Date().toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric" })
   );
-  const [coverImage, setCoverImage] = useState("/images/instagram/insta_post_10.jpg");
+  const [coverImage, setCoverImage] = useState("");
   const [selectedPhotos, setSelectedPhotos] = useState<
     Array<{ id: string; src: string; title: string; caption: string; date: string }>
-  >([
-    {
-      id: "photo-1",
-      src: "/images/instagram/insta_post_10.jpg",
-      title: "Championship Winning Moment",
-      caption: "Team celebration with the prestigious trophy and medals.",
-      date: "Aug 2026",
-    },
-    {
-      id: "photo-2",
-      src: "/images/instagram/posts/post_DSh4VECErEA_1.jpg",
-      title: "Gold Medals Presentation",
-      caption: "Squad players displaying championship awards.",
-      date: "Aug 2026",
-    },
-  ]);
+  >([]);
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
@@ -198,6 +183,23 @@ export default function CreateGalleryAlbumPage() {
             <span>Publish Album</span>
           </Button>
         </div>
+      </div>
+
+      {/* Helpful Switch Banner */}
+      <div className="bg-emerald-50/80 border border-emerald-200 rounded-xl p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs text-emerald-900">
+        <div className="flex items-center gap-2">
+          <Sparkles className="w-4 h-4 text-emerald-600 flex-shrink-0" />
+          <span>
+            <strong>Want to add photos to an existing album instead?</strong> Use our new post & photo uploader to attach photos into any existing album or publish a standalone post.
+          </span>
+        </div>
+        <Link
+          href="/admin/gallery/post/create"
+          className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#047857] hover:bg-[#036449] text-white rounded-lg font-bold text-xs flex-shrink-0 transition-colors"
+        >
+          <span>Create Post / Add Photos</span>
+          <ArrowLeft className="w-3 h-3 rotate-180" />
+        </Link>
       </div>
 
       {errorMessage && (

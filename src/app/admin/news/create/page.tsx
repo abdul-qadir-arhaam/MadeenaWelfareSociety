@@ -44,7 +44,7 @@ export default function CreateNewsPage() {
     "published"
   );
   const [isFeatured, setIsFeatured] = useState(false);
-  const [featuredImage, setFeaturedImage] = useState("/images/real/15aug.jpeg");
+  const [featuredImage, setFeaturedImage] = useState("");
   const [tagsInput, setTagsInput] = useState("Bhatkal, MadeenaWelfare");
 
   // English translation fields
@@ -710,14 +710,31 @@ export default function CreateNewsPage() {
             />
 
             {/* Active Preview */}
-            <div className="relative aspect-16/10 rounded-xl overflow-hidden bg-slate-100 border border-slate-200">
-              <Image
-                src={featuredImage}
-                alt="Selected preview"
-                fill
-                className="object-cover"
-              />
-            </div>
+            {featuredImage ? (
+              <div className="relative aspect-16/10 rounded-xl overflow-hidden bg-slate-100 border border-slate-200 group">
+                <Image
+                  src={featuredImage}
+                  alt="Selected preview"
+                  fill
+                  className="object-cover"
+                />
+                <button
+                  type="button"
+                  onClick={() => setFeaturedImage("")}
+                  className="absolute top-2 end-2 px-2 py-1 rounded-md bg-black/70 text-white text-[10px] font-semibold hover:bg-red-600 transition-colors"
+                >
+                  Clear Photo
+                </button>
+              </div>
+            ) : (
+              <div className="aspect-16/10 rounded-xl border-2 border-dashed border-slate-200 bg-slate-50 flex flex-col items-center justify-center text-slate-400 p-4 text-center">
+                <ImageIcon className="w-8 h-8 text-slate-300 mb-1.5" />
+                <span className="text-xs font-semibold text-slate-600">No Photo Selected</span>
+                <span className="text-[11px] text-slate-400 mt-0.5">
+                  Upload a photo above or pick one from the library below
+                </span>
+              </div>
+            )}
 
             <div>
               <label className="block text-[11px] font-semibold text-slate-500 mb-1">

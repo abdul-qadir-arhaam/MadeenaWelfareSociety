@@ -179,17 +179,21 @@ export default function AdminDashboardPage() {
           </div>
         </Card>
 
-        <Card className="p-5 border-slate-200 hover:border-emerald-300 flex flex-col justify-between">
+        <Card className="p-5 border-emerald-200 bg-emerald-50/20 hover:border-emerald-400 flex flex-col justify-between">
           <div>
-            <h3 className="font-bold text-[#0B2238] text-sm">View Photo Gallery</h3>
+            <div className="flex items-center gap-1.5 mb-1">
+              <span className="w-2 h-2 rounded-full bg-emerald-600"></span>
+              <span className="text-[10px] font-bold text-[#047857] uppercase tracking-wider">Gallery Media</span>
+            </div>
+            <h3 className="font-bold text-[#0B2238] text-sm">Create Gallery Post</h3>
             <p className="text-xs text-slate-500 mt-1">
-              Browse authentic Instagram and community event photo archives.
+              Upload photos, add to existing albums or create new albums on the fly.
             </p>
           </div>
           <div className="mt-4">
-            <Link href="/gallery" target="_blank">
-              <Button variant="secondary" size="sm" className="w-full justify-center text-xs">
-                View Public Gallery →
+            <Link href="/admin/gallery/post/create">
+              <Button size="sm" className="w-full justify-center text-xs bg-[#047857] hover:bg-[#036449] text-white font-semibold">
+                Create Post / Upload Photo →
               </Button>
             </Link>
           </div>
